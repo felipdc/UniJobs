@@ -45,7 +45,7 @@
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
 
-            <android.support.v7.widget.LinearLayoutCompat
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                     app:autoSizeMinTextSize="40sp"
                     app:autoSizeStepGranularity="2sp" />
 
-            </android.support.v7.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
                 android:id="@+id/textViewRegister"

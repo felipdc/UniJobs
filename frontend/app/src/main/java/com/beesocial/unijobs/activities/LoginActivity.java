@@ -2,12 +2,12 @@ package com.beesocial.unijobs.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
@@ -18,6 +18,7 @@ import com.beesocial.unijobs.models.LoginResponse;
 import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.storage.SharedPrefManager;
+import com.google.android.material.snackbar.Snackbar;
 
 import retrofit2.Call;
 import retrofit2.Callback;

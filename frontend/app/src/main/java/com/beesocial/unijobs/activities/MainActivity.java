@@ -1,12 +1,16 @@
 package com.beesocial.unijobs.activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
@@ -18,7 +22,17 @@ import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.models.UserRegister;
 import com.beesocial.unijobs.storage.SharedPrefManager;
+import com.google.android.material.snackbar.Snackbar;
+import com.sangcomz.fishbun.FishBun;
+import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
+import com.sangcomz.fishbun.define.Define;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,7 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     User userComplete;
     CheckNetwork checkNetwork;
     Snackbar snackbar;
+    ArrayList<Uri> returnValue;
+    Bitmap bitmap;
+    String encodedImage;
     private EditText editTextEmail, editTextPassword, editTextName, editTextImage;
+    private CircleImageView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +61,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextName = findViewById(R.id.editTextName);
         editTextImage = findViewById(R.id.editTextImage);
+        profile = findViewById(R.id.imageProfileLogin);
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
         findViewById(R.id.textViewLogin).setOnClickListener(this);
+        findViewById(R.id.editTextImage).setOnClickListener(this);
+
     }
 
 
@@ -192,6 +213,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent imageData) {
+        super.onActivityResult(requestCode, resultCode, imageData);
+        switch (requestCode) {
+            case Define.ALBUM_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    try {
+                        returnValue = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
+                        // you can get an image path(ArrayList<Uri>) ;on 0.6.2 and later
+                        Uri uri = returnValue.get(0);
+                        InputStream inStream = getContentResolver().openInputStream(uri);
+                        bitmap = BitmapFactory.decodeStream(inStream);
+
+                        editTextImage.setText(returnValue.toString());
+
+                        profile.setImageBitmap(bitmap);
+
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object
+                        byte[] b = baos.toByteArray();
+
+                        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+                    } catch (IOException e) {
+
+                    }
+
+
+                    break;
+                }
+        }
+    }
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonSignUp:
@@ -201,9 +255,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.editTextImage:
-
+                FishBun.with(MainActivity.this)
+                        .setImageAdapter(new GlideAdapter())
+                        .setMaxCount(1)
+                        .setMinCount(1)
+                        .startAlbum();
                 break;
 
         }
     }
+
 }
