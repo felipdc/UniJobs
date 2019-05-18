@@ -2,6 +2,7 @@ package com.beesocial.unijobs.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -87,9 +88,12 @@ public class ProfileActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.profile, menu);
 
-
         imageProfile = (CircleImageView) header.findViewById(R.id.imageProfile);
-        Glide.with(this).load("https://elaele.com.br/img/anonimo.png").placeholder(R.drawable.ic_loading).dontAnimate().into(imageProfile);
+
+        String encodedImage = user.getImage();
+        final String pureBase64Encoded = encodedImage.substring(encodedImage.indexOf(",") + 1);
+        final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
+        Glide.with(this).load(decodedBytes).placeholder(R.drawable.ic_loading).fitCenter().dontAnimate().into(imageProfile);
 
         return true;
     }

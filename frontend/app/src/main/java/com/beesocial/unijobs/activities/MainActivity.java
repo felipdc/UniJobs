@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String name = editTextName.getText().toString().trim();
-        String image = editTextImage.getText().toString().trim();
+        String imageText = editTextImage.getText().toString().trim();
 
         if (email.isEmpty()) {
             editTextEmail.setError("Campo necessário");
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        if (image.isEmpty()) {
+        if (imageText.isEmpty()) {
             editTextImage.setError("Campo necessário");
             editTextImage.requestFocus();
             return;
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void callBackend(final View v, String email, String name, String password) {
-        userRegister = new UserRegister(email, name, password);
+        userRegister = new UserRegister(email, name, password, encodedImage);
         userLogin = new UserLogin(email, password);
 
         Call<DefaultResponse> call = RetrofitClient
@@ -221,7 +221,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (resultCode == RESULT_OK) {
                     try {
                         returnValue = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
-                        // you can get an image path(ArrayList<Uri>) ;on 0.6.2 and later
                         Uri uri = returnValue.get(0);
                         InputStream inStream = getContentResolver().openInputStream(uri);
                         bitmap = BitmapFactory.decodeStream(inStream);
@@ -231,10 +230,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         profile.setImageBitmap(bitmap);
 
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         byte[] b = baos.toByteArray();
 
                         encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
 
                     } catch (IOException e) {
 

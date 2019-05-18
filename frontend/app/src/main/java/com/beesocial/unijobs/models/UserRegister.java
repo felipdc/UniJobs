@@ -5,11 +5,13 @@ public class UserRegister {
     private String email;
     private String name;
     private String password;
+    private String image;
 
-    public UserRegister(String email, String name, String password) {
+    public UserRegister(String email, String name, String password, String image) {
         this.email = email;
         this.password = password;
         this.name = name;
+        this.image = image;
     }
 
     public String getEmail() {
@@ -34,6 +36,14 @@ public class UserRegister {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String password) {
+        this.image = image;
     }
 
 }
