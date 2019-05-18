@@ -33,7 +33,11 @@ const createUser = async (req, res) => {
 
   const hashedPass = await hashPassword(password)
 
-  const newUser = new User({ name, email, password: hashedPass })
+  const newUser = new User({
+   name, 
+   email, 
+   password: hashedPass
+  })
 
   const user = await newUser.save()
 	  .then(() => console.log('User saved'))
@@ -62,7 +66,11 @@ const createAdmin = async (req, res) => {
 
   const hashedPass = await hashPassword(password)
 
-  const newUser = new User({ name, email, password: hashedPass, auth: authConfig.admin })
+  const newUser = new User({
+   name, 
+   email, 
+   password: hashedPass
+  })
 
   const user = await newUser.save()
 	  .then(() => console.log('User saved'))
@@ -72,34 +80,56 @@ const createAdmin = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
-  const body = await json(req)
 
   const jwt = await getJwtAuth(req, res)
 
 	if (!isUser(jwt) &&	 !isAdmin(jwt)) throw createError(403, 'Forbidden')
 
-	const id = body.id
-	
-	if (id || isUser(jwt)) {
-		// If it a user, allow it to retrieve only its own info
-		const idToUse = isUser(jwt) ? jwt.id : id
-
-	  const user = await User.findById(idToUse, (err, user) => {
+	const user = await User.findById(jwt.id, (err, user) => {
 	    if (err) throw createError(500, 'Could not retrieve user from db')
 	    return user
-	  })
+	})
 
-	  return user
-	} else {
-		// Retrieve all users from db if it is admin
-		const userArr = await User.find({}, (err, users) => {
-			if (err) throw createError(500, 'Could not retrieve users from db')
-			return users
-		})
+	return user
 
-		return userArr
+}
 
-	}
+const patchUser = async (req, res) => {
+  const { id, password, image, name } = await json(req)
+
+  const jwt = await getJwtAuth(req, res)
+
+  if (!isAdmin(jwt) && !isUser(jwt)) throw createError(403, 'Forbidden')
+
+  if (!id && isAdmin(jwt)) throw createError(400, 'Bad params. User id is required')
+
+  if (!password && !image && !name) throw createError(400, 'Bad params. Password, image or name is required')
+
+  const hashedPass = password && await hashPassword(password)
+
+  const toUpdate = Object.assign({},
+    hashedPass && { password: hashedPass },
+    image && { image },
+    name && { name }
+  )
+
+  const userId = isAdmin(jwt) ? id : jwt.id
+  
+  let updatedUser = null
+
+  const updateReq = await User.findOneAndUpdate(
+    { _id: userId }, 
+    toUpdate,
+    { new: true },
+    (err, user) => {
+      if (err) throw createError(500, 'Could not update user in db.')
+
+      if (!user) throw createError(404, 'User does not exist')
+      updatedUser = user
+      return updatedUser
+    })
+
+  return updatedUser
 }
 
 const deleteUser = async (req, res) => {
@@ -131,5 +161,6 @@ module.exports = {
   createUser,
   createAdmin,
   getUser,
-  deleteUser
+  deleteUser,
+  patchUser
 }
