@@ -9,7 +9,7 @@ const isAdmin = ({ auth }) => {
 }
 
 const isSystem = ({ auth }) => {
-	return auth === configAuth.system
+  return auth === configAuth.system
 }
 
 module.exports = {

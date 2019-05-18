@@ -3,7 +3,6 @@ const { json, createError } = require('micro')
 
 // Utils
 const connectWithDB = require('./db')
-const { isUser, isAdmin } = require('./authCheck')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { secret } = require('./config')[process.env.NODE_ENV || 'development']
@@ -11,7 +10,7 @@ const { secret } = require('./config')[process.env.NODE_ENV || 'development']
 // User model
 const User = require('./models/User')
 
-const db = connectWithDB()
+connectWithDB()
 
 const checkUser = async (plainPass, hashedPass) => {
   const match = await bcrypt.compare(plainPass, hashedPass)
@@ -51,7 +50,6 @@ const userAuth = async (req, res) => {
     token
   }
 }
-
 
 module.exports = {
   userAuth

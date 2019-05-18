@@ -11,14 +11,14 @@ const { auth: authConfig } = require('./config')[process.env.NODE_ENV || 'develo
 // User model
 const User = require('./models/User')
 
-const db = connectWithDB()
+connectWithDB()
 
 const hashPassword = async (pass) => {
   return bcrypt.hash(pass, 10)
 }
 
 const createUser = async (req, res) => {
-  const { email, password, name } = await json(req)
+  const { email, password, name, image } = await json(req)
 
   if (!email || !password || !name) throw createError(400, 'Email, password and name is required')
 
@@ -34,24 +34,25 @@ const createUser = async (req, res) => {
   const hashedPass = await hashPassword(password)
 
   const newUser = new User({
-   name, 
-   email, 
-   password: hashedPass
+    name,
+    email,
+    image,
+    password: hashedPass
   })
 
-  const user = await newUser.save()
-	  .then(() => console.log('User saved'))
-	  .catch((err) => { throw createError(500, 'Could not create user in db') })
+  await newUser.save()
+    .then(() => console.log('User saved'))
+    .catch((err) => { throw createError(500, 'Could not create user in db') })
 
- 	return newUser
+  return newUser
 }
 
 const createAdmin = async (req, res) => {
-	const { email, password, name } = await json(req)
+  const { email, password, name, image } = await json(req)
 
-	const jwt = await getJwtAuth(req, res)
+  const jwt = await getJwtAuth(req, res)
 
-	if (!jwt.system) throw createError(403, 'Forbidden. Only the system can create admin users')
+  if (!isSystem(jwt)) throw createError(403, 'Forbidden. Only the system can create admin users')
 
   if (!email || !password || !name) throw createError(400, 'Email, password and name is required')
 
@@ -67,31 +68,31 @@ const createAdmin = async (req, res) => {
   const hashedPass = await hashPassword(password)
 
   const newUser = new User({
-   name, 
-   email, 
-   password: hashedPass
+    name,
+    email,
+    image,
+    password: hashedPass,
+    auth: authConfig.admin
   })
 
-  const user = await newUser.save()
-	  .then(() => console.log('User saved'))
-	  .catch((err) => { throw createError(500, 'Could not create user in db') })
+  await newUser.save()
+    .then(() => console.log('User saved'))
+    .catch((err) => { throw createError(500, 'Could not create user in db') })
 
- 	return newUser
+  return newUser
 }
 
 const getUser = async (req, res) => {
-
   const jwt = await getJwtAuth(req, res)
 
-	if (!isUser(jwt) &&	 !isAdmin(jwt)) throw createError(403, 'Forbidden')
+  if (!isUser(jwt) && !isAdmin(jwt)) throw createError(403, 'Forbidden')
 
-	const user = await User.findById(jwt.id, (err, user) => {
-	    if (err) throw createError(500, 'Could not retrieve user from db')
-	    return user
-	})
+  const user = await User.findById(jwt.id, (err, user) => {
+    if (err) throw createError(500, 'Could not retrieve user from db')
+    return user
+  })
 
-	return user
-
+  return user
 }
 
 const patchUser = async (req, res) => {
@@ -114,11 +115,11 @@ const patchUser = async (req, res) => {
   )
 
   const userId = isAdmin(jwt) ? id : jwt.id
-  
+
   let updatedUser = null
 
-  const updateReq = await User.findOneAndUpdate(
-    { _id: userId }, 
+  const updateUser = await User.findOneAndUpdate(
+    { _id: userId },
     toUpdate,
     { new: true },
     (err, user) => {
@@ -144,18 +145,17 @@ const deleteUser = async (req, res) => {
   // Fix this hacky thing later
   let deletedUser = null
 
-	const deleteReq = await User.findOneAndDelete({ _id: id }, (err, user) => {
+  const deleteUser = await User.findOneAndDelete({ _id: id }, (err, user) => {
     if (err) { throw createError(500, 'Could not remove user from db') }
 
     // if no user with the given ID is found throw 404
     if (!user) { throw createError(404, 'No user with that ID') }
     deletedUser = user
     return user
-	})
-	
+  })
+
   return deletedUser
 }
-
 
 module.exports = {
   createUser,

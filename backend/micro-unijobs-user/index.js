@@ -2,7 +2,6 @@ const { router, get, post, patch, del } = require('microrouter')
 const { createError } = require('micro')
 const { handleErrors } = require('./error')
 const cors = require('micro-cors')()
-const env = process.env.NODE_ENV || 'development'
 
 const BASE_URI = '/api'
 

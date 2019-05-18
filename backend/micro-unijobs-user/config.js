@@ -15,6 +15,6 @@ module.exports = {
       system: 10
     },
     systemKey: '1AEFCUWVXF0RZYJVOYHMHZCEAORADNBS',
-    secret: 'secret'	
+    secret: 'secret'
   }
 }
