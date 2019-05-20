@@ -8,6 +8,7 @@ const serviceSchema = new Schema({
     updatedAt: Date
   },
   description: String,
+  isOffer: Boolean,
   likedBy: [String],
   location: String,
   active: { type: Boolean, default: true },

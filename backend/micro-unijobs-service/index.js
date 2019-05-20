@@ -4,7 +4,7 @@ const { handleErrors } = require('./error')
 const cors = require('micro-cors')()
 const env = process.env.NODE_ENV || 'development'
 
-const { createService, getService } = require('./service')
+const { createService, getService, deleteService } = require('./service')
 
 const BASE_URI = '/api'
 
@@ -17,6 +17,7 @@ module.exports = cors(
     router(
     	post(`${BASE_URI}/service`, createService),
  			get(`${BASE_URI}/service`, getService),
+      del(`${BASE_URI}/service`, deleteService),
       get('/*', notFoundError),
       post('/*', notFoundError),
       patch('/*', notFoundError),

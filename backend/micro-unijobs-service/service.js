@@ -17,13 +17,14 @@ const createService = async (req, res) => {
 
 	const jwt = await getJwtAuth(req, res)
 
-	if (!body.name || !body.location) throw createError(400, 'Bad params. Service name and location is required')
+	if (!body.name || !body.location || !body.isOffer) throw createError(400, 'Bad params. Service name, location and isOffer is required')
 
 	if (!isUser(jwt) && !isAdmin(jwt)) throw createError(403, 'Forbidden. Only users and admins can create services')
 
 	const servicesProperties = Object.assign({},
     {name: body.name},
     {location: body.location},
+    {isOffer: body.isOffer},
     {createdBy: jwt.id},
     body.description && { description }
   )
@@ -38,7 +39,12 @@ const createService = async (req, res) => {
 }
 
 const getService = async (req, res) => {
-	const { id } = await json(req)
+
+	const queryString = await req.query
+
+	const id = queryString.id
+
+	const isOffer = queryString.isOffer
 
 	const jwt = await getJwtAuth(req, res)
 
@@ -48,7 +54,7 @@ const getService = async (req, res) => {
 	
 	if (!id) {
 		// Retrieve all users from db if it is admin
-		const servicesArr = await Service.find({}, (err, services) => {
+		const servicesArr = await Service.find({isOffer}, (err, services) => {
 			if (err) throw createError(500, 'Could not retrieve services from db')
 			return services
 		})
@@ -62,10 +68,38 @@ const getService = async (req, res) => {
 
 	  return service
 	}
-	
+}
+
+const deleteService = (req, res) => {
+	const jwt = await getJwtAuth(req, res)
+
+	if (!jwt.isAdmin && !jwt.isSystem) throw createError(403, 'Forbidden. Only system and admin can delete services')
+
+	const { id } = await json(req)
+
+	if (!id) throw createError(400, 'Bad params. Service id is required')
+
+	const serviceToDelete = await Service.findById({ _id: id }, (err, service) => {
+		if (err) throw createError(500, 'Could not retrieve service from db')
+		return service
+	})
+
+	if (!service) throw createError(404, 'Not found. Service does not exist')
+
+	  // Fix this hacky thing later
+  let deletedUser = null
+
+	const deleteReq = await Service.findOneAndDelete({ _id: id }, (err, service) => {
+    if (err) throw createError(500, 'Could not remove service from db')
+    console.log(`Sucessfully deleted service with id = ${id}`)
+    return service
+	})
+
+	return serviceToDelete
 }
 
 module.exports = {
 	createService,
-	getService
+	getService,
+	deleteService
 }
