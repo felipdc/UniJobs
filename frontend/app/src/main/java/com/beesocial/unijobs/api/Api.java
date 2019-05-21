@@ -22,8 +22,6 @@ public interface Api {
     @POST("user")
     Call<DefaultResponse> createUser(@Body UserRegister user);
 
-    //Call<DefaultResponse> getUser(@Header("Authorization") String authToken);
-
     @GET("user")
     Call<DefaultResponse> getUser(@Header("Authorization") String token);
 

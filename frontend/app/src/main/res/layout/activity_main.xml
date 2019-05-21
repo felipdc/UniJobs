@@ -6,27 +6,27 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
     android:fillViewport="true"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.RegisterActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:paddingTop="65dp"
-        android:paddingBottom="15dp">
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="50dp">
-
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textLogin">
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:fontFamily="@font/mont"
+                android:layout_centerHorizontal="true"
                 android:text="Unijobs"
                 android:textAllCaps="true"
                 android:textColor="#ffffff"
@@ -37,109 +37,113 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="80dp"
+                android:layout_below="@id/textView2"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/lato"
                 android:gravity="center"
                 android:lineSpacingExtra="4.5sp"
-                android:text="Você tem algum talento escondido?\nGanhe dinheiro com isso!"
+                android:text="@string/text_sellpoint"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
+            </RelativeLayout>
 
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginLeft="18dp"
-                android:layout_marginTop="185dp"
                 android:layout_marginRight="18dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounder_border"
-                android:elevation="20dp"
-                android:fillViewport="true"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="25dp">
+                android:layout_below="@id/textLogin">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imageProfileLogin"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_profile"
-                    android:tint="#99ffffff"
-                    app:civ_border_color="#99ffffff"
-                    app:civ_border_width="1dp" />
-
-                <EditText
-                    android:id="@+id/editTextEmail"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="60sp"
-                    android:layout_weight="0"
-                    android:backgroundTint="#99ffffff"
-                    android:drawableLeft="@drawable/ic_email"
-                    android:drawablePadding="5dp"
-                    android:fontFamily="@font/lato"
-                    android:hint="EMAIL"
-                    android:inputType="textEmailAddress"
-                    android:textColorHint="#99ffffff"
-                    app:autoSizeMaxTextSize="60sp"
-                    app:autoSizeMinTextSize="40sp"
-                    app:autoSizeStepGranularity="2sp"
-                    app:autoSizeTextType="uniform" />
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/rounder_border"
+                    android:elevation="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="25dp">
 
-                <EditText
-                    android:id="@+id/editTextPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="60sp"
-                    android:layout_weight="0"
-                    android:backgroundTint="#99ffffff"
-                    android:drawableLeft="@drawable/ic_password"
-                    android:drawablePadding="5dp"
-                    android:fontFamily="@font/lato"
-                    android:hint="SENHA"
-                    android:inputType="textPassword"
-                    android:textColorHint="#99ffffff"
-                    app:autoSizeMaxTextSize="60sp"
-                    app:autoSizeMinTextSize="40sp"
-                    app:autoSizeStepGranularity="2sp" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageProfileLogin"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_profile"
+                        android:tint="#99ffffff"
+                        app:civ_border_color="#99ffffff"
+                        app:civ_border_width="1dp" />
 
-                <EditText
-                    android:id="@+id/editTextName"
-                    android:layout_width="match_parent"
-                    android:layout_height="60sp"
-                    android:layout_weight="0"
-                    android:backgroundTint="#99ffffff"
-                    android:drawableLeft="@drawable/ic_name"
-                    android:drawablePadding="5dp"
-                    android:fontFamily="@font/lato"
-                    android:hint="NOME"
-                    android:inputType="textPersonName"
-                    android:textColorHint="#99ffffff"
-                    app:autoSizeMaxTextSize="60sp"
-                    app:autoSizeMinTextSize="40sp"
-                    app:autoSizeStepGranularity="2sp" />
+                    <EditText
+                        android:id="@+id/editTextEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="60sp"
+                        android:layout_weight="0"
+                        android:backgroundTint="#99ffffff"
+                        android:drawableLeft="@drawable/ic_email"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/lato"
+                        android:hint="EMAIL"
+                        android:inputType="textEmailAddress"
+                        android:textColorHint="#99ffffff"
+                        app:autoSizeMaxTextSize="60sp"
+                        app:autoSizeMinTextSize="40sp"
+                        app:autoSizeStepGranularity="2sp"
+                        app:autoSizeTextType="uniform" />
 
-                <EditText
-                    android:id="@+id/editTextImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="60sp"
-                    android:layout_weight="0"
-                    android:backgroundTint="#99ffffff"
-                    android:drawableLeft="@drawable/ic_image"
-                    android:drawablePadding="5dp"
-                    android:fontFamily="@font/lato"
-                    android:hint="IMAGEM"
-                    android:textColorHint="#99ffffff"
-                    app:autoSizeMaxTextSize="60sp"
-                    app:autoSizeMinTextSize="40sp"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:inputType="none"
-                    app:autoSizeStepGranularity="2sp" />
+                    <EditText
+                        android:id="@+id/editTextPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="60sp"
+                        android:layout_weight="0"
+                        android:backgroundTint="#99ffffff"
+                        android:drawableLeft="@drawable/ic_password"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/lato"
+                        android:hint="SENHA"
+                        android:inputType="textPassword"
+                        android:textColorHint="#99ffffff"
+                        app:autoSizeMaxTextSize="60sp"
+                        app:autoSizeMinTextSize="40sp"
+                        app:autoSizeStepGranularity="2sp" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <EditText
+                        android:id="@+id/editTextName"
+                        android:layout_width="match_parent"
+                        android:layout_height="60sp"
+                        android:layout_weight="0"
+                        android:backgroundTint="#99ffffff"
+                        android:drawableLeft="@drawable/ic_name"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/lato"
+                        android:hint="NOME"
+                        android:inputType="textPersonName"
+                        android:textColorHint="#99ffffff"
+                        app:autoSizeMaxTextSize="60sp"
+                        app:autoSizeMinTextSize="40sp"
+                        app:autoSizeStepGranularity="2sp" />
 
+                    <EditText
+                        android:id="@+id/editTextImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="60sp"
+                        android:layout_weight="0"
+                        android:backgroundTint="#99ffffff"
+                        android:clickable="true"
+                        android:drawableLeft="@drawable/ic_image"
+                        android:drawablePadding="5dp"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:hint="IMAGEM"
+                        android:inputType="none"
+                        android:textColorHint="#99ffffff"
+                        app:autoSizeMaxTextSize="60sp"
+                        app:autoSizeMinTextSize="40sp"
+                        app:autoSizeStepGranularity="2sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </RelativeLayout>
             <TextView
                 android:id="@+id/textViewLogin"
                 android:layout_width="wrap_content"
@@ -157,7 +161,6 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorText"
                 android:textSize="13sp" />
-        </RelativeLayout>
 
         <Button
             android:id="@+id/buttonSignUp"

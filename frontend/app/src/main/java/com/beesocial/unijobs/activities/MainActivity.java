@@ -1,268 +1,150 @@
 package com.beesocial.unijobs.activities;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Base64;
-import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.beesocial.unijobs.R;
-import com.beesocial.unijobs.api.Api;
-import com.beesocial.unijobs.api.RetrofitClient;
-import com.beesocial.unijobs.models.CheckNetwork;
-import com.beesocial.unijobs.models.DefaultResponse;
-import com.beesocial.unijobs.models.LoginResponse;
 import com.beesocial.unijobs.models.User;
-import com.beesocial.unijobs.models.UserLogin;
-import com.beesocial.unijobs.models.UserRegister;
 import com.beesocial.unijobs.storage.SharedPrefManager;
+import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
-import com.sangcomz.fishbun.FishBun;
-import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
-import com.sangcomz.fishbun.define.Define;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+    MenuItem nav_nome;
+    CircleImageView imageProfile;
+    User user;
+    View header;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    UserRegister userRegister;
-    UserLogin userLogin;
-    User userComplete;
-    CheckNetwork checkNetwork;
-    Snackbar snackbar;
-    ArrayList<Uri> returnValue;
-    Bitmap bitmap;
-    String encodedImage;
-    private EditText editTextEmail, editTextPassword, editTextName, editTextImage;
-    private CircleImageView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_profile);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
 
-        editTextEmail = findViewById(R.id.editTextEmail);
-        editTextPassword = findViewById(R.id.editTextPassword);
-        editTextName = findViewById(R.id.editTextName);
-        editTextImage = findViewById(R.id.editTextImage);
-        profile = findViewById(R.id.imageProfileLogin);
-
-        findViewById(R.id.buttonSignUp).setOnClickListener(this);
-        findViewById(R.id.textViewLogin).setOnClickListener(this);
-        findViewById(R.id.editTextImage).setOnClickListener(this);
-
+        Menu menu = navigationView.getMenu();
+        header = navigationView.getHeaderView(0);
+        //nav_nome = menu.findItem(R.id.nav_nome);
     }
-
 
     @Override
     protected void onStart() {
+        StringBuilder stringBuilder = new StringBuilder();
         super.onStart();
-        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
-            Intent intent = new Intent(this, ProfileActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        }
-    }
-
-    private void userSignUp(final View v) {
-        final String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-        String name = editTextName.getText().toString().trim();
-        String imageText = editTextImage.getText().toString().trim();
-
-        if (email.isEmpty()) {
-            editTextEmail.setError("Campo necessário");
-            editTextEmail.requestFocus();
-            return;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.setError("O email precisa ser válido");
-            editTextEmail.requestFocus();
-            return;
-        }
-
-        if (password.isEmpty()) {
-            editTextPassword.setError("Campo necessário");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if (password.length() < 6) {
-            editTextPassword.setError("A senha tem que ter ao mínimo 6 caracteres");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if (name.isEmpty()) {
-            editTextName.setError("Campo necessário");
-            editTextName.requestFocus();
-            return;
-        }
-
-        if (imageText.isEmpty()) {
-            editTextImage.setError("Campo necessário");
-            editTextImage.requestFocus();
-            return;
-        }
-
-        //chamada para criar o usuario
-        callBackend(v, email, name, password);
-    }
-
-    private void callBackend(final View v, String email, String name, String password) {
-        userRegister = new UserRegister(email, name, password, encodedImage);
-        userLogin = new UserLogin(email, password);
-
-        Call<DefaultResponse> call = RetrofitClient
-                .getInstance().getApi().createUser(userRegister);
-        call.enqueue(new Callback<DefaultResponse>() {
-            @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                try {
-                    DefaultResponse defaultResponse = response.body();
-                    defaultResponse.getEmail();
 
 
-                    Call<LoginResponse> call2 = RetrofitClient
-                            .getInstance().getApi().userLogin(userLogin);
-                    call2.enqueue(new Callback<LoginResponse>() {
-                        @Override
-                        public void onResponse(Call<LoginResponse> call2, Response<LoginResponse> response2) {
-                            LoginResponse loginResponse = response2.body();
-
-                            //Toast.makeText(MainActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
-
-                            Retrofit retrofit = new Retrofit.Builder()
-                                    .baseUrl("https://micro-unijobs-user.felipetiagodecarli.now.sh/api/")
-                                    .addConverterFactory(GsonConverterFactory.create())
-                                    .build();
-
-                            Api client = retrofit.create(Api.class);
-                            Call<DefaultResponse> calltargetResponce = client.getUser(loginResponse.getToken());
-                            calltargetResponce.enqueue(new Callback<DefaultResponse>() {
-                                @Override
-                                public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> response3) {
-                                    DefaultResponse UserResponse = response3.body();
-                                    userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPassword());
-
-                                    SharedPrefManager.getInstance(MainActivity.this).saveUser(userComplete);
-
-                                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onFailure(Call<DefaultResponse> calltargetResponce, Throwable t) {
-                                    snackbar = Snackbar
-                                            .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                                    snackbar.show();
-                                }
-                            });
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<LoginResponse> call2, Throwable t) {
-                            snackbar = Snackbar
-                                    .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        }
-                    });
-                } catch (Exception e) {
-                    checkNetwork = new CheckNetwork();
-                    if (checkNetwork.haveNetworkConnection(MainActivity.this)) {
-                        if (response.code() == 403) {
-                            snackbar = Snackbar
-                                    .make(v, "Email já cadastrado", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        }
-                    } else {
-                        snackbar = Snackbar
-                                .make(v, "Sem conexão com a internet", Snackbar.LENGTH_LONG);
-                        snackbar.show();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                snackbar = Snackbar
-                        .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                snackbar.show();
-            }
-        });
-
+        user = SharedPrefManager.getInstance(this).getUser();
+        Handler handler = new Handler();
+        /*stringBuilder.append("Olá ");
+        stringBuilder.append(user.getName());
+        nav_nome.setTitle(stringBuilder);*/
+        handler.removeCallbacksAndMessages(null);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode,
-                                    Intent imageData) {
-        super.onActivityResult(requestCode, resultCode, imageData);
-        switch (requestCode) {
-            case Define.ALBUM_REQUEST_CODE:
-                if (resultCode == RESULT_OK) {
-                    try {
-                        returnValue = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
-                        Uri uri = returnValue.get(0);
-                        InputStream inStream = getContentResolver().openInputStream(uri);
-                        bitmap = BitmapFactory.decodeStream(inStream);
-
-                        editTextImage.setText(returnValue.toString());
-
-                        profile.setImageBitmap(bitmap);
-
-                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                        byte[] b = baos.toByteArray();
-
-                        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-
-
-                    } catch (IOException e) {
-
-                    }
-
-
-                    break;
-                }
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
+
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.buttonSignUp:
-                userSignUp(v);
-                break;
-            case R.id.textViewLogin:
-                startActivity(new Intent(this, LoginActivity.class));
-                break;
-            case R.id.editTextImage:
-                FishBun.with(MainActivity.this)
-                        .setImageAdapter(new GlideAdapter())
-                        .setMaxCount(1)
-                        .setMinCount(1)
-                        .startAlbum();
-                break;
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.profile, menu);
 
+        imageProfile = (CircleImageView) header.findViewById(R.id.imageProfile);
+
+        if(SharedPrefManager.getInstance(this).isLoggedIn()) {
+            String encodedImage = user.getImage();
+            final String pureBase64Encoded = encodedImage.substring(encodedImage.indexOf(",") + 1);
+            final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
+            Glide.with(this).load(decodedBytes).placeholder(R.drawable.ic_loading).fitCenter().dontAnimate().into(imageProfile);
         }
+        else{
+            Glide.with(this).load(R.drawable.ic_profile).fitCenter().dontAnimate().into(imageProfile);
+        }
+        return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            // Handle the camera action
+        } else if (id == R.id.nav_perfil) {
+
+        } else if (id == R.id.nav_serv) {
+
+        } else if (id == R.id.nav_not) {
+
+        } else if (id == R.id.nav_config) {
+
+        } else if (id == R.id.nav_logout){
+            if(SharedPrefManager.getInstance(this).isLoggedIn()){
+                SharedPrefManager.getInstance(this).clear();
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

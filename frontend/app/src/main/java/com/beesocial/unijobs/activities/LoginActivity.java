@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
 
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
-            Intent intent = new Intent(this, ProfileActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPassword());
                             Log.d("respostaLogin", userComplete.getEmail());
                             SharedPrefManager.getInstance(LoginActivity.this).saveUser(userComplete);
-                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
@@ -131,6 +131,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             snackbar = Snackbar
                                     .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
                             snackbar.show();
+                            Log.d("erroUnijobs","erro call2 retrofit");
                         }
                     });
                     Log.d("tokeee", loginResponse.getToken());
@@ -161,6 +162,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 snackbar = Snackbar
                         .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
                 snackbar.show();
+                Log.d("erroUnijobs","erro call1 retrofit");
             }
         });
     }
@@ -172,7 +174,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 userLogin(v);
                 break;
             case R.id.textViewRegister:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, RegisterActivity.class));
                 break;
         }
     }
