@@ -18,9 +18,9 @@ const hashPassword = async (pass) => {
 }
 
 const createUser = async (req, res) => {
-  const { email, password, name } = await json(req)
+  const { email, password, name, phoneNumber } = await json(req)
 
-  if (!email || !password || !name) throw createError(400, 'Email, password and name is required')
+  if (!email || !password || !name || !phoneNumber) throw createError(400, 'Email, password, name and phoneNumber is required')
 
   // We need to check if there is already a user with this email
   // Get user from db
@@ -36,7 +36,8 @@ const createUser = async (req, res) => {
   const newUser = new User({
    name, 
    email, 
-   password: hashedPass
+   password: hashedPass,
+   phoneNumber
   })
 
   const user = await newUser.save()
@@ -53,7 +54,7 @@ const createAdmin = async (req, res) => {
 
 	if (!jwt.system) throw createError(403, 'Forbidden. Only the system can create admin users')
 
-  if (!email || !password || !name) throw createError(400, 'Email, password and name is required')
+  if (!email || !password || !name || !phoneNumber) throw createError(400, 'Email, password, name and phoneNumber is required')
 
   // We need to check if there is already a user with this email
   // Get user from db
@@ -69,7 +70,8 @@ const createAdmin = async (req, res) => {
   const newUser = new User({
    name, 
    email, 
-   password: hashedPass
+   password: hashedPass,
+   phoneNumber
   })
 
   const user = await newUser.save()
@@ -103,14 +105,15 @@ const patchUser = async (req, res) => {
 
   if (!id && isAdmin(jwt)) throw createError(400, 'Bad params. User id is required')
 
-  if (!password && !image && !name) throw createError(400, 'Bad params. Password, image or name is required')
+  if (!password && !image && !name && !phoneNumber) throw createError(400, 'Bad params. Password, image, name or phoneNumber is required')
 
   const hashedPass = password && await hashPassword(password)
 
   const toUpdate = Object.assign({},
     hashedPass && { password: hashedPass },
     image && { image },
-    name && { name }
+    name && { name },
+    phoneNumber && { phoneNumber }
   )
 
   const userId = isAdmin(jwt) ? id : jwt.id
