@@ -46,15 +46,16 @@ const getService = async (req, res) => {
 
 	const isOffer = queryString.isOffer
 
+	if (isOffer === undefined) throw createError(400, 'Bad params. isOffer querystring is required')
+
 	const jwt = await getJwtAuth(req, res)
 
 	if (!isAdmin(jwt) && !isUser(jwt)) throw createError(403, 'Forbidden. Only users can see services')
 
 	// If id was not send in request, return all services
-	
+
 	if (!id) {
-		// Retrieve all users from db if it is admin
-		const servicesArr = await Service.find({isOffer}, (err, services) => {
+		const servicesArr = await Service.find({ isOffer }, (err, services) => {
 			if (err) throw createError(500, 'Could not retrieve services from db')
 			return services
 		})
@@ -70,10 +71,48 @@ const getService = async (req, res) => {
 	}
 }
 
-const deleteService = (req, res) => {
+const updateService = async (req, res) => {
 	const jwt = await getJwtAuth(req, res)
 
-	if (!jwt.isAdmin && !jwt.isSystem) throw createError(403, 'Forbidden. Only system and admin can delete services')
+	const { id, name, description, isOffer, location, active } = await json(req)
+
+	if (!id) throw createError(400, 'Bad params. Service id is required')
+
+	const serviceToUpdate = await Service.findById({ _id: id }, (err, service) => {
+		if (err) throw createError(500, 'Could not retrieve service from db')
+		return service
+	})
+
+	if (!serviceToUpdate) throw createError(404, 'Service not found')
+
+	// Check if user thats making the request created the service
+	// Note that admin can update services no matter if he created or not
+	if (jwt.id !== serviceToUpdate.createdBy && !isAdmin(jwt)) throw createError(403, 'Forbidden. User does not have permission to update this service')
+
+	 const toUpdate = Object.assign({},
+	 	name && { name },
+    description && { description },
+    isOffer && { isOffer },
+    location && { location },
+    active === undefined ? null : { active }
+  )
+
+	const updatedReq = await Service.findOneAndUpdate(
+		{ _id: id },
+		toUpdate,
+		(err, service) => {
+    if (err) throw createError(500, 'Could not update service on db')
+    console.log(`Sucessfully updated service with id = ${id}`)
+    return service
+	})
+
+	return serviceToUpdate	
+}
+
+const deleteService = async (req, res) => {
+	const jwt = await getJwtAuth(req, res)
+
+	if (!isAdmin(jwt) && !isSystem(jwt)) throw createError(403, 'Forbidden. Only system and admin can delete services')
 
 	const { id } = await json(req)
 
@@ -84,10 +123,7 @@ const deleteService = (req, res) => {
 		return service
 	})
 
-	if (!service) throw createError(404, 'Not found. Service does not exist')
-
-	  // Fix this hacky thing later
-  let deletedUser = null
+	if (!serviceToDelete) throw createError(404, 'Not found. Service does not exist')
 
 	const deleteReq = await Service.findOneAndDelete({ _id: id }, (err, service) => {
     if (err) throw createError(500, 'Could not remove service from db')
@@ -101,5 +137,6 @@ const deleteService = (req, res) => {
 module.exports = {
 	createService,
 	getService,
-	deleteService
+	deleteService,
+	updateService
 }
