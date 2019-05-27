@@ -65,7 +65,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         profile = findViewById(R.id.imageProfileLogin);
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
-        findViewById(R.id.textViewLogin).setOnClickListener(this);
+//        findViewById(R.id.textViewLogin).setOnClickListener(this);
         findViewById(R.id.editTextImage).setOnClickListener(this);
 
     }
@@ -117,11 +117,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        if (imageText.isEmpty()) {
-            editTextImage.setError("Campo necessário");
-            editTextImage.requestFocus();
-            return;
-        }
+//        if (imageText.isEmpty()) {
+//            editTextImage.setError("Campo necessário");
+//            editTextImage.requestFocus();
+//            return;
+//        }
 
         //chamada para criar o usuario
         callBackend(v, email, name, password);
@@ -255,9 +255,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.buttonSignUp:
                 userSignUp(v);
                 break;
-            case R.id.textViewLogin:
-                startActivity(new Intent(this, LoginActivity.class));
-                break;
+//            case R.id.textViewLogin:
+//                startActivity(new Intent(this, LoginActivity.class));
+//                break;
             case R.id.editTextImage:
                 FishBun.with(RegisterActivity.this)
                         .setImageAdapter(new GlideAdapter())

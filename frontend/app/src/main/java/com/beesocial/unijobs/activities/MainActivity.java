@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity
         StringBuilder stringBuilder = new StringBuilder();
         super.onStart();
 
-
         user = SharedPrefManager.getInstance(this).getUser();
         Handler handler = new Handler();
         /*stringBuilder.append("Olá ");
@@ -93,6 +92,10 @@ public class MainActivity extends AppCompatActivity
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             String encodedImage = user.getImage();
+            if (encodedImage == null) {
+                Glide.with(this).load(R.drawable.ic_profile).fitCenter().dontAnimate().into(imageProfile);
+                return true;
+            }
             final String pureBase64Encoded = encodedImage.substring(encodedImage.indexOf(",") + 1);
             final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
             Glide.with(this).load(decodedBytes).placeholder(R.drawable.ic_loading).fitCenter().dontAnimate().into(imageProfile);
@@ -127,7 +130,11 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_perfil) {
-
+            if(!SharedPrefManager.getInstance(this).isLoggedIn()){
+                SharedPrefManager.getInstance(this).clear();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+            }
         } else if (id == R.id.nav_serv) {
 
         } else if (id == R.id.nav_not) {
@@ -137,9 +144,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout){
             if(SharedPrefManager.getInstance(this).isLoggedIn()){
                 SharedPrefManager.getInstance(this).clear();
-                Intent intent = new Intent(this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+//                Intent intent = new Intent(this, LoginActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(intent);
             }
         }
 
