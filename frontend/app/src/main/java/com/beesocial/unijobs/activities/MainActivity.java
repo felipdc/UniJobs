@@ -1,6 +1,5 @@
 package com.beesocial.unijobs.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -88,12 +87,12 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.profile, menu);
 
-        imageProfile = (CircleImageView) header.findViewById(R.id.imageProfile);
+        imageProfile = header.findViewById(R.id.imageProfile);
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             String encodedImage = user.getImage();
             if (encodedImage == null) {
-                Glide.with(this).load(R.drawable.ic_profile).fitCenter().dontAnimate().into(imageProfile);
+                Glide.with(this).load(R.drawable.ic_emoji).fitCenter().dontAnimate().into(imageProfile);
                 return true;
             }
             final String pureBase64Encoded = encodedImage.substring(encodedImage.indexOf(",") + 1);
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity
             Glide.with(this).load(decodedBytes).placeholder(R.drawable.ic_loading).fitCenter().dontAnimate().into(imageProfile);
         }
         else{
-            Glide.with(this).load(R.drawable.ic_profile).fitCenter().dontAnimate().into(imageProfile);
+            Glide.with(this).load(R.drawable.ic_emoji).fitCenter().dontAnimate().into(imageProfile);
         }
         return true;
     }
@@ -134,6 +133,8 @@ public class MainActivity extends AppCompatActivity
                 SharedPrefManager.getInstance(this).clear();
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
+            } else {
+                //vai para o perfil
             }
         } else if (id == R.id.nav_serv) {
 
@@ -144,9 +145,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout){
             if(SharedPrefManager.getInstance(this).isLoggedIn()){
                 SharedPrefManager.getInstance(this).clear();
-//                Intent intent = new Intent(this, LoginActivity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                startActivity(intent);
+
+                //se nao for mandar para o login activity depois do logout, tem que pelo menos mandar de volta pra main activity, pra recarregar as informacoes, se nao vai parecer que o usuario ainda esta instanciado.
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         }
 

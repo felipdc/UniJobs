@@ -1,9 +1,9 @@
 package com.beesocial.unijobs.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -23,14 +23,12 @@ import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.models.UserRegister;
 import com.beesocial.unijobs.storage.SharedPrefManager;
+import com.fxn.pix.Options;
+import com.fxn.pix.Pix;
+import com.fxn.utility.ImageQuality;
 import com.google.android.material.snackbar.Snackbar;
-import com.sangcomz.fishbun.FishBun;
-import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
-import com.sangcomz.fishbun.define.Define;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -47,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     User userComplete;
     CheckNetwork checkNetwork;
     Snackbar snackbar;
-    ArrayList<Uri> returnValue;
+    ArrayList<String> returnValue;
     Bitmap bitmap;
     String encodedImage;
     private EditText editTextEmail, editTextPassword, editTextName, editTextImage;
@@ -138,7 +136,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 try {
                     DefaultResponse defaultResponse = response.body();
-                    //defaultResponse.getEmail();
+
+                    defaultResponse.getEmail(); // linha que checa se a resposta tem os campos certos, se nao tiver, cai no catch e dai verifica o porque de ter dado errado
 
 
                     Call<LoginResponse> call2 = RetrofitClient
@@ -175,7 +174,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     snackbar = Snackbar
                                             .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
                                     snackbar.show();
-                                    Log.d("erroUnijobs","erro getUser retrofit");
+                                    Log.d("erroUnijobs", t.getMessage());
                                 }
                             });
 
@@ -186,7 +185,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             snackbar = Snackbar
                                     .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
                             snackbar.show();
-                            Log.d("erroUnijobs","erro userlogin retrofit");
+                            Log.d("erroUnijobs", t.getMessage());
                         }
                     });
                 } catch (Exception e) {
@@ -210,7 +209,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 snackbar = Snackbar
                         .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
                 snackbar.show();
-                Log.d("erroUnijobs","erro createUser retrofit");
+                Log.d("erroUnijobs", t.getMessage());
             }
         });
 
@@ -220,33 +219,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent imageData) {
         super.onActivityResult(requestCode, resultCode, imageData);
-        switch (requestCode) {
-            case Define.ALBUM_REQUEST_CODE:
-                if (resultCode == RESULT_OK) {
-                    try {
-                        returnValue = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
-                        Uri uri = returnValue.get(0);
-                        InputStream inStream = getContentResolver().openInputStream(uri);
-                        bitmap = BitmapFactory.decodeStream(inStream);
+        if (resultCode == Activity.RESULT_OK && requestCode == 100) {
 
-                        editTextImage.setText(returnValue.toString());
+            returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
 
-                        profile.setImageBitmap(bitmap);
+            bitmap = BitmapFactory.decodeFile(returnValue.get(0));
+            editTextImage.setText(returnValue.get(0));
 
-                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                        byte[] b = baos.toByteArray();
+            profile.setImageBitmap(bitmap);
 
-                        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-
-
-                    } catch (IOException e) {
-
-                    }
-
-
-                    break;
-                }
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
+            byte[] b = baos.toByteArray();
+            encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
         }
     }
     @Override
@@ -259,11 +244,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 //                startActivity(new Intent(this, LoginActivity.class));
 //                break;
             case R.id.editTextImage:
-                FishBun.with(RegisterActivity.this)
+
+                /*FishBun.with(RegisterActivity.this)
                         .setImageAdapter(new GlideAdapter())
                         .setMaxCount(1)
                         .setMinCount(1)
-                        .startAlbum();
+                        .startAlbum();*/
+
+                Options options = Options.init()
+                        .setRequestCode(100)
+                        .setCount(1)
+                        .setFrontfacing(true)
+                        .setImageQuality(ImageQuality.LOW)
+                        .setScreenOrientation(Options.SCREEN_ORIENTATION_PORTRAIT);
+
+                Pix.start(RegisterActivity.this, options);
                 break;
 
         }
