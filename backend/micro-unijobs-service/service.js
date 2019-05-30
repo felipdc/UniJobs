@@ -134,9 +134,36 @@ const deleteService = async (req, res) => {
 	return serviceToDelete
 }
 
+const likeService = async (req, res) => {
+	const jwt = await getJwtAuth(req, res)
+	const body = await json(req)
+
+	if (!isUser(jwt)) throw createError(403, 'You have to be an user to proceed with this action')
+
+		var throwDoubleLike = () => {
+			throw createError(400, "Bad request")
+		}
+	var setLikeOnDb = function(){
+		body.likedBy.push(jwt.id)
+		const toUpdate = {likedBy: body.likedBy}
+
+		const updatedReq = Service.findOneAndUpdate(
+			{ _id: id },
+			toUpdate,
+			(err, service) => {
+	    if (err) throw createError(500, 'Could not update service on db')
+	    console.log(`Sucessfully updated service with id = ${id}`)
+	    return service
+		})
+ 	}
+
+	!body.likedBy.includes(jwt.id) ? setLikeOnDb() : throwDoubleLike() 
+}
+
 module.exports = {
 	createService,
 	getService,
 	deleteService,
-	updateService
+	updateService,
+	likeService
 }
