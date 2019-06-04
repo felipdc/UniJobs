@@ -48,10 +48,6 @@ const getService = async (req, res) => {
 
 	if (isOffer === undefined) throw createError(400, 'Bad params. isOffer querystring is required')
 
-	const jwt = await getJwtAuth(req, res)
-
-	if (!isAdmin(jwt) && !isUser(jwt)) throw createError(403, 'Forbidden. Only users can see services')
-
 	// If id was not send in request, return all services
 
 	if (!id) {
