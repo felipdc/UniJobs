@@ -1,180 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
-    android:fillViewport="true"
-    tools:context=".activities.RegisterActivity">
+    tools:context=".activities.MainActivity">
 
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <!--<GridView-->
+        <!--android:id="@+id/grid_services_categories"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:numColumns="3"-->
+        <!--android:padding="8dp"/>-->
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:orientation="vertical"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_add" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/textLogin">
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mont"
-                android:layout_centerHorizontal="true"
-                android:text="Unijobs"
-                android:textAllCaps="true"
-                android:textColor="#ffffff"
-                android:textSize="50sp" />
+    <include
+        layout="@layout/circle_image_profile"
+        tools:visibility="gone" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/textView2"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/lato"
-                android:gravity="center"
-                android:lineSpacingExtra="4.5sp"
-                android:text="@string/text_sellpoint"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_weight="1"
-                android:layout_below="@id/textLogin">
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/linearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/rounder_border"
-                    android:elevation="20dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="25dp">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imageProfileLogin"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:src="@drawable/ic_profile"
-                        android:tint="#99ffffff"
-                        app:civ_border_color="#99ffffff"
-                        app:civ_border_width="1dp" />
-
-                    <EditText
-                        android:id="@+id/editTextEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="60sp"
-                        android:layout_weight="0"
-                        android:backgroundTint="#99ffffff"
-                        android:drawableLeft="@drawable/ic_email"
-                        android:drawablePadding="5dp"
-                        android:fontFamily="@font/lato"
-                        android:hint="EMAIL"
-                        android:inputType="textEmailAddress"
-                        android:textColorHint="#99ffffff"
-                        app:autoSizeMaxTextSize="60sp"
-                        app:autoSizeMinTextSize="40sp"
-                        app:autoSizeStepGranularity="2sp"
-                        app:autoSizeTextType="uniform" />
-
-                    <EditText
-                        android:id="@+id/editTextPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="60sp"
-                        android:layout_weight="0"
-                        android:backgroundTint="#99ffffff"
-                        android:drawableLeft="@drawable/ic_password"
-                        android:drawablePadding="5dp"
-                        android:fontFamily="@font/lato"
-                        android:hint="SENHA"
-                        android:inputType="textPassword"
-                        android:textColorHint="#99ffffff"
-                        app:autoSizeMaxTextSize="60sp"
-                        app:autoSizeMinTextSize="40sp"
-                        app:autoSizeStepGranularity="2sp" />
-
-                    <EditText
-                        android:id="@+id/editTextName"
-                        android:layout_width="match_parent"
-                        android:layout_height="60sp"
-                        android:layout_weight="0"
-                        android:backgroundTint="#99ffffff"
-                        android:drawableLeft="@drawable/ic_name"
-                        android:drawablePadding="5dp"
-                        android:fontFamily="@font/lato"
-                        android:hint="NOME"
-                        android:inputType="textPersonName"
-                        android:textColorHint="#99ffffff"
-                        app:autoSizeMaxTextSize="60sp"
-                        app:autoSizeMinTextSize="40sp"
-                        app:autoSizeStepGranularity="2sp" />
-
-                    <EditText
-                        android:id="@+id/editTextImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="60sp"
-                        android:layout_weight="0"
-                        android:backgroundTint="#99ffffff"
-                        android:clickable="true"
-                        android:drawableLeft="@drawable/ic_image"
-                        android:drawablePadding="5dp"
-                        android:focusable="false"
-                        android:fontFamily="@font/lato"
-                        android:hint="IMAGEM"
-                        android:inputType="none"
-                        android:textColorHint="#99ffffff"
-                        app:autoSizeMaxTextSize="60sp"
-                        app:autoSizeMinTextSize="40sp"
-                        app:autoSizeStepGranularity="2sp" />
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
-            </RelativeLayout>
-            <TextView
-                android:id="@+id/textViewLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="30dp"
-                android:fontFamily="@font/lato"
-                android:gravity="center"
-                android:letterSpacing="0.1"
-                android:lineSpacingExtra="7dp"
-                android:text="Já tem uma conta?\n"
-                android:textAllCaps="true"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorText"
-                android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/buttonSignUp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:background="@drawable/round_borderbutton"
-            android:elevation="20dp"
-            android:fontFamily="@font/mont"
-            android:text="Registre-se"
-            android:textAllCaps="true"
-            android:textColor="@color/colorText" />
-
-    </RelativeLayout>
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

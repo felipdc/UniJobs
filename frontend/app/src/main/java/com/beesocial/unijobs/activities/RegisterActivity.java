@@ -48,23 +48,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     ArrayList<String> returnValue;
     Bitmap bitmap;
     String encodedImage;
-    private EditText editTextEmail, editTextPassword, editTextName, editTextImage;
+    private EditText editTextEmail, editTextPassword, editTextName;
     private CircleImageView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextName = findViewById(R.id.editTextName);
-        editTextImage = findViewById(R.id.editTextImage);
         profile = findViewById(R.id.imageProfileLogin);
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
-//        findViewById(R.id.textViewLogin).setOnClickListener(this);
-        findViewById(R.id.editTextImage).setOnClickListener(this);
+        profile.setOnClickListener(this);
 
     }
 
@@ -83,7 +81,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String name = editTextName.getText().toString().trim();
-        String imageText = editTextImage.getText().toString().trim();
 
         if (email.isEmpty()) {
             editTextEmail.setError("Campo necessário");
@@ -114,12 +111,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             editTextName.requestFocus();
             return;
         }
-
-//        if (imageText.isEmpty()) {
-//            editTextImage.setError("Campo necessário");
-//            editTextImage.requestFocus();
-//            return;
-//        }
 
         //chamada para criar o usuario
         callBackend(v, email, name, password);
@@ -224,7 +215,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
 
             bitmap = BitmapFactory.decodeFile(returnValue.get(0));
-            editTextImage.setText(returnValue.get(0));
 
             profile.setImageBitmap(bitmap);
 
@@ -240,27 +230,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.buttonSignUp:
                 userSignUp(v);
                 break;
-//            case R.id.textViewLogin:
-//                startActivity(new Intent(this, LoginActivity.class));
-//                break;
-            case R.id.editTextImage:
 
-                /*FishBun.with(RegisterActivity.this)
-                        .setImageAdapter(new GlideAdapter())
-                        .setMaxCount(1)
-                        .setMinCount(1)
-                        .startAlbum();*/
-
+            case R.id.imageProfileLogin:
                 Options options = Options.init()
                         .setRequestCode(100)
                         .setCount(1)
                         .setFrontfacing(true)
                         .setImageQuality(ImageQuality.LOW)
                         .setScreenOrientation(Options.SCREEN_ORIENTATION_PORTRAIT);
-
                 Pix.start(RegisterActivity.this, options);
                 break;
-
         }
     }
 

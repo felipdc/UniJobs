@@ -7,4 +7,13 @@
     <string name="text_sellpoint">Você tem algum talento escondido?\nGanhe dinheiro com isso!</string>
     <string name="tab_offered_services">Oferecidos</string>
     <string name="tab_demanded_services">Demandados</string>
+    <string name="text_login">Login</string>
+    <string name="text_criar_conta">Não tem uma conta? crie uma gratuitamente!</string>
+    <string name="hint_senha">SENHA</string>
+    <string name="hint_email">EMAIL</string>
+    <string name="text_descricao">Você tem algum talento escondido? Ganhe dinheiro com isso!</string>
+    <string name="text_registre_se">Registre-se</string>
+    <string name="hint_imagem">IMAGEM</string>
+    <string name="hint_nome">NOME</string>
+    <string name="hint_foto">Clique na câmera para escolher uma foto</string>
 </resources>
