@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.beesocial.unijobs.R;
+import com.beesocial.unijobs.models.User;
+import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.beesocial.unijobs.viewmodels.PageViewModel;
 
 /**
@@ -50,12 +50,14 @@ public class ServiceFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_service, container, false);
         final TextView textView = root.findViewById(R.id.section_label);
 
-        pageViewModel.getText().observe(this, new Observer<String>() {
+        /*pageViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        });*/
+        User user = SharedPrefManager.getInstance(getActivity()).getUser();
+        textView.setText(user.);
 
         return root;
     }

@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             DefaultResponse UserResponse = responsee.body();
                             Log.d("respostaLogin", "Login ");
                             Log.d("respostaLogin", UserResponse.getEmail());
-                            userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPassword());
+                            userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage());
                             Log.d("respostaLogin", userComplete.getEmail());
                             SharedPrefManager.getInstance(LoginActivity.this).saveUser(userComplete);
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

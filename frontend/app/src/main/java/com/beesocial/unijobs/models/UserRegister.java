@@ -1,17 +1,28 @@
 package com.beesocial.unijobs.models;
 
-public class UserRegister {
+import java.io.Serializable;
 
-    private String email;
-    private String name;
-    private String password;
-    private String image;
+@SuppressWarnings("serial")
 
-    public UserRegister(String email, String name, String password, String image) {
+public class UserRegister implements Serializable {
+
+    private String password, email, name, image, phoneNumber, facebook;
+
+    public UserRegister(String email, String name, String image, String phoneNumber, String facebook, String password) {
         this.email = email;
-        this.password = password;
         this.name = name;
         this.image = image;
+        this.phoneNumber = phoneNumber;
+        this.facebook = facebook;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -30,20 +41,28 @@ public class UserRegister {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getImage() {
         return image;
     }
 
-    public void setImage(String password) {
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getphoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setphoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
 }

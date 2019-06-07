@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     ArrayList<String> returnValue;
     Bitmap bitmap;
     String encodedImage;
-    private EditText editTextEmail, editTextPassword, editTextName;
+    private EditText editTextEmail, editTextPassword, editTextName, editTextPhone, editTextFacebook;
     private CircleImageView profile;
 
     @Override
@@ -60,6 +60,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextName = findViewById(R.id.editTextName);
         profile = findViewById(R.id.imageProfileLogin);
+        editTextPhone = findViewById(R.id.editTextPassword);
+        editTextFacebook = findViewById(R.id.editTextFacebook);
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
         profile.setOnClickListener(this);
@@ -81,6 +83,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String name = editTextName.getText().toString().trim();
+        String phoneNumber = editTextPhone.getText().toString().trim();
+        String facebook = editTextFacebook.getText().toString().trim();
 
         if (email.isEmpty()) {
             editTextEmail.setError("Campo necessário");
@@ -94,9 +98,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+        if (!Patterns.PHONE.matcher(phoneNumber).matches()) {
+            editTextPhone.setError("O telefone precisa ser válido");
+            editTextPhone.requestFocus();
+            return;
+        }
+
+        if (!Patterns.WEB_URL.matcher(facebook).matches()) {
+            editTextFacebook.setError("O link do perfil do Facebook precisa ser válido");
+            editTextFacebook.requestFocus();
+            return;
+        }
+
         if (password.isEmpty()) {
             editTextPassword.setError("Campo necessário");
             editTextPassword.requestFocus();
+            return;
+        }
+
+        if (phoneNumber.isEmpty()) {
+            editTextFacebook.setError("Campo necessário");
+            editTextFacebook.requestFocus();
             return;
         }
 
@@ -113,11 +135,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         //chamada para criar o usuario
-        callBackend(v, email, name, password);
+        callBackend(v, email, name, password, facebook, phoneNumber);
     }
 
-    private void callBackend(final View v, String email, String name, String password) {
-        userRegister = new UserRegister(email, name, password, encodedImage);
+    private void callBackend(final View v, String email, String name, String password, String facebook, String phoneNumber) {
+        userRegister = new UserRegister(email, name, encodedImage, phoneNumber, facebook, password);
         userLogin = new UserLogin(email, password);
 
         Call<DefaultResponse> call = RetrofitClient
@@ -151,7 +173,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                 @Override
                                 public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> response3) {
                                     DefaultResponse UserResponse = response3.body();
-                                    userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPassword());
+                                    userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage());
 
                                     SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
 
