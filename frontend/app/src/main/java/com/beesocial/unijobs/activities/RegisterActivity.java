@@ -9,10 +9,12 @@ import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.astritveliu.boom.Boom;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
 import com.beesocial.unijobs.api.RetrofitClient;
@@ -63,8 +65,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextPhone = findViewById(R.id.editTextPassword);
         editTextFacebook = findViewById(R.id.editTextFacebook);
 
-        findViewById(R.id.buttonSignUp).setOnClickListener(this);
+        Button button = findViewById(R.id.buttonSignUp);
+        button.setOnClickListener(this);
+        new Boom(button);
         profile.setOnClickListener(this);
+
 
     }
 
@@ -173,7 +178,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                 @Override
                                 public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> response3) {
                                     DefaultResponse UserResponse = response3.body();
-                                    userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage());
+                                    userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
 
                                     SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
 

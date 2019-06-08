@@ -3,8 +3,22 @@ package com.beesocial.unijobs.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ServiceRegister {
 
+    @SerializedName("date")
+    @Expose
+    private Date date;
+    @SerializedName("likedBy")
+    @Expose
+    private List<String> likedBy = null;
+    @SerializedName("active")
+    @Expose
+    private Boolean active;
+    @SerializedName("_id")
+    @Expose
+    private String id;
     @SerializedName("name")
     @Expose
     private String name;
@@ -14,9 +28,50 @@ public class ServiceRegister {
     @SerializedName("isOffer")
     @Expose
     private Boolean isOffer;
+    @SerializedName("image")
+    @Expose
+    private String image;
+    @SerializedName("createdBy")
+    @Expose
+    private String createdBy;
     @SerializedName("description")
     @Expose
     private String description;
+    @SerializedName("__v")
+    @Expose
+    private Integer v;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public List<String> getLikedBy() {
+        return likedBy;
+    }
+
+    public void setLikedBy(List<String> likedBy) {
+        this.likedBy = likedBy;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -42,12 +97,36 @@ public class ServiceRegister {
         this.isOffer = isOffer;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getV() {
+        return v;
+    }
+
+    public void setV(Integer v) {
+        this.v = v;
     }
 
 }

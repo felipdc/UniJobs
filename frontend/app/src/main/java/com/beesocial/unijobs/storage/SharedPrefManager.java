@@ -34,6 +34,8 @@ public class SharedPrefManager {
         editor.putString("email", user.getEmail());
         editor.putString("name", user.getName());
         editor.putString("image", user.getImage());
+        editor.putString("phoneNumber", user.getphoneNumber());
+        editor.putString("facebook", user.getFacebook());
 
         editor.apply();
 
@@ -50,7 +52,9 @@ public class SharedPrefManager {
                 sharedPreferences.getString("id", null),
                 sharedPreferences.getString("email", null),
                 sharedPreferences.getString("name", null),
-                sharedPreferences.getString("image", null)
+                sharedPreferences.getString("image", null),
+                sharedPreferences.getString("phoneNumber", null),
+                sharedPreferences.getString("facebook", null)
         );
     }
 

@@ -10,11 +10,13 @@ public class User implements Serializable {
     private String ps, id, email, name, image, phoneNumber, facebook;
     private List<Service> serviceList;
 
-    public User(String id, String email, String name, String image) {
+    public User(String id, String email, String name, String image, String phoneNumber, String facebook) {
         this.id = id;
         this.email = email;
         this.name = name;
         this.image = image;
+        this.phoneNumber = phoneNumber;
+        this.facebook = facebook;
     }
 
     public User(String id, String email, String name, String image, String phoneNumber, String facebook, List<Service> serviceList) {

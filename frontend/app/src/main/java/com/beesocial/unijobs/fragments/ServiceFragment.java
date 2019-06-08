@@ -57,7 +57,7 @@ public class ServiceFragment extends Fragment {
             }
         });*/
         User user = SharedPrefManager.getInstance(getActivity()).getUser();
-        textView.setText(user.);
+        textView.setText(user.getFacebook());
 
         return root;
     }
