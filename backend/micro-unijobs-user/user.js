@@ -18,9 +18,9 @@ const hashPassword = async (pass) => {
 }
 
 const createUser = async (req, res) => {
-  const { email, password, name, phoneNumber } = await json(req)
+  const { email, password, name, phoneNumber, facebook, image } = await json(req)
 
-  if (!email || !password || !name || !phoneNumber) throw createError(400, 'Email, password, name and phoneNumber is required')
+  if (!email || !password || !name || !phoneNumber || !image) throw createError(400, 'Email, password, name and phoneNumber is required')
 
   // We need to check if there is already a user with this email
   // Get user from db
@@ -37,7 +37,9 @@ const createUser = async (req, res) => {
    name, 
    email, 
    password: hashedPass,
-   phoneNumber
+   phoneNumber,
+   facebook,
+   image
   })
 
   const user = await newUser.save()
@@ -97,7 +99,7 @@ const getUser = async (req, res) => {
 }
 
 const patchUser = async (req, res) => {
-  const { id, password, image, name } = await json(req)
+  const { id, password, image, name, phoneNumber, facebook } = await json(req)
 
   const jwt = await getJwtAuth(req, res)
 
@@ -105,7 +107,7 @@ const patchUser = async (req, res) => {
 
   if (!id && isAdmin(jwt)) throw createError(400, 'Bad params. User id is required')
 
-  if (!password && !image && !name && !phoneNumber) throw createError(400, 'Bad params. Password, image, name or phoneNumber is required')
+  if (!password && !image && !name && !phoneNumber && !facebook) throw createError(400, 'Bad params. Password, image, name or phoneNumber is required')
 
   const hashedPass = password && await hashPassword(password)
 
@@ -113,7 +115,8 @@ const patchUser = async (req, res) => {
     hashedPass && { password: hashedPass },
     image && { image },
     name && { name },
-    phoneNumber && { phoneNumber }
+    phoneNumber && { phoneNumber },
+    facebook && { facebook }
   )
 
   const userId = isAdmin(jwt) ? id : jwt.id

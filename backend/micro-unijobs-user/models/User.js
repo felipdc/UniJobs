@@ -11,6 +11,7 @@ const userSchema = new Schema({
     updatedAt: { type: Date, default: Date.now }
   },
   phoneNumber: Number,
+  facebook: { type: String, default: null },
   image: { type: String, default: null },
   auth: { type: Number, default: auth.user }
 })
