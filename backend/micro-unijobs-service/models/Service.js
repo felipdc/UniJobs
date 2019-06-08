@@ -11,6 +11,7 @@ const serviceSchema = new Schema({
   isOffer: Boolean,
   likedBy: [String],
   location: String,
+  image: String,
   active: { type: Boolean, default: true },
   createdBy: String
 })
