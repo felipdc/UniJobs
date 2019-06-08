@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.armcha.elasticview.ElasticView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/service_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:contentDescription="@string/content_description_imagem_servico"
+            android:src="@android:mipmap/sym_def_app_icon" />
+
+        <TextView
+            android:id="@+id/service_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="Título do serviço" />
+
+        <TextView
+            android:id="@+id/service_description_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:text="Descrição do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico" />
+
+    </LinearLayout>
+
+</io.armcha.elasticview.ElasticView>
