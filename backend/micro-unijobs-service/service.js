@@ -27,7 +27,7 @@ const createService = async (req, res) => {
     {isOffer: body.isOffer},
     {image: body.image},
     {createdBy: jwt.id},
-    body.description && { description }
+    {description: body.description}
   )
 	
 	const newService = new Service(servicesProperties)
