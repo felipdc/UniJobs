@@ -1,21 +1,33 @@
 package com.beesocial.unijobs.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 @SuppressWarnings("serial")
 
 public class User implements Serializable {
 
-    private String ps, id, email, name, image;
+    private String ps, id, email, name, image, phoneNumber, facebook, token;
+    private List<Service> serviceList;
 
-    public User(String id, String email, String name, String image, String ps) {
+    public User(String id, String email, String name, String image, String phoneNumber, String facebook) {
         this.id = id;
         this.email = email;
         this.name = name;
         this.image = image;
-        this.ps = ps;
+        this.phoneNumber = phoneNumber;
+        this.facebook = facebook;
     }
 
+    public User(String id, String email, String name, String image, String phoneNumber, String facebook, List<Service> serviceList) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.image = image;
+        this.phoneNumber = phoneNumber;
+        this.facebook = facebook;
+        this.serviceList = serviceList;
+    }
 
     public String getId() {
         return id;
@@ -57,5 +69,35 @@ public class User implements Serializable {
         this.image = image;
     }
 
+    public String getphoneNumber() {
+        return phoneNumber;
+    }
 
+    public void setphoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
+
+    public List<Service> getServiceList() {
+        return serviceList;
+    }
+
+    public void setServiceList(List<Service> serviceList) {
+        this.serviceList = serviceList;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

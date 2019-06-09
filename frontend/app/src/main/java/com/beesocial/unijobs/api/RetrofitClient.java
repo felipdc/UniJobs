@@ -12,39 +12,62 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
     private static final String BASE_URL = "https://micro-unijobs-user.felipetiagodecarli.now.sh/api/";
+    private static final String BASE_URL2 = "https://micro-unijobs-service.felipetiagodecarli.now.sh/api/";
     private static RetrofitClient mInstance;
     private String AUTH = "";
     private Retrofit retrofit;
 
 
-    private RetrofitClient() {
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(
-                        new Interceptor() {
-                            @Override
-                            public Response intercept(Chain chain) throws IOException {
-                                Request original = chain.request();
+    private RetrofitClient(int i) {
+        if (i == 1) {
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(
+                            new Interceptor() {
+                                @Override
+                                public Response intercept(Chain chain) throws IOException {
+                                    Request original = chain.request();
 
-                                Request.Builder requestBuilder = original.newBuilder()
-                                        .addHeader("Authorization", AUTH)
-                                        .method(original.method(), original.body());
+                                    Request.Builder requestBuilder = original.newBuilder()
+                                            .addHeader("Authorization", AUTH)
+                                            .method(original.method(), original.body());
 
-                                Request request = requestBuilder.build();
-                                return chain.proceed(request);
+                                    Request request = requestBuilder.build();
+                                    return chain.proceed(request);
+                                }
                             }
-                        }
-                ).build();
+                    ).build();
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(okHttpClient)
+                    .build();
+        } else {
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(
+                            new Interceptor() {
+                                @Override
+                                public Response intercept(Chain chain) throws IOException {
+                                    Request original = chain.request();
 
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
-                .build();
+                                    Request.Builder requestBuilder = original.newBuilder()
+                                            .method(original.method(), original.body());
+
+                                    Request request = requestBuilder.build();
+                                    return chain.proceed(request);
+                                }
+                            }
+                    ).build();
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL2)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(okHttpClient)
+                    .build();
+        }
     }
 
-    public static synchronized RetrofitClient getInstance() {
+    public static synchronized RetrofitClient getInstance(int i) {
         if (mInstance == null) {
-            mInstance = new RetrofitClient();
+            mInstance = new RetrofitClient(i);
         }
         return mInstance;
     }
@@ -53,7 +76,4 @@ public class RetrofitClient {
         return retrofit.create(Api.class);
     }
 
-    public void setAuth(String auth) {
-        this.AUTH = auth;
-    }
 }

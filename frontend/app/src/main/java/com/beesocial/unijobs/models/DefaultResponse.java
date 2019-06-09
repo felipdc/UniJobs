@@ -8,6 +8,9 @@ public class DefaultResponse {
     @SerializedName("date")
     @Expose
     private Date date;
+    @SerializedName("facebook")
+    @Expose
+    private String facebook;
     @SerializedName("image")
     @Expose
     private String image;
@@ -26,6 +29,9 @@ public class DefaultResponse {
     @SerializedName("password")
     @Expose
     private String password;
+    @SerializedName("phoneNumber")
+    @Expose
+    private Integer phoneNumber;
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -36,6 +42,14 @@ public class DefaultResponse {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
     public String getImage() {
@@ -84,6 +98,14 @@ public class DefaultResponse {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Integer getV() {

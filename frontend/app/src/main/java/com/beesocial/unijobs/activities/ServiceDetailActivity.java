@@ -1,8 +1,8 @@
 package com.beesocial.unijobs.activities;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,4 +42,6 @@ public class ServiceDetailActivity extends AppCompatActivity {
 
         detailServiceTitleTextView.setText(servico);
     }
+
 }
+

@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         model_obj = new UserLogin(email, password);
 
         Call<LoginResponse> call = RetrofitClient
-                .getInstance().getApi().userLogin(model_obj);
+                .getInstance(1).getApi().userLogin(model_obj);
 
         call.enqueue(new Callback<LoginResponse>() {
 
@@ -103,22 +103,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 try {
                     LoginResponse loginResponse = response.body();
-                    loginResponse.getToken();
+                    loginResponse.setToken(loginResponse.getToken());
                     //Toast.makeText(LoginActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
-
+                    userComplete.setToken(loginResponse.getToken());
                     Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl("https://micro-unijobs-user.felipetiagodecarli.now.sh/api/")
                             .addConverterFactory(GsonConverterFactory.create())
                             .build();
                     Api client = retrofit.create(Api.class);
-                    Call<DefaultResponse> calltargetResponce = client.getUser(loginResponse.getToken());
-                    calltargetResponce.enqueue(new Callback<DefaultResponse>() {
+                    Call<DefaultResponse> calltargetResponse = client.getUser(loginResponse.getToken());
+                    calltargetResponse.enqueue(new Callback<DefaultResponse>() {
                         @Override
-                        public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> responsee) {
+                        public void onResponse(Call<DefaultResponse> calltargetResponse, retrofit2.Response<DefaultResponse> responsee) {
                             DefaultResponse UserResponse = responsee.body();
                             Log.d("respostaLogin", "Login ");
                             Log.d("respostaLogin", UserResponse.getEmail());
-                            userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPassword());
+                            userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
                             Log.d("respostaLogin", userComplete.getEmail());
                             SharedPrefManager.getInstance(LoginActivity.this).saveUser(userComplete);
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -127,7 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
 
                         @Override
-                        public void onFailure(Call<DefaultResponse> calltargetResponce, Throwable t) {
+                        public void onFailure(Call<DefaultResponse> calltargetResponse, Throwable t) {
                             snackbar = Snackbar
                                     .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
                             snackbar.show();

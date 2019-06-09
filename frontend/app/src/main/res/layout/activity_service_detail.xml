@@ -15,7 +15,8 @@
             android:id="@+id/description_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -31,6 +32,7 @@
             android:layout_margin="8dp"
             android:elevation="8dp">
 
+
             <ImageView
                 android:id="@+id/detail_service_image_view"
                 android:layout_width="match_parent"
@@ -43,6 +45,7 @@
                 tools:text="Título do serviço"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:textSize="24sp"
@@ -69,9 +72,9 @@
                 android:id="@+id/detail_service_contact_info"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="8dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Info do usuario"/>
+                android:padding="8dp"
+                android:text="Info do usuario" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
