@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,9 +28,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_margin="8dp"
-            android:elevation="8dp"
-            android:orientation="vertical">
+            android:elevation="8dp">
+
 
             <ImageView
                 android:id="@+id/detail_service_image_view"
@@ -40,23 +42,24 @@
 
             <TextView
                 android:id="@+id/detail_service_title_text_view"
+                tools:text="Título do serviço"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:text="Título do serviço" />
+                android:layout_margin="8dp"/>
 
             <ImageButton
                 android:id="@+id/detail_service_like_button"
+                tools:src="@android:drawable/btn_star_big_on"
+                android:src="@android:drawable/btn_star_big_on"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_margin="8dp"
                 android:padding="8dp"
-                android:src="@android:drawable/btn_star_big_on"
-                tools:src="@android:drawable/btn_star_big_on" />
+                android:layout_margin="8dp"/>
 
             <TextView
                 android:id="@+id/detail_service_description_text_view"

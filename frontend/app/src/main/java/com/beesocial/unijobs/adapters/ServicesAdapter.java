@@ -44,10 +44,14 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
     class ServiceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+
+        private ServicesAdapter adapter;
+
         ImageView serviceImageView;
         TextView serviceTitleTextView;
         TextView serviceDescriptionTextView;
-        private ServicesAdapter adapter;
+
+
 
         public ServiceViewHolder(@NonNull View itemView, ServicesAdapter adapter) {
             super(itemView);
