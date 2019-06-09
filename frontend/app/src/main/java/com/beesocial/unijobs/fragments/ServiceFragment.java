@@ -4,16 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.beesocial.unijobs.R;
-import com.beesocial.unijobs.models.User;
-import com.beesocial.unijobs.storage.SharedPrefManager;
-import com.beesocial.unijobs.viewmodels.PageViewModel;
+import com.beesocial.unijobs.adapters.ServicesAdapter;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -22,7 +20,9 @@ public class ServiceFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private PageViewModel pageViewModel;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter servicesAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     public static ServiceFragment newInstance(int index) {
         ServiceFragment fragment = new ServiceFragment();
@@ -35,12 +35,17 @@ public class ServiceFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
-        int index = 1;
-        if (getArguments() != null) {
-            index = getArguments().getInt(ARG_SECTION_NUMBER);
+
+        int tipoServico = getArguments().getInt(ARG_SECTION_NUMBER);
+        if (tipoServico == 1) {
+            // Fazer requisicao para servicos oferecidos
+            servicesAdapter = new ServicesAdapter(getContext(), new String[]{"Ofereco 1", "Ofereco 2", "Ofereco 3", "Ofereco 4", "Ofereco 5"});
+        } else if (tipoServico == 2) {
+            // Fazer requisicao para servicos oferecidos
+            servicesAdapter = new ServicesAdapter(getContext(), new String[]{"Demando 1", "Demando 2", "Demando 3", "Demando 4"});
         }
-        pageViewModel.setIndex(index);
+
+        layoutManager = new LinearLayoutManager(getActivity());
     }
 
     @Override
@@ -48,16 +53,9 @@ public class ServiceFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_service, container, false);
-        final TextView textView = root.findViewById(R.id.section_label);
-
-        /*pageViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
-        User user = SharedPrefManager.getInstance(getActivity()).getUser();
-        textView.setText(user.getFacebook());
+        recyclerView = root.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(servicesAdapter);
 
         return root;
     }

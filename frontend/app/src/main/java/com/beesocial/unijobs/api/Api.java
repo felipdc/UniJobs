@@ -2,9 +2,12 @@ package com.beesocial.unijobs.api;
 
 import com.beesocial.unijobs.models.DefaultResponse;
 import com.beesocial.unijobs.models.LoginResponse;
+import com.beesocial.unijobs.models.ServiceResponse;
 import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.models.UserRegister;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -42,5 +45,11 @@ public interface Api {
 
     @DELETE("user")
     Call<DefaultResponse> deleteUser(@Path("id") int id);
+
+    @GET("service?isOffer=true")
+    Call<List<ServiceResponse>> getServiceOfferTrue();
+
+    @GET("service?isOffer=false")
+    Call<List<ServiceResponse>> getServiceOfferFalse();
 
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/description_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:elevation="8dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/detail_service_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:contentDescription="@string/content_description_imagem_servico"
+                android:src="@android:mipmap/sym_def_app_icon" />
+
+            <TextView
+                android:id="@+id/detail_service_title_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="Título do serviço" />
+
+            <ImageButton
+                android:id="@+id/detail_service_like_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:src="@android:drawable/btn_star_big_on"
+                tools:src="@android:drawable/btn_star_big_on" />
+
+            <TextView
+                android:id="@+id/detail_service_description_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:padding="8dp"
+                android:text="Descrição do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico" />
+
+            <TextView
+                android:id="@+id/detail_service_contact_info"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="Info do usuario" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

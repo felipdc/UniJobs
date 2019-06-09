@@ -7,7 +7,7 @@ import java.util.List;
 
 public class User implements Serializable {
 
-    private String ps, id, email, name, image, phoneNumber, facebook;
+    private String ps, id, email, name, image, phoneNumber, facebook, token;
     private List<Service> serviceList;
 
     public User(String id, String email, String name, String image, String phoneNumber, String facebook) {
@@ -93,5 +93,11 @@ public class User implements Serializable {
         this.serviceList = serviceList;
     }
 
+    public String getToken() {
+        return token;
+    }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

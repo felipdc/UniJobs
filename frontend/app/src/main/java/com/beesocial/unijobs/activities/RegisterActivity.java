@@ -148,7 +148,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         userLogin = new UserLogin(email, password);
 
         Call<DefaultResponse> call = RetrofitClient
-                .getInstance().getApi().createUser(userRegister);
+                .getInstance(1).getApi().createUser(userRegister);
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
@@ -159,12 +159,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
                     Call<LoginResponse> call2 = RetrofitClient
-                            .getInstance().getApi().userLogin(userLogin);
+                            .getInstance(1).getApi().userLogin(userLogin);
                     call2.enqueue(new Callback<LoginResponse>() {
                         @Override
                         public void onResponse(Call<LoginResponse> call2, Response<LoginResponse> response2) {
-                            LoginResponse loginResponse = response2.body();
-
+                            final LoginResponse loginResponse = response2.body();
                             //Toast.makeText(RegisterActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
 
                             Retrofit retrofit = new Retrofit.Builder()
@@ -173,13 +172,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     .build();
 
                             Api client = retrofit.create(Api.class);
+
                             Call<DefaultResponse> calltargetResponce = client.getUser(loginResponse.getToken());
                             calltargetResponce.enqueue(new Callback<DefaultResponse>() {
                                 @Override
                                 public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> response3) {
                                     DefaultResponse UserResponse = response3.body();
                                     userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
-
+                                    userComplete.setToken(loginResponse.getToken());
                                     SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
 
                                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
