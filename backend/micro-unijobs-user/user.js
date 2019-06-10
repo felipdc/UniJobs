@@ -13,13 +13,14 @@ const User = require('./models/User')
 
 const db = connectWithDB()
 
-const beforeAll = (req) => {
+const beforeAll = async (req) => {
   console.log('[METHOD]')
   console.log(req.method)
   console.log('[HEADER]')
   console.log(req.headers)
   console.log('[BODY]')
-  console.log(req.body)
+  const body = await json(req)
+  console.log(body)
 }
 
 const hashPassword = async (pass) => {
