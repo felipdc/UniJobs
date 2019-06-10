@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.activities.ServiceDetailActivity;
+import com.beesocial.unijobs.storage.SharedPrefManager;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
@@ -44,14 +45,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
     class ServiceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-
         private ServicesAdapter adapter;
 
         ImageView serviceImageView;
         TextView serviceTitleTextView;
         TextView serviceDescriptionTextView;
-
-
 
         public ServiceViewHolder(@NonNull View itemView, ServicesAdapter adapter) {
             super(itemView);
@@ -67,11 +65,14 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
         @Override
         public void onClick(View v) {
-            String current = dataset[getAdapterPosition()];
 
-            Intent intent = new Intent(context, ServiceDetailActivity.class);
-            intent.putExtra("service_title", current);
-            context.startActivity(intent);
+            if (SharedPrefManager.getInstance(context).isLoggedIn()) {
+                String current = dataset[getAdapterPosition()];
+
+                Intent intent = new Intent(context, ServiceDetailActivity.class);
+                intent.putExtra("service_title", current);
+                context.startActivity(intent);
+            }
         }
     }
 }
