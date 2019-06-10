@@ -19,7 +19,7 @@ module.exports = cors(
  		  get(`${BASE_URI}/service`, getService),
       del(`${BASE_URI}/service`, deleteService),
       patch(`${BASE_URI}/service`, updateService),
-      post(`${BASE_URI}/service`, likeService),
+      post(`${BASE_URI}/service/like`, likeService),
       get('/*', notFoundError),
       post('/*', notFoundError),
       patch('/*', notFoundError),
