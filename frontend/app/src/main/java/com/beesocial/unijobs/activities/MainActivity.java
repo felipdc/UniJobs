@@ -14,7 +14,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.SectionsPagerAdapter;
-import com.beesocial.unijobs.api.RetrofitClient;
 import com.beesocial.unijobs.models.ServiceResponse;
 import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.storage.SharedPrefManager;
@@ -26,9 +25,6 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     CircleImageView imageProfile;
@@ -70,35 +66,13 @@ public class MainActivity extends AppCompatActivity {
 
         user = SharedPrefManager.getInstance(this).getUser();
         Handler handler = new Handler();
-        callBackend(1);
-        /*stringBuilder.append("Olá ");
+                /*stringBuilder.append("Olá ");
         stringBuilder.append(user.getName());
         nav_nome.setTitle(stringBuilder);*/
         handler.removeCallbacksAndMessages(null);
     }
 
-    private void callBackend(int index) {
-        Call<List<ServiceResponse>> call;
-        if (index == 1) {
-            call = RetrofitClient
-                    .getInstance(2).getApi().getServiceOfferTrue();
-        } else {
-            call = RetrofitClient
-                    .getInstance(2).getApi().getServiceOfferFalse();
-        }
-        call.enqueue(new Callback<List<ServiceResponse>>() {
 
-            @Override
-            public void onResponse(Call<List<ServiceResponse>> call, Response<List<ServiceResponse>> response) {
-                responseVector = response.body();
-            }
-
-            @Override
-            public void onFailure(Call<List<ServiceResponse>> call, Throwable t) {
-                responseVector.get(1).setId(t.getMessage());
-            }
-        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -124,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
             action_profile.setActionView(imageProfile);
         }
-
         return true;
     }
 
