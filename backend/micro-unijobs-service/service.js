@@ -17,11 +17,13 @@ const beforeAll = async (req) => {
   console.log(req.method)
   console.log('[HEADER]')
   console.log(req.headers)
-  console.log('[BODY]')
-  const body = await json(req)
-  console.log(body)
+  if (req.method !== 'GET')  {
+    console.log('[BODY]')
+    const body = await json(req)
+    console.log(body)
+  }
 }
-
+  
 const createService = async (req, res) => {
   beforeAll(req)
 
@@ -157,9 +159,56 @@ const deleteService = async (req, res) => {
 	return serviceToDelete
 }
 
+const likeService = async (req, res) => {
+	const jwt = await getJwtAuth(req, res)
+	const body = await json(req)
+
+	if (!isUser(jwt)) throw createError(403, 'You have to be an user to proceed with this action')
+
+	var throwDoubleLike = () => {
+		throw createError(400, "Bad request. User has already liked this service")
+	}
+
+  const serviceId = body.id
+
+  const service = await Service.findOne({ _id: serviceId })
+
+  console.log(service)
+
+  const likedBy = service.likedBy
+
+  if (likedBy.length !== 0) {
+    const alreadyLiked = likedBy.find((userId) => {
+      return userId === jwt.id
+    })
+
+    if (alreadyLiked) throwDoubleLike()
+  }
+
+  likedBy.push(jwt.id)
+
+	var setLikeOnDb = async () => {
+		const toUpdate = {likedBy}
+
+		const updatedReq = await Service.findOneAndUpdate(
+			{ _id: serviceId },
+			toUpdate,
+			(err, service) => {
+	    if (err) throw createError(500, 'Could not update service on db')
+	    console.log(`Sucessfully updated service with id = ${serviceId}`)
+	    return service
+		})
+ 	}
+
+	await setLikeOnDb()
+
+  return likedBy
+}
+
 module.exports = {
 	createService,
 	getService,
 	deleteService,
-	updateService
+	updateService,
+	likeService
 }

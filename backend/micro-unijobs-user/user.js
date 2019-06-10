@@ -18,9 +18,11 @@ const beforeAll = async (req) => {
   console.log(req.method)
   console.log('[HEADER]')
   console.log(req.headers)
-  console.log('[BODY]')
-  const body = await json(req)
-  console.log(body)
+  if (req.method !== 'GET')  {
+    console.log('[BODY]')
+    const body = await json(req)
+    console.log(body)
+  }
 }
 
 const hashPassword = async (pass) => {
@@ -101,17 +103,29 @@ const createAdmin = async (req, res) => {
 const getUser = async (req, res) => {
   beforeAll(req)
 
-  const jwt = await getJwtAuth(req, res)
+  const queryString = await req.query
 
-	if (!isUser(jwt) &&	 !isAdmin(jwt)) throw createError(403, 'Forbidden')
+  const userId = queryString.id
 
-	const user = await User.findById(jwt.id, (err, user) => {
-	    if (err) throw createError(500, 'Could not retrieve user from db')
-	    return user
-	})
+  if (userId) {
+  	const user = await User.findById(userId, (err, user) => {
+      if (err) throw createError(500, 'Could not retrieve user from db')
+      return user
+  	})
 
-	return user
+    if (!user) throw createError(404, 'User not found')
 
+    return user
+  } else {
+    const jwt = await getJwtAuth(req, res)
+
+    const user = await User.findById(jwt.id, (err, user) => {
+      if (err) throw createError(500, 'Could not retrieve user from db')
+      return user
+    })
+
+    return user
+  }
 }
 
 const patchUser = async (req, res) => {

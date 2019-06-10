@@ -10,7 +10,7 @@ const userSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   },
-  phoneNumber: Number,
+  phoneNumber: String,
   facebook: { type: String, default: null },
   image: { type: String, default: null },
   auth: { type: Number, default: auth.user }
