@@ -16,7 +16,7 @@ module.exports = cors(
   handleErrors(
     router(
     	post(`${BASE_URI}/service`, createService),
- 			get(`${BASE_URI}/service`, getService),
+ 		  get(`${BASE_URI}/service`, getService),
       del(`${BASE_URI}/service`, deleteService),
       patch(`${BASE_URI}/service`, updateService),
       post(`${BASE_URI}/service`, likeService),

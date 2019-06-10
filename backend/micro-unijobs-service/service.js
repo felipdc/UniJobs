@@ -12,12 +12,24 @@ const Service = require('./models/Service')
 
 const db = connectWithDB()
 
+const beforeAll = async (req) => {
+  console.log('[METHOD]')
+  console.log(req.method)
+  console.log('[HEADER]')
+  console.log(req.headers)
+  console.log('[BODY]')
+  const body = await json(req)
+  console.log(body)
+}
+
 const createService = async (req, res) => {
+  beforeAll(req)
+
 	const body = await json(req)
 
 	const jwt = await getJwtAuth(req, res)
 
-	if (!body.name || !body.location || !body.isOffer) throw createError(400, 'Bad params. Service name, location and isOffer is required')
+	if (!body.name || !body.location || body.isOffer === undefined) throw createError(400, 'Bad params. Service name, location and isOffer is required')
 
 	if (!isUser(jwt) && !isAdmin(jwt)) throw createError(403, 'Forbidden. Only users and admins can create services')
 
@@ -25,8 +37,9 @@ const createService = async (req, res) => {
     {name: body.name},
     {location: body.location},
     {isOffer: body.isOffer},
+    {image: body.image},
     {createdBy: jwt.id},
-    body.description && { description }
+    {description: body.description}
   )
 	
 	const newService = new Service(servicesProperties)
@@ -39,42 +52,49 @@ const createService = async (req, res) => {
 }
 
 const getService = async (req, res) => {
+  beforeAll(req)
 
 	const queryString = await req.query
 
 	const id = queryString.id
 
+  console.log(id)
+
 	const isOffer = queryString.isOffer
 
-	if (isOffer === undefined) throw createError(400, 'Bad params. isOffer querystring is required')
-
-	const jwt = await getJwtAuth(req, res)
-
-	if (!isAdmin(jwt) && !isUser(jwt)) throw createError(403, 'Forbidden. Only users can see services')
-
-	// If id was not send in request, return all services
-
+  // Return all types of services
 	if (!id) {
-		const servicesArr = await Service.find({ isOffer }, (err, services) => {
-			if (err) throw createError(500, 'Could not retrieve services from db')
-			return services
-		})
-
-		return servicesArr
-	} else {
-	  const service = await Service.findById(id, (err, service) => {
-	    if (err) throw createError(500, 'Could not retrieve service from db')
-	    return service
-	  })
-
-	  return service
-	}
+    if (isOffer) {
+      const servicesArr = await Service.find({ isOffer }, (err, services) => {
+        if (err) throw createError(500, 'Could not retrieve services from db')
+        return services
+      })
+      return servicesArr
+    } else {
+      const servicesArr = await Service.find({ }, (err, services) => {
+        if (err) throw createError(500, 'Could not retrieve services from db')
+        return services
+      })
+      return servicesArr
+    }
+  }
+  // Return specific service if id is sent
+  if (id) {
+    const service = await Service.findById(id, (err, service) => {
+      if (err) throw createError(500, 'Could not retrieve service from db')
+      return service
+    })
+    if (!service) throw createError(404, 'Service not found')
+    return service
+  }
 }
 
 const updateService = async (req, res) => {
+  beforeAll(req)
+
 	const jwt = await getJwtAuth(req, res)
 
-	const { id, name, description, isOffer, location, active } = await json(req)
+	const { id, name, description, image, isOffer, location, active } = await json(req)
 
 	if (!id) throw createError(400, 'Bad params. Service id is required')
 
@@ -93,6 +113,7 @@ const updateService = async (req, res) => {
 	 	name && { name },
     description && { description },
     isOffer && { isOffer },
+    image  && { image },
     location && { location },
     active === undefined ? null : { active }
   )
@@ -110,6 +131,8 @@ const updateService = async (req, res) => {
 }
 
 const deleteService = async (req, res) => {
+  beforeAll(req)
+
 	const jwt = await getJwtAuth(req, res)
 
 	if (!isAdmin(jwt) && !isSystem(jwt)) throw createError(403, 'Forbidden. Only system and admin can delete services')
