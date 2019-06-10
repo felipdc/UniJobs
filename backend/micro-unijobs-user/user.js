@@ -13,11 +13,17 @@ const User = require('./models/User')
 
 const db = connectWithDB()
 
+const beforeAll = (req) => {
+  console.log(req)
+}
+
 const hashPassword = async (pass) => {
   return bcrypt.hash(pass, 10)
 }
 
 const createUser = async (req, res) => {
+  beforeAll(req)
+
   const { email, password, name, phoneNumber, facebook, image } = await json(req)
 
   if (!email || !password || !name || !phoneNumber || !image) throw createError(400, 'Email, password, name and phoneNumber is required')
@@ -50,6 +56,9 @@ const createUser = async (req, res) => {
 }
 
 const createAdmin = async (req, res) => {
+
+  beforeAll(req)
+
 	const { email, password, name } = await json(req)
 
 	const jwt = await getJwtAuth(req, res)
@@ -84,6 +93,7 @@ const createAdmin = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
+  beforeAll(req)
 
   const jwt = await getJwtAuth(req, res)
 
@@ -99,6 +109,8 @@ const getUser = async (req, res) => {
 }
 
 const patchUser = async (req, res) => {
+  beforeAll(req)
+
   const { id, password, image, name, phoneNumber, facebook } = await json(req)
 
   const jwt = await getJwtAuth(req, res)
@@ -139,6 +151,8 @@ const patchUser = async (req, res) => {
 }
 
 const deleteUser = async (req, res) => {
+  beforeAll(req)
+  
   const { id } = await json(req)
 
   if (!id) throw createError(400, 'Id is required')

@@ -12,7 +12,13 @@ const Service = require('./models/Service')
 
 const db = connectWithDB()
 
+const beforeAll = (req) => {
+  console.log(req)
+}
+
 const createService = async (req, res) => {
+  beforeAll(req)
+
 	const body = await json(req)
 
 	const jwt = await getJwtAuth(req, res)
@@ -40,6 +46,7 @@ const createService = async (req, res) => {
 }
 
 const getService = async (req, res) => {
+  beforeAll(req)
 
 	const queryString = await req.query
 
@@ -77,6 +84,8 @@ const getService = async (req, res) => {
 }
 
 const updateService = async (req, res) => {
+  beforeAll(req)
+
 	const jwt = await getJwtAuth(req, res)
 
 	const { id, name, description, image, isOffer, location, active } = await json(req)
@@ -116,6 +125,8 @@ const updateService = async (req, res) => {
 }
 
 const deleteService = async (req, res) => {
+  beforeAll(req)
+
 	const jwt = await getJwtAuth(req, res)
 
 	if (!isAdmin(jwt) && !isSystem(jwt)) throw createError(403, 'Forbidden. Only system and admin can delete services')
