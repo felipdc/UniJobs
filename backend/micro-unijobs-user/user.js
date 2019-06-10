@@ -14,7 +14,12 @@ const User = require('./models/User')
 const db = connectWithDB()
 
 const beforeAll = (req) => {
-  console.log(req)
+  console.log('[METHOD]')
+  console.log(req.method)
+  console.log('[HEADER]')
+  console.log(req.headers)
+  console.log('[BODY]')
+  console.log(req.body)
 }
 
 const hashPassword = async (pass) => {
@@ -152,7 +157,7 @@ const patchUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   beforeAll(req)
-  
+
   const { id } = await json(req)
 
   if (!id) throw createError(400, 'Id is required')

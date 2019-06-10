@@ -13,7 +13,12 @@ const Service = require('./models/Service')
 const db = connectWithDB()
 
 const beforeAll = (req) => {
-  console.log(req)
+  console.log('[METHOD]')
+  console.log(req.method)
+  console.log('[HEADER]')
+  console.log(req.headers)
+  console.log('[BODY]')
+  console.log(req.body)
 }
 
 const createService = async (req, res) => {
