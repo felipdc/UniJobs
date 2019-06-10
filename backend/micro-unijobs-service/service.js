@@ -17,9 +17,11 @@ const beforeAll = async (req) => {
   console.log(req.method)
   console.log('[HEADER]')
   console.log(req.headers)
-  console.log('[BODY]')
-  const body = await json(req)
-  console.log(body)
+  if (req.method !== 'GET')  {
+    console.log('[BODY]')
+    const body = await json(req)
+    console.log(body)
+  }
 }
   
 const createService = async (req, res) => {
