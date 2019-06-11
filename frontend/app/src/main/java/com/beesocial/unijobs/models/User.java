@@ -8,7 +8,7 @@ import java.util.List;
 public class User implements Serializable {
 
     private String ps, id, email, name, image, phoneNumber, facebook, token;
-    private List<Service> serviceList;
+    private List<ServiceResponse> serviceList;
 
     public User(String id, String email, String name, String image, String phoneNumber, String facebook) {
         this.id = id;
@@ -19,7 +19,7 @@ public class User implements Serializable {
         this.facebook = facebook;
     }
 
-    public User(String id, String email, String name, String image, String phoneNumber, String facebook, List<Service> serviceList) {
+    public User(String id, String email, String name, String image, String phoneNumber, String facebook, List<ServiceResponse> serviceList) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -85,11 +85,11 @@ public class User implements Serializable {
         this.facebook = facebook;
     }
 
-    public List<Service> getServiceList() {
+    public List<ServiceResponse> getServiceList() {
         return serviceList;
     }
 
-    public void setServiceList(List<Service> serviceList) {
+    public void setServiceList(List<ServiceResponse> serviceList) {
         this.serviceList = serviceList;
     }
 

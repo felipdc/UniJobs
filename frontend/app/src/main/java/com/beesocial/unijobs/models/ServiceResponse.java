@@ -12,7 +12,7 @@ public class ServiceResponse {
     private Date date;
     @SerializedName("likedBy")
     @Expose
-    private List<String> likedBy = null;
+    private List<Object> likedBy = null;
     @SerializedName("active")
     @Expose
     private Boolean active;
@@ -28,9 +28,15 @@ public class ServiceResponse {
     @SerializedName("isOffer")
     @Expose
     private Boolean isOffer;
+    @SerializedName("image")
+    @Expose
+    private String image;
     @SerializedName("createdBy")
     @Expose
     private String createdBy;
+    @SerializedName("description")
+    @Expose
+    private String description;
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -43,11 +49,11 @@ public class ServiceResponse {
         this.date = date;
     }
 
-    public List<String> getLikedBy() {
+    public List<Object> getLikedBy() {
         return likedBy;
     }
 
-    public void setLikedBy(List<String> likedBy) {
+    public void setLikedBy(List<Object> likedBy) {
         this.likedBy = likedBy;
     }
 
@@ -91,12 +97,28 @@ public class ServiceResponse {
         this.isOffer = isOffer;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getCreatedBy() {
         return createdBy;
     }
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getV() {
@@ -106,5 +128,4 @@ public class ServiceResponse {
     public void setV(Integer v) {
         this.v = v;
     }
-
 }

@@ -3,7 +3,13 @@ package com.beesocial.unijobs.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.beesocial.unijobs.models.ServiceResponse;
 import com.beesocial.unijobs.models.User;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 public class SharedPrefManager {
 
@@ -24,6 +30,46 @@ public class SharedPrefManager {
         return mInstance;
     }
 
+    public <ServiceResponse> void setList(String key, List<ServiceResponse> list) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+
+        editor.putString(key, json);
+        editor.apply();
+
+    }
+
+    public List<ServiceResponse> returnList(String key) {
+        List<ServiceResponse> arrayItems;
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        String serializedObject = sharedPreferences.getString(key, null);
+        if (serializedObject != null) {
+            Gson gson = new Gson();
+            Type type = new TypeToken<List<ServiceResponse>>() {
+            }.getType();
+            arrayItems = gson.fromJson(serializedObject, type);
+        } else {
+            arrayItems = null;
+        }
+        return arrayItems;
+    }
+
+    public void saveTab(int Int) {
+
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("tab", Int);
+        editor.apply();
+
+    }
+
+    public int getTab() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return Integer.valueOf(sharedPreferences.getInt("tab", 1));
+    }
 
     public void saveUser(User user) {
 

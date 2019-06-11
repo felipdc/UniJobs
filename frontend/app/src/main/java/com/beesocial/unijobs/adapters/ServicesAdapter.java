@@ -2,6 +2,9 @@ package com.beesocial.unijobs.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +20,13 @@ import com.beesocial.unijobs.storage.SharedPrefManager;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
-    private String[] dataset;
+    private String[] names, desc, img;
     private Context context;
 
-    public ServicesAdapter(Context context, String[] dataset) {
-        this.dataset = dataset;
+    public ServicesAdapter(Context context, String[] names, String[] desc, String[] img) {
+        this.names = names;
+        this.desc = desc;
+        this.img = img;
         this.context = context;
     }
 
@@ -35,12 +40,20 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
     @Override
     public void onBindViewHolder(@NonNull ServiceViewHolder holder, int position) {
-        holder.serviceTitleTextView.setText(dataset[position]);
+        holder.serviceTitleTextView.setText(names[position]);
+        holder.serviceDescriptionTextView.setText(desc[position]);
+        String encodedImage = img[position];
+        if (encodedImage != null) {
+            final String pureBase64Encoded = encodedImage.substring(encodedImage.indexOf(",") + 1);
+            final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+            holder.serviceImageView.setImageBitmap(bitmap);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return dataset.length;
+        return names.length;
     }
 
     class ServiceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -65,14 +78,17 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
         @Override
         public void onClick(View v) {
-
-            if (SharedPrefManager.getInstance(context).isLoggedIn()) {
-                String current = dataset[getAdapterPosition()];
-
-                Intent intent = new Intent(context, ServiceDetailActivity.class);
-                intent.putExtra("service_title", current);
-                context.startActivity(intent);
+            String currentName = names[getAdapterPosition()];
+            String currentDesc = desc[getAdapterPosition()];
+            String currentImg = img[getAdapterPosition()];
+            Intent intent = new Intent(context, ServiceDetailActivity.class);
+            intent.putExtra("service_title", currentName);
+            intent.putExtra("service_desc", currentDesc);
+            if (currentImg != null) {
+                final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
+                intent.putExtra("service_img", pureBase64Encoded);
             }
+            context.startActivity(intent);
         }
     }
 }

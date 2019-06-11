@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.SectionsPagerAdapter;
+import com.beesocial.unijobs.models.ServiceResponse;
 import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
@@ -46,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (SharedPrefManager.getInstance(getBaseContext()).isLoggedIn()){
+//                if (SharedPrefManager.getInstance(getBaseContext()).isLoggedIn()){
                     Intent intent = new Intent(getBaseContext(), RegisterServiceActivity.class);
                     startActivity(intent);
-                }
+//                }
             }
         });
 
@@ -63,11 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
         user = SharedPrefManager.getInstance(this).getUser();
         Handler handler = new Handler();
-        /*stringBuilder.append("Olá ");
+                /*stringBuilder.append("Olá ");
         stringBuilder.append(user.getName());
         nav_nome.setTitle(stringBuilder);*/
         handler.removeCallbacksAndMessages(null);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
             action_profile.setActionView(imageProfile);
         }
-
         return true;
     }
 

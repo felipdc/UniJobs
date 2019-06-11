@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.astritveliu.boom.Boom;
 import com.beesocial.unijobs.R;
-import com.beesocial.unijobs.api.Api;
-import com.beesocial.unijobs.api.RetrofitClient;
 import com.beesocial.unijobs.models.CheckNetwork;
 import com.beesocial.unijobs.models.DefaultResponse;
 import com.beesocial.unijobs.models.LoginResponse;
@@ -29,27 +26,24 @@ import com.fxn.pix.Options;
 import com.fxn.pix.Pix;
 import com.fxn.utility.ImageQuality;
 import com.google.android.material.snackbar.Snackbar;
+import com.infideap.atomic.Atom;
+import com.infideap.atomic.FutureCallback;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import okhttp3.Headers;
 
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    UserRegister userRegister;
-    UserLogin userLogin;
+
     User userComplete;
     CheckNetwork checkNetwork;
     Snackbar snackbar;
     ArrayList<String> returnValue;
     Bitmap bitmap;
-    String encodedImage;
+    String encodedImage = null;
     private EditText editTextEmail, editTextPassword, editTextName, editTextPhone, editTextFacebook;
     private CircleImageView profile;
 
@@ -62,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextName = findViewById(R.id.editTextName);
         profile = findViewById(R.id.imageProfileLogin);
-        editTextPhone = findViewById(R.id.editTextPassword);
+        editTextPhone = findViewById(R.id.editTextPhone);
         editTextFacebook = findViewById(R.id.editTextFacebook);
 
         Button button = findViewById(R.id.buttonSignUp);
@@ -141,98 +135,194 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //chamada para criar o usuario
         callBackend(v, email, name, password, facebook, phoneNumber);
+        //callBackend2(v, email, name, password, facebook, phoneNumber);
     }
 
     private void callBackend(final View v, String email, String name, String password, String facebook, String phoneNumber) {
-        userRegister = new UserRegister(email, name, encodedImage, phoneNumber, facebook, password);
-        userLogin = new UserLogin(email, password);
+        UserRegister userRegister = new UserRegister(email, name, encodedImage, facebook, password, phoneNumber);
+        final UserLogin userLogin = new UserLogin(email, password);
 
-        Call<DefaultResponse> call = RetrofitClient
-                .getInstance(1).getApi().createUser(userRegister);
-        call.enqueue(new Callback<DefaultResponse>() {
-            @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                try {
-                    DefaultResponse defaultResponse = response.body();
+        Atom.with(RegisterActivity.this)
+                .load("https://micro-unijobs.now.sh/api/user", Atom.POST_METHOD)
+                .setJsonPojoBody(userRegister)
+                //.setBody(requestString) //Plain String
+                .as(DefaultResponse.class)
+                .setCallback(new FutureCallback<DefaultResponse>() {
+                    @Override
+                    public void onCompleted(Exception e, DefaultResponse result) {
 
-                    defaultResponse.getEmail(); // linha que checa se a resposta tem os campos certos, se nao tiver, cai no catch e dai verifica o porque de ter dado errado
+                        Atom.with(RegisterActivity.this)
+                                .load("https://micro-unijobs.now.sh/api/auth/user", Atom.POST_METHOD)
+                                .setJsonPojoBody(userLogin)
+                                //.setBody(requestString) //Plain String
+                                .as(LoginResponse.class)
+                                .setCallback(new FutureCallback<LoginResponse>() {
+
+                                    @Override
+                                    public void onCompleted(Exception e, LoginResponse result) {
+
+                                        Headers.Builder a = new Headers.Builder();
+                                        String foi = "Bearer " + result.getToken();
+                                        a.add("Authorization", foi);
 
 
-                    Call<LoginResponse> call2 = RetrofitClient
-                            .getInstance(1).getApi().userLogin(userLogin);
-                    call2.enqueue(new Callback<LoginResponse>() {
-                        @Override
-                        public void onResponse(Call<LoginResponse> call2, Response<LoginResponse> response2) {
-                            final LoginResponse loginResponse = response2.body();
-                            //Toast.makeText(RegisterActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
+                                        Atom.with(RegisterActivity.this)
+                                                .load("https://micro-unijobs.now.sh/api/user")
+                                                .setHeader(a.build())
+                                                .as(DefaultResponse.class)
+                                                .setCallback(new FutureCallback<DefaultResponse>() {
+                                                    @Override
+                                                    public void onCompleted(Exception e, DefaultResponse result) {
+                                                        System.out.println("caralho foi filha da puta");
+                                                        SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
+                                                        userComplete = new User(result.getId(), result.getEmail(), result.getName(), result.getImage(), result.getPhoneNumber(), result.getFacebook());
+                                                        //Log.d("respostaLogin", userComplete.getEmail());
+                                                        SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
 
-                            Retrofit retrofit = new Retrofit.Builder()
-                                    .baseUrl("https://micro-unijobs-user.felipetiagodecarli.now.sh/api/")
-                                    .addConverterFactory(GsonConverterFactory.create())
-                                    .build();
-
-                            Api client = retrofit.create(Api.class);
-
-                            Call<DefaultResponse> calltargetResponce = client.getUser(loginResponse.getToken());
-                            calltargetResponce.enqueue(new Callback<DefaultResponse>() {
-                                @Override
-                                public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> response3) {
-                                    DefaultResponse UserResponse = response3.body();
-                                    userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
-                                    userComplete.setToken(loginResponse.getToken());
-                                    SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
-
-                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onFailure(Call<DefaultResponse> calltargetResponce, Throwable t) {
-                                    snackbar = Snackbar
-                                            .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                                    snackbar.show();
-                                    Log.d("erroUnijobs", t.getMessage());
-                                }
-                            });
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<LoginResponse> call2, Throwable t) {
-                            snackbar = Snackbar
-                                    .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                            Log.d("erroUnijobs", t.getMessage());
-                        }
-                    });
-                } catch (Exception e) {
-                    checkNetwork = new CheckNetwork();
-                    if (checkNetwork.haveNetworkConnection(RegisterActivity.this)) {
-                        if (response.code() == 403) {
-                            snackbar = Snackbar
-                                    .make(v, "Email já cadastrado", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        }
-                    } else {
-                        snackbar = Snackbar
-                                .make(v, "Sem conexão com a internet", Snackbar.LENGTH_LONG);
-                        snackbar.show();
+                                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                        startActivity(intent);
+                                                    }
+                                                });
+                                    }
+                                });
                     }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                snackbar = Snackbar
-                        .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                snackbar.show();
-                Log.d("erroUnijobs", t.getMessage());
-            }
-        });
-
+                });
     }
 
+    /*private void callBackend2(final View v, String email, String name, String password, String facebook, String phoneNumber) {
+        UserRegister userRegister = new UserRegister(email, name, encodedImage, facebook, password, phoneNumber);
+        //userLogin = new UserLogin(email, password);
+        DownZ
+                .from(this) //context
+                .load(DownZ.Method.POST, "https://micro-unijobs.now.sh/api/user")
+                .asJsonObject()    //asJsonArray() or asJsonObject() or asXml() can be used depending on need
+                .setCallback(new HttpListener<JSONObject>() {
+                    @Override
+                    public void onRequest() {
+                        //System.out.println("bla-bla");
+                        //On Beginning of request
+
+                    }
+
+                    @Override
+                    public void onResponse(JSONObject data) {
+                        if (data != null) {
+                            String dataString = data.toString();
+                            Gson gson = new Gson();
+                            DefaultResponse response = gson.fromJson(dataString, DefaultResponse.class);
+
+                        }
+                    }
+
+                    @Override
+                    public void onError() {
+                        //System.out.println("bla-bla");
+                        //do something when there is an error
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        //System.out.println("bla-bla");
+                        //do something when request cancelled
+
+                    }
+                });
+    }*/
+
+    /*
+        private void callBackend(final View v, String email, String name, String password, String facebook, String phoneNumber) {
+            userRegister = new UserRegister(email, name, password, phoneNumber, encodedImage, facebook);
+            userLogin = new UserLogin(email, password);
+
+            Call<DefaultResponse> call = RetrofitClient
+                    .createInstance(3).getApi().createUser(userRegister);
+            call.enqueue(new Callback<DefaultResponse>() {
+                @Override
+                public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                    try {
+                        DefaultResponse defaultResponse = response.body();
+
+                        String s=defaultResponse.getEmail(); // linhas que checam se a resposta tem os campos certos, se nao tiver, cai no catch e dai verifica o porque de ter dado errado
+                        s.length();
+
+                        Call<LoginResponse> call2 = RetrofitClient
+                                .getInstance(1).getApi().userLogin(userLogin);
+                        call2.enqueue(new Callback<LoginResponse>() {
+                            @Override
+                            public void onResponse(Call<LoginResponse> call2, Response<LoginResponse> response2) {
+                                final LoginResponse loginResponse = response2.body();
+                                //Toast.makeText(RegisterActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
+
+                                Retrofit retrofit = new Retrofit.Builder()
+                                        .baseUrl("https://micro-unijobs-user.felipetiagodecarli.now.sh/api/")
+                                        .addConverterFactory(GsonConverterFactory.create())
+                                        .build();
+
+                                Api client = retrofit.create(Api.class);
+
+                                Call<DefaultResponse> calltargetResponce = client.getUser(loginResponse.getToken());
+
+                                calltargetResponce.enqueue(new Callback<DefaultResponse>() {
+                                    @Override
+                                    public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> response3) {
+                                        DefaultResponse UserResponse = response3.body();
+                                        userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
+                                        userComplete.setToken(loginResponse.getToken());
+                                        SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
+
+                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<DefaultResponse> calltargetResponce, Throwable t) {
+                                        snackbar = Snackbar
+                                                .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
+                                        snackbar.show();
+                                        Log.d("erroUnijobs", t.getMessage());
+                                    }
+                                });
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<LoginResponse> call2, Throwable t) {
+                                snackbar = Snackbar
+                                        .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
+                                snackbar.show();
+                                Log.d("erroUnijobs", t.getMessage());
+                            }
+                        });
+                    } catch (Exception e) {
+                        checkNetwork = new CheckNetwork();
+                        if (checkNetwork.haveNetworkConnection(RegisterActivity.this)) {
+                            if (response.code() == 403) {
+                                snackbar = Snackbar
+                                        .make(v, "Email já cadastrado", Snackbar.LENGTH_LONG);
+                                snackbar.show();
+                            }
+                        } else {
+                            snackbar = Snackbar
+                                    .make(v, "Sem conexão com a internet", Snackbar.LENGTH_LONG);
+                            snackbar.show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                    snackbar = Snackbar
+                            .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                    Log.d("erroUnijobs", t.getMessage());
+                }
+            });
+
+        }
+    */
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent imageData) {
