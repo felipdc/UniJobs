@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.ServicesAdapter;
-import com.beesocial.unijobs.api.RetrofitClient;
 import com.beesocial.unijobs.models.ServiceResponse;
+import com.example.downzlibrary.DownZ;
+import com.example.downzlibrary.ListnerInterface.HttpListener;
+import com.google.gson.Gson;
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -49,9 +49,68 @@ public class ServiceFragment extends Fragment {
         //SharedPrefManager.getInstance(getActivity()).saveTab(tipoServico);
         callBackend(tipoServico);
         layoutManager = new LinearLayoutManager(getActivity());
+
+
     }
 
     private void callBackend(int index) {
+        String URL;
+        if (index == 1) {
+            URL = "https://micro-unijobs-service.felipetiagodecarli.now.sh/api/service?isOffer=true";
+        } else {
+
+            URL = "https://micro-unijobs-service.felipetiagodecarli.now.sh/api/service?isOffer=false";
+        }
+
+        DownZ
+                .from(getContext()) //context
+                .load(DownZ.Method.GET, URL)
+                .asJsonArray()    //asJsonArray() or asJsonObject() or asXml() can be used depending on need
+                .setCallback(new HttpListener<org.json.JSONArray>() {
+                    @Override
+                    public void onRequest() {
+                        //System.out.println("bla-bla");
+                        //On Beginning of request
+
+                    }
+
+                    @Override
+                    public void onResponse(org.json.JSONArray data) {
+                        if (data != null) {
+                            String dataString = data.toString();
+                            Gson gson = new Gson();
+                            ServiceResponse responseList[] = gson.fromJson(dataString, ServiceResponse[].class);
+                            String names[] = new String[responseList.length];
+                            String desc[] = new String[responseList.length];
+                            String img[] = new String[responseList.length];
+                            for (int i = 0; i < responseList.length; i++) {
+                                names[i] = responseList[i].getName();
+                                desc[i] = responseList[i].getDescription();
+                                img[i] = responseList[i].getImage();
+                            }
+                            servicesAdapter = new ServicesAdapter(getContext(), names, desc, img);
+                            recyclerView.setAdapter(servicesAdapter);
+
+                        }
+                    }
+
+                    @Override
+                    public void onError() {
+                        //System.out.println("bla-bla");
+                        //do something when there is an error
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        //System.out.println("bla-bla");
+                        //do something when request cancelled
+
+                    }
+                });
+    }
+
+    /*private void callBackend(int index) {
         Call<List<ServiceResponse>> call;
         if (index == 1) {
             call = RetrofitClient
@@ -82,7 +141,7 @@ public class ServiceFragment extends Fragment {
 
             }
         });
-    }
+    }*/
 
     @Override
     public View onCreateView(

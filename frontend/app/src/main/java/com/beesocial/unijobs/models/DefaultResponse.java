@@ -31,10 +31,13 @@ public class DefaultResponse {
     private String password;
     @SerializedName("phoneNumber")
     @Expose
-    private Integer phoneNumber;
+    private String phoneNumber;
     @SerializedName("__v")
     @Expose
     private Integer v;
+    @SerializedName("err")
+    @Expose
+    private String error = "";
 
     public Date getDate() {
         return date;
@@ -100,11 +103,11 @@ public class DefaultResponse {
         this.password = password;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

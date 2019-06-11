@@ -1,28 +1,37 @@
 package com.beesocial.unijobs.models;
 
-import java.io.Serializable;
 
-@SuppressWarnings("serial")
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class UserRegister implements Serializable {
+public class UserRegister {
 
-    private String password, email, name, image, phoneNumber, facebook;
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("password")
+    @Expose
+    private String password;
+    @SerializedName("phoneNumber")
+    @Expose
+    private String phoneNumber;
+    @SerializedName("image")
+    @Expose
+    private String image;
+    @SerializedName("facebook")
+    @Expose
+    private String facebook;
 
-    public UserRegister(String email, String name, String image, String phoneNumber, String facebook, String password) {
+    public UserRegister(String email, String name, String image, String facebook, String password, String phoneNumber) {
         this.email = email;
         this.name = name;
         this.image = image;
-        this.phoneNumber = phoneNumber;
         this.facebook = facebook;
         this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -41,20 +50,28 @@ public class UserRegister implements Serializable {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getphoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setphoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public String getFacebook() {
