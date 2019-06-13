@@ -33,7 +33,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     @NonNull
     @Override
     public ServiceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_text_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_card_view, parent, false);
 
         return new ServiceViewHolder(v, this);
     }
@@ -78,17 +78,19 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
         @Override
         public void onClick(View v) {
-            String currentName = names[getAdapterPosition()];
-            String currentDesc = desc[getAdapterPosition()];
-            String currentImg = img[getAdapterPosition()];
-            Intent intent = new Intent(context, ServiceDetailActivity.class);
-            intent.putExtra("service_title", currentName);
-            intent.putExtra("service_desc", currentDesc);
-            if (currentImg != null) {
-                final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
-                intent.putExtra("service_img", pureBase64Encoded);
+            if (SharedPrefManager.getInstance(context).isLoggedIn()) {
+                String currentName = names[getAdapterPosition()];
+                String currentDesc = desc[getAdapterPosition()];
+                String currentImg = img[getAdapterPosition()];
+                Intent intent = new Intent(context, ServiceDetailActivity.class);
+                intent.putExtra("service_title", currentName);
+                intent.putExtra("service_desc", currentDesc);
+                if (currentImg != null) {
+                    final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
+                    intent.putExtra("service_img", pureBase64Encoded);
+                }
+                context.startActivity(intent);
             }
-            context.startActivity(intent);
         }
     }
 }

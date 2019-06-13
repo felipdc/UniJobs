@@ -10,7 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.beesocial.unijobs.R;
 
-public class RegisterServiceActivity extends AppCompatActivity {
+public class EditServiceActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ImageView registerServiceImageView;
@@ -21,16 +21,16 @@ public class RegisterServiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_service);
+        setContentView(R.layout.activity_edit_service);
 
-        toolbar = findViewById(R.id.register_service_toolbar);
-        toolbar.setTitle("Cadastrar Serviço");
+        toolbar = findViewById(R.id.edit_service_toolbar);
+        toolbar.setTitle("Editar Serviço");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        registerServiceImageView = findViewById(R.id.imageViewService);
-        registerServiceRadioGroup = findViewById(R.id.radioGroup);
-        registerServiceTitulo = findViewById(R.id.editTextTitulo);
-        registerServiceDescricao = findViewById(R.id.editTextDescricao);
+        registerServiceImageView = findViewById(R.id.edit_service_imageViewService);
+        registerServiceRadioGroup = findViewById(R.id.edit_service_radioGroup);
+        registerServiceTitulo = findViewById(R.id.edit_service_editTextTitulo);
+        registerServiceDescricao = findViewById(R.id.edit_service_editTextDescricao);
     }
 }

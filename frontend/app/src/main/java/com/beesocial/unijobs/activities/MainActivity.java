@@ -14,12 +14,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.SectionsPagerAdapter;
-import com.beesocial.unijobs.models.ServiceResponse;
 import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -47,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (SharedPrefManager.getInstance(getBaseContext()).isLoggedIn()){
+                if (SharedPrefManager.getInstance(getBaseContext()).isLoggedIn()){
                     Intent intent = new Intent(getBaseContext(), RegisterServiceActivity.class);
                     startActivity(intent);
-//                }
+                }
             }
         });
 
@@ -75,11 +73,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.profile, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
 
         if(!SharedPrefManager.getInstance(this).isLoggedIn()) {
             MenuItem action_logout = menu.findItem(R.id.action_logout);
+            MenuItem action_my_offers = menu.findItem(R.id.action_my_offers);
+
             action_logout.setVisible(false);
+            action_my_offers.setVisible(false);
         }
         else {
             String encodedImage = user.getImage();
@@ -105,10 +106,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_profile:
                 if(!SharedPrefManager.getInstance(this).isLoggedIn()){
                     SharedPrefManager.getInstance(this).clear();
-                    Intent intent = new Intent(this, LoginActivity.class);
-                    startActivity(intent);
+                    Intent intentLogin = new Intent(this, LoginActivity.class);
+                    startActivity(intentLogin);
                 } else {
-                    //vai para o perfil
+//                    //vai para o perfil
+                    Intent intentProfile = new Intent(this, ProfileActivity.class);
+                    startActivity(intentProfile);
                 }
                 break;
 
@@ -117,11 +120,14 @@ public class MainActivity extends AppCompatActivity {
                     SharedPrefManager.getInstance(this).clear();
 
                     //se nao for mandar para o login activity depois do logout, tem que pelo menos mandar de volta pra main activity, pra recarregar as informacoes, se nao vai parecer que o usuario ainda esta instanciado.
-                    Intent intent = new Intent(this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    Intent intentMain = new Intent(this, MainActivity.class);
+                    intentMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intentMain);
                 }
                 break;
+            case R.id.action_my_offers:
+                Intent intentMyOffers = new Intent(this, MyServicesActivity.class);
+                startActivity(intentMyOffers);
         }
 
         return super.onOptionsItemSelected(item);

@@ -15,11 +15,14 @@
     <string name="text_registre_se">Registre-se</string>
     <string name="hint_imagem">IMAGEM</string>
     <string name="hint_nome">NOME</string>
-    <string name="hint_foto">Clique na câmera para escolher uma foto</string>
+    <string name="hint_foto">Clique acima para escolher uma imagem</string>
     <string name="content_description_imagem_servico">Imagem do serviço</string>
     <string name="hint_titulo">TÍTULO</string>
     <string name="hint_descricao">DESCRIÇÃO</string>
     <string name="radioButtonOferta">Oferta</string>
     <string name="radioButtonDemanda">Demanda</string>
     <string name="text_confirmar_servico">Confirmar</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_my_offers">Minhas Ofertas</string>
+    <string name="text_salvar">Salvar</string>
 </resources>
