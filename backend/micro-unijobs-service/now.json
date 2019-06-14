@@ -1,12 +1,13 @@
 {
-  "version": 2,
+  "name": "unijobs-service",
+  "version": 1,
   "env": {
     "NODE_ENV": "production"
+  }, 
+  "engines": {
+    "node": "9.x.x"
   },
-  "builds": [
-    { "src": "index.js", "use": "now-micro" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.js" }
+  "alias": [
+    "unijobs-service"
   ]
 }

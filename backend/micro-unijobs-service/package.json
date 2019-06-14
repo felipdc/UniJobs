@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "micro",
-    "deploy-dev": "now"
+    "deploy-prod": "now -t 8DVHwHhk7v87gNWA1hw5cTx0 -A now.json && now -t 8DVHwHhk7v87gNWA1hw5cTx0 alias -A now.json && now -t 8DVHwHhk7v87gNWA1hw5cTx0 rm unijobs-service --safe --yes"
   },
   "author": "",
   "license": "ISC",
