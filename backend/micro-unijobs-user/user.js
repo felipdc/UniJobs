@@ -30,11 +30,11 @@ const hashPassword = async (pass) => {
 }
 
 const createUser = async (req, res) => {
-  beforeAll(req)
+  await beforeAll(req)
 
   const { email, password, name, phoneNumber, facebook, image } = await json(req)
 
-  if (!email || !password || !name || !phoneNumber || !image) throw createError(400, 'Email, password, name and phoneNumber is required')
+  if (!email || !password || !name || !phoneNumber || !image) throw createError(400, 'Email, password, name, phoneNumber and image is required')
 
   // We need to check if there is already a user with this email
   // Get user from db
@@ -65,7 +65,7 @@ const createUser = async (req, res) => {
 
 const createAdmin = async (req, res) => {
 
-  beforeAll(req)
+  await beforeAll(req)
 
 	const { email, password, name } = await json(req)
 
@@ -101,7 +101,7 @@ const createAdmin = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
-  beforeAll(req)
+  await beforeAll(req)
 
   const queryString = await req.query
 
@@ -129,7 +129,7 @@ const getUser = async (req, res) => {
 }
 
 const patchUser = async (req, res) => {
-  beforeAll(req)
+  await beforeAll(req)
 
   const { id, password, image, name, phoneNumber, facebook } = await json(req)
 
@@ -171,7 +171,7 @@ const patchUser = async (req, res) => {
 }
 
 const deleteUser = async (req, res) => {
-  beforeAll(req)
+  await beforeAll(req)
 
   const { id } = await json(req)
 
