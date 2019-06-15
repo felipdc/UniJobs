@@ -2,6 +2,7 @@ package com.beesocial.unijobs.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -9,6 +10,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.beesocial.unijobs.R;
+import com.beesocial.unijobs.api.Api;
+import com.beesocial.unijobs.api.RetrofitClient;
 import com.beesocial.unijobs.models.CheckNetwork;
 import com.beesocial.unijobs.models.DefaultResponse;
 import com.beesocial.unijobs.models.LoginResponse;
@@ -16,11 +19,12 @@ import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.google.android.material.snackbar.Snackbar;
-import com.infideap.atomic.Atom;
-import com.infideap.atomic.FutureCallback;
 
-import okhttp3.Headers;
-
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     DefaultResponse resposta = new DefaultResponse();
@@ -90,34 +94,77 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void callBackend(final View v, String email, String password) {
         model_obj = new UserLogin(email, password);
 
-        Atom.with(LoginActivity.this)
-                .load("https://micro-unijobs.now.sh/api/auth/user", Atom.DELETE_METHOD)
-                .setJsonPojoBody(model_obj)
-                .as(LoginResponse.class)
-                .setCallback(new FutureCallback<LoginResponse>() {
-                    @Override
-                    public void onCompleted(Exception e, LoginResponse result) {
+        Call<LoginResponse> call = RetrofitClient
+                .getInstance(1).getApi().userLogin(model_obj);
 
-                        Headers.Builder a = new Headers.Builder();
-                        String foi = "Bearer " + result.getToken();
-                        a.add("Authorization", foi);
-                        Atom.with(LoginActivity.this)
-                                .load("https://micro-unijobs.now.sh/api/user")
-                                .setHeader(a.build())
-                                .as(DefaultResponse.class)
-                                .setCallback(new FutureCallback<DefaultResponse>() {
-                                    @Override
-                                    public void onCompleted(Exception e, DefaultResponse result) {
-                                        userComplete = new User(result.getId(), result.getEmail(), result.getName(), result.getImage(), result.getPhoneNumber(), result.getFacebook());
-                                        //Log.d("respostaLogin", userComplete.getEmail());
-                                        SharedPrefManager.getInstance(LoginActivity.this).saveUser(userComplete);
-                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
-                                    }
-                                });
+        call.enqueue(new Callback<LoginResponse>() {
+
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                try {
+                    LoginResponse loginResponse = response.body();
+                    //loginResponse.setToken(loginResponse.getToken());
+                    //Toast.makeText(LoginActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
+                    userComplete.setToken(loginResponse.getToken());
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("https://unijobs-user.now.sh/api/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    Api client = retrofit.create(Api.class);
+                    Call<DefaultResponse> calltargetResponse = client.getUser(loginResponse.getToken());
+                    calltargetResponse.enqueue(new Callback<DefaultResponse>() {
+                        @Override
+                        public void onResponse(Call<DefaultResponse> calltargetResponse, retrofit2.Response<DefaultResponse> responsee) {
+                            DefaultResponse UserResponse = responsee.body();
+                            Log.d("respostaLogin", "Login ");
+                            Log.d("respostaLogin", UserResponse.getEmail());
+                            userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber(), UserResponse.getFacebook());
+                            Log.d("respostaLogin", userComplete.getEmail());
+                            SharedPrefManager.getInstance(LoginActivity.this).saveUser(userComplete);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onFailure(Call<DefaultResponse> calltargetResponse, Throwable t) {
+                            snackbar = Snackbar
+                                    .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
+                            snackbar.show();
+                            Log.d("erroUnijobs", "erro call2 retrofit");
+                        }
+                    });
+                    Log.d("tokeee", loginResponse.getToken());
+                    //Toast.makeText(LoginActivity.this, loginResponse.getError(), Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    checkNetwork = new CheckNetwork();
+                    if (checkNetwork.haveNetworkConnection(LoginActivity.this)) {
+                        if (response.code() == 404) {
+                            snackbar = Snackbar
+                                    .make(v, "Email não cadastrado", Snackbar.LENGTH_LONG);
+                            snackbar.show();
+                        }
+                        if (response.code() == 400) {
+                            snackbar = Snackbar
+                                    .make(v, "Senha incorreta", Snackbar.LENGTH_LONG);
+                            snackbar.show();
+                        }
+                    } else {
+                        snackbar = Snackbar
+                                .make(v, "Sem conexão com a internet", Snackbar.LENGTH_LONG);
+                        snackbar.show();
                     }
-                });
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                snackbar = Snackbar
+                        .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
+                snackbar.show();
+                Log.d("erroUnijobs", "erro call1 retrofit");
+            }
+        });
     }
 
     @Override

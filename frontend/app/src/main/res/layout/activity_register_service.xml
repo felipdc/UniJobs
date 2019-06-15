@@ -48,11 +48,10 @@
 
             <ImageView
                 android:id="@+id/imageViewService"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="200dp"
                 android:contentDescription="@string/content_description_imagem_servico"
-                android:src="@drawable/ic_menu_camera"
-                android:tint="#99ffffff" />
+                android:src="@drawable/ic_menu_camera" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,7 +116,7 @@
                 android:backgroundTint="#99ffffff"
                 android:fontFamily="@font/lato"
                 android:hint="@string/hint_descricao"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:textColor="@color/colorText"
                 android:textColorHint="#99ffffff"
                 app:autoSizeMaxTextSize="60sp"

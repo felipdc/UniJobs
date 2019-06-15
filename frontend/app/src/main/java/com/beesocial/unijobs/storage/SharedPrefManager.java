@@ -82,6 +82,7 @@ public class SharedPrefManager {
         editor.putString("image", user.getImage());
         editor.putString("phoneNumber", user.getphoneNumber());
         editor.putString("facebook", user.getFacebook());
+        editor.putString("token", user.getToken());
 
         editor.apply();
 
@@ -100,7 +101,8 @@ public class SharedPrefManager {
                 sharedPreferences.getString("name", null),
                 sharedPreferences.getString("image", null),
                 sharedPreferences.getString("phoneNumber", null),
-                sharedPreferences.getString("facebook", null)
+                sharedPreferences.getString("facebook", null),
+                sharedPreferences.getString("token", null)
         );
     }
 

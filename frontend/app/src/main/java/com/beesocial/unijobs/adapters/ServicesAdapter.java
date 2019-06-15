@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.activities.ServiceDetailActivity;
 import com.beesocial.unijobs.storage.SharedPrefManager;
+import com.bumptech.glide.Glide;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
@@ -47,7 +48,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             final String pureBase64Encoded = encodedImage.substring(encodedImage.indexOf(",") + 1);
             final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-            holder.serviceImageView.setImageBitmap(bitmap);
+            Glide.with(holder.itemView).load(bitmap).centerCrop().into(holder.serviceImageView);
+            //holder.serviceImageView.setImageBitmap(bitmap);
         }
     }
 

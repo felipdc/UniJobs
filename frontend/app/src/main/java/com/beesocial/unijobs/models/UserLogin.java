@@ -1,13 +1,21 @@
 package com.beesocial.unijobs.models;
 
-public class UserLogin {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-    private String email, password;
+public class UserLogin {
 
     public UserLogin(String email, String password) {
         this.email = email;
         this.password = password;
     }
+
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("password")
+    @Expose
+    private String password;
 
     public String getEmail() {
         return email;

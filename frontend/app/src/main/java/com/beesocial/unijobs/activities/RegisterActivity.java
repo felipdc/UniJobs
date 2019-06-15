@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.astritveliu.boom.Boom;
 import com.beesocial.unijobs.R;
+import com.beesocial.unijobs.api.Api;
 import com.beesocial.unijobs.models.CheckNetwork;
 import com.beesocial.unijobs.models.DefaultResponse;
 import com.beesocial.unijobs.models.LoginResponse;
@@ -33,7 +34,11 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import okhttp3.Headers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -43,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     Snackbar snackbar;
     ArrayList<String> returnValue;
     Bitmap bitmap;
-    String encodedImage = null;
+    String encodedImage = null, token;
     private EditText editTextEmail, editTextPassword, editTextName, editTextPhone, editTextFacebook;
     private CircleImageView profile;
 
@@ -143,7 +148,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final UserLogin userLogin = new UserLogin(email, password);
 
         Atom.with(RegisterActivity.this)
-                .load("https://micro-unijobs.now.sh/api/user", Atom.POST_METHOD)
+                .load("https://unijobs-user.now.sh/api/user", Atom.POST_METHOD)
                 .setJsonPojoBody(userRegister)
                 //.setBody(requestString) //Plain String
                 .as(DefaultResponse.class)
@@ -152,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onCompleted(Exception e, DefaultResponse result) {
 
                         Atom.with(RegisterActivity.this)
-                                .load("https://micro-unijobs.now.sh/api/auth/user", Atom.POST_METHOD)
+                                .load("https://unijobs-user.now.sh/api/auth/user", Atom.POST_METHOD)
                                 .setJsonPojoBody(userLogin)
                                 //.setBody(requestString) //Plain String
                                 .as(LoginResponse.class)
@@ -161,29 +166,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     @Override
                                     public void onCompleted(Exception e, LoginResponse result) {
 
-                                        Headers.Builder a = new Headers.Builder();
-                                        String foi = "Bearer " + result.getToken();
-                                        a.add("Authorization", foi);
+                                        Retrofit retrofit = new Retrofit.Builder()
+                                                .baseUrl("https://unijobs-user.now.sh/api/")
+                                                .addConverterFactory(GsonConverterFactory.create()).build();
+                                        Api client = retrofit.create(Api.class);
+                                        Call<DefaultResponse> calltargetResponse = client.getUser(result.getToken());
+                                        token = result.getToken();
+                                        calltargetResponse.enqueue(new Callback<DefaultResponse>() {
+                                            @Override
+                                            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                                                DefaultResponse UserResponse = response.body();
+                                                userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
+                                                userComplete.setToken(token);
+                                                SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
 
+                                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                startActivity(intent);
 
-                                        Atom.with(RegisterActivity.this)
-                                                .load("https://micro-unijobs.now.sh/api/user")
-                                                .setHeader(a.build())
-                                                .as(DefaultResponse.class)
-                                                .setCallback(new FutureCallback<DefaultResponse>() {
-                                                    @Override
-                                                    public void onCompleted(Exception e, DefaultResponse result) {
-                                                        System.out.println("caralho foi filha da puta");
-                                                        SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
-                                                        userComplete = new User(result.getId(), result.getEmail(), result.getName(), result.getImage(), result.getPhoneNumber(), result.getFacebook());
-                                                        //Log.d("respostaLogin", userComplete.getEmail());
-                                                        SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
+                                            }
 
-                                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                        startActivity(intent);
-                                                    }
-                                                });
+                                            @Override
+                                            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                                                System.out.println("merda");
+                                            }
+                                        });
                                     }
                                 });
                     }

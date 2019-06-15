@@ -2,7 +2,7 @@
 <io.armcha.elasticview.ElasticView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="260dp"
     android:layout_margin="8dp">
 
     <LinearLayout
@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/service_image_view"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="160dp"
             android:contentDescription="@string/content_description_imagem_servico"
             android:src="@android:mipmap/sym_def_app_icon" />
 

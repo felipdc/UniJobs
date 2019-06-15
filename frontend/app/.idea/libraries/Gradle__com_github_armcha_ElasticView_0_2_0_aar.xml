@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.armcha:ElasticView:0.2.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d3ac2d91f8445f60a6aefea0e98eaf/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d3ac2d91f8445f60a6aefea0e98eaf/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.armcha/ElasticView/0.2.0/9035b859465d8b5295c29716c55cd1dbf121856e/ElasticView-0.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

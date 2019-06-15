@@ -29,6 +29,17 @@ public class User implements Serializable {
         this.serviceList = serviceList;
     }
 
+    public User(String id, String email, String name, String image, String phoneNumber, String facebook, String token) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.image = image;
+        this.phoneNumber = phoneNumber;
+        this.facebook = facebook;
+        this.serviceList = serviceList;
+        this.token = token;
+    }
+
     public String getId() {
         return id;
     }
