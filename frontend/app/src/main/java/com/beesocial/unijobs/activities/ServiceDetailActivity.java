@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.beesocial.unijobs.R;
+import com.bumptech.glide.Glide;
 
 public class ServiceDetailActivity extends AppCompatActivity {
 
@@ -49,7 +50,8 @@ public class ServiceDetailActivity extends AppCompatActivity {
         if (servicoImgString != null) {
             final byte[] decodedBytes = Base64.decode(servicoImgString, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-            detailServiceImageView.setImageBitmap(bitmap);
+            Glide.with(this).load(bitmap).centerCrop().into(detailServiceImageView);
+            //detailServiceImageView.setImageBitmap(bitmap);
         }
         detailServiceTitleTextView.setText(servicoTitle);
         detailServiceDescriptionTextView.setText(servicoDesc);

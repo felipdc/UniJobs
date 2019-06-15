@@ -53,4 +53,6 @@ public interface Api {
     @POST("service")
     Call<List<ServiceResponse>> createService(@Header("Authorization") String token, @Body ServiceRegister service);
 
+    @PATCH("service")
+    Call<List<ServiceResponse>> updateService(@Header("Authorization") String token, @Body ServiceRegister service);
 }

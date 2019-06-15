@@ -71,10 +71,10 @@ public class ServiceFragment extends Fragment {
                         String names[] = new String[result.length];
                         String desc[] = new String[result.length];
                         String img[] = new String[result.length];
-                        for (int i = 0; i < result.length; i++) {
-                            names[i] = result[i].getName();
-                            desc[i] = result[i].getDescription();
-                            img[i] = result[i].getImage();
+                        for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
+                            names[j] = result[i].getName();
+                            desc[j] = result[i].getDescription();
+                            img[j] = result[i].getImage();
                         }
                         servicesAdapter = new ServicesAdapter(getContext(), names, desc, img);
                         recyclerView.setAdapter(servicesAdapter);
