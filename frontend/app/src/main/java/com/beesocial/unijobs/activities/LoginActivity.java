@@ -105,7 +105,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     LoginResponse loginResponse = response.body();
                     //loginResponse.setToken(loginResponse.getToken());
                     //Toast.makeText(LoginActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
-                    userComplete.setToken(loginResponse.getToken());
                     Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl("https://unijobs-user.now.sh/api/")
                             .addConverterFactory(GsonConverterFactory.create())
@@ -119,6 +118,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Log.d("respostaLogin", "Login ");
                             Log.d("respostaLogin", UserResponse.getEmail());
                             userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber(), UserResponse.getFacebook());
+                            userComplete.setToken(loginResponse.getToken());
                             Log.d("respostaLogin", userComplete.getEmail());
                             SharedPrefManager.getInstance(LoginActivity.this).saveUser(userComplete);
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

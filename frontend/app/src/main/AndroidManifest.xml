@@ -25,7 +25,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".activities.EditServiceActivity"></activity>
+        <activity android:name=".activities.EditServiceActivity"
+            android:parentActivityName=".activities.MyServicesActivity"></activity>
         <activity
             android:name=".activities.MyServicesActivity"
             android:parentActivityName=".activities.MainActivity" />

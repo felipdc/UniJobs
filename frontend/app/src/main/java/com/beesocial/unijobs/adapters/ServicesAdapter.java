@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.beesocial.unijobs.R;
+import com.beesocial.unijobs.activities.EditServiceActivity;
+import com.beesocial.unijobs.activities.MyServicesActivity;
 import com.beesocial.unijobs.activities.ServiceDetailActivity;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
@@ -84,9 +86,16 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 String currentName = names[getAdapterPosition()];
                 String currentDesc = desc[getAdapterPosition()];
                 String currentImg = img[getAdapterPosition()];
-                Intent intent = new Intent(context, ServiceDetailActivity.class);
+
+                Intent intent;
+                if (context instanceof MyServicesActivity)
+                    intent = new Intent(context, EditServiceActivity.class);
+                else
+                    intent = new Intent(context, ServiceDetailActivity.class);
+
                 intent.putExtra("service_title", currentName);
                 intent.putExtra("service_desc", currentDesc);
+
                 if (currentImg != null) {
                     final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
                     intent.putExtra("service_img", pureBase64Encoded);

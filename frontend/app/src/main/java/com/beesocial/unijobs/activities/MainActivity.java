@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         imageProfile = findViewById(R.id.imageProfile);
+        imageProfile.setOnClickListener(v -> {
+            Intent intentProfile = new Intent(this, ProfileActivity.class);
+            startActivity(intentProfile);
+        });
     }
 
     @Override
@@ -108,22 +112,16 @@ public class MainActivity extends AppCompatActivity {
                     SharedPrefManager.getInstance(this).clear();
                     Intent intentLogin = new Intent(this, LoginActivity.class);
                     startActivity(intentLogin);
-                } else {
-//                    //vai para o perfil
-                    Intent intentProfile = new Intent(this, ProfileActivity.class);
-                    startActivity(intentProfile);
                 }
                 break;
 
             case R.id.action_logout:
-                if(SharedPrefManager.getInstance(this).isLoggedIn()){
-                    SharedPrefManager.getInstance(this).clear();
+                SharedPrefManager.getInstance(this).clear();
 
-                    //se nao for mandar para o login activity depois do logout, tem que pelo menos mandar de volta pra main activity, pra recarregar as informacoes, se nao vai parecer que o usuario ainda esta instanciado.
-                    Intent intentMain = new Intent(this, MainActivity.class);
-                    intentMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intentMain);
-                }
+                //se nao for mandar para o login activity depois do logout, tem que pelo menos mandar de volta pra main activity, pra recarregar as informacoes, se nao vai parecer que o usuario ainda esta instanciado.
+                Intent intentMain = new Intent(this, MainActivity.class);
+                intentMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentMain);
                 break;
             case R.id.action_my_offers:
                 Intent intentMyOffers = new Intent(this, MyServicesActivity.class);
