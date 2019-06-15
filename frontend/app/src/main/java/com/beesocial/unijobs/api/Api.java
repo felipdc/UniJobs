@@ -4,6 +4,7 @@ import com.beesocial.unijobs.models.DefaultResponse;
 import com.beesocial.unijobs.models.LoginResponse;
 import com.beesocial.unijobs.models.ServiceRegister;
 import com.beesocial.unijobs.models.ServiceResponse;
+import com.beesocial.unijobs.models.ServiceUpdate;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.models.UserRegister;
 
@@ -51,8 +52,8 @@ public interface Api {
     Call<List<ServiceResponse>> getServiceOfferFalse();
 
     @POST("service")
-    Call<List<ServiceResponse>> createService(@Header("Authorization") String token, @Body ServiceRegister service);
+    Call<ServiceResponse> createService(@Header("Authorization") String token, @Body ServiceRegister service);
 
     @PATCH("service")
-    Call<List<ServiceResponse>> updateService(@Header("Authorization") String token, @Body ServiceRegister service);
+    Call<ServiceResponse> updateService(@Header("Authorization") String token, @Body ServiceUpdate service);
 }

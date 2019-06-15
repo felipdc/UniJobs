@@ -9,6 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.ServicesAdapter;
+import com.beesocial.unijobs.models.ServiceResponse;
+import com.beesocial.unijobs.models.User;
+import com.beesocial.unijobs.storage.SharedPrefManager;
+import com.infideap.atomic.Atom;
+import com.infideap.atomic.FutureCallback;
 
 public class MyServicesActivity extends AppCompatActivity {
 
@@ -29,9 +34,37 @@ public class MyServicesActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.myoffers_recyclerView);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new ServicesAdapter(this, new String[] {"Oferta 1", "Oferta2"}, new String[] {"Desc 1", "Desc 2"}, new String[] {"", ""});
+        User user = SharedPrefManager.getInstance(this).getUser();
+        callBackend(user.getId());
+    }
 
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
+    private void callBackend(String userID) {
+        String URL;
+        URL = "https://unijobs-service.now.sh/api/service?createdBy=" + userID;
+
+
+        Atom.with(this)
+                .load(URL)
+                .as(ServiceResponse[].class)
+                .setCallback(new FutureCallback<ServiceResponse[]>() {
+                    @Override
+                    public void onCompleted(Exception e, ServiceResponse[] result) {
+
+                        String names[] = new String[result.length];
+                        String desc[] = new String[result.length];
+                        String img[] = new String[result.length];
+                        String id[] = new String[result.length];
+                        for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
+                            names[j] = result[i].getName();
+                            desc[j] = result[i].getDescription();
+                            img[j] = result[i].getImage();
+                            id[j] = result[i].getId();
+                        }
+                        adapter = new ServicesAdapter(MyServicesActivity.this, names, desc, img, id);
+
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setLayoutManager(layoutManager);
+                    }
+                });
     }
 }

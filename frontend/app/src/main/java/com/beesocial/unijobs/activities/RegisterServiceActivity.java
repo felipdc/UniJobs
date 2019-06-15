@@ -25,10 +25,10 @@ import com.bumptech.glide.Glide;
 import com.fxn.pix.Options;
 import com.fxn.pix.Pix;
 import com.fxn.utility.ImageQuality;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -80,16 +80,21 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
                 .baseUrl("https://unijobs-service.now.sh/api/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
         Api client = retrofit.create(Api.class);
-        Call<List<ServiceResponse>> calltargetResponse = client.createService("Bearer " + user.getToken(), service);
-        calltargetResponse.enqueue(new Callback<List<ServiceResponse>>() {
+        Call<ServiceResponse> calltargetResponse = client.createService("Bearer " + user.getToken(), service);
+        calltargetResponse.enqueue(new Callback<ServiceResponse>() {
             @Override
-            public void onResponse(Call<List<ServiceResponse>> call, Response<List<ServiceResponse>> response) {
-                //System.out.println("merda");
+            public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Serviço cadastrado!", Snackbar.LENGTH_LONG);
+                snackbar.show();
 
             }
 
             @Override
-            public void onFailure(Call<List<ServiceResponse>> call, Throwable t) {
+            public void onFailure(Call<ServiceResponse> call, Throwable t) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Erro ao cadastrar serviço", Snackbar.LENGTH_LONG);
+                snackbar.show();
                 //System.out.println("merda");
             }
         });

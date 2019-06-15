@@ -23,14 +23,15 @@ import com.bumptech.glide.Glide;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
-    private String[] names, desc, img;
+    private String[] names, desc, img, id;
     private Context context;
 
-    public ServicesAdapter(Context context, String[] names, String[] desc, String[] img) {
+    public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id) {
         this.names = names;
         this.desc = desc;
         this.img = img;
         this.context = context;
+        this.id = id;
     }
 
     @NonNull
@@ -86,10 +87,13 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 String currentName = names[getAdapterPosition()];
                 String currentDesc = desc[getAdapterPosition()];
                 String currentImg = img[getAdapterPosition()];
+                String currentId = id[getAdapterPosition()];
 
                 Intent intent;
-                if (context instanceof MyServicesActivity)
+                if (context instanceof MyServicesActivity) {
                     intent = new Intent(context, EditServiceActivity.class);
+                    intent.putExtra("service_id", currentId);
+                }
                 else
                     intent = new Intent(context, ServiceDetailActivity.class);
 

@@ -15,19 +15,20 @@ import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.astritveliu.boom.Boom;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
-import com.beesocial.unijobs.models.ServiceRegister;
 import com.beesocial.unijobs.models.ServiceResponse;
+import com.beesocial.unijobs.models.ServiceUpdate;
 import com.beesocial.unijobs.models.User;
 import com.bumptech.glide.Glide;
 import com.fxn.pix.Options;
 import com.fxn.pix.Pix;
 import com.fxn.utility.ImageQuality;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,6 +56,7 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
 
         toolbar = findViewById(R.id.edit_service_toolbar);
         button = findViewById(R.id.edit_service_buttonRegisterService);
+        new Boom(button);
         toolbar.setTitle("Editar Serviço");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -76,27 +78,33 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
         } else {
             isOffer = "true";
         }
+        Intent iin = getIntent();
+        Bundle b = iin.getExtras();
+        String serviceId = (String) b.get("service_id");
         //falta o ID do servico e checar se o int id ta certo
-        callBackend(v, titulo, desc, isOffer, "");
+        callBackend(v, titulo, desc, isOffer, serviceId);
     }
 
     private void callBackend(final View v, String titulo, String desc, String isOffer, String id) {
-        ServiceRegister service = new ServiceRegister(titulo, isOffer, encodedImage, desc);
+        ServiceUpdate service = new ServiceUpdate(titulo, isOffer, encodedImage, desc, id);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://unijobs-service.now.sh/api/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
         Api client = retrofit.create(Api.class);
-        Call<List<ServiceResponse>> calltargetResponse = client.updateService("Bearer " + user.getToken(), service);
-        calltargetResponse.enqueue(new Callback<List<ServiceResponse>>() {
+        Call<ServiceResponse> calltargetResponse = client.updateService("Bearer " + user.getToken(), service);
+        calltargetResponse.enqueue(new Callback<ServiceResponse>() {
             @Override
-            public void onResponse(Call<List<ServiceResponse>> call, Response<List<ServiceResponse>> response) {
-                //System.out.println("merda");
-
+            public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Serviço editado!", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
 
             @Override
-            public void onFailure(Call<List<ServiceResponse>> call, Throwable t) {
-                //System.out.println("merda");
+            public void onFailure(Call<ServiceResponse> call, Throwable t) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Erro ao editar serviço", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
         });
     }
