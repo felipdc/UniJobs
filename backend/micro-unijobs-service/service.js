@@ -31,13 +31,12 @@ const createService = async (req, res) => {
 
 	const jwt = await getJwtAuth(req, res)
 
-	if (!body.name || !body.location || body.isOffer === undefined) throw createError(400, 'Bad params. Service name, location and isOffer is required')
+	if (!body.name || body.isOffer === undefined) throw createError(400, 'Bad params. Service name and isOffer is required')
 
 	if (!isUser(jwt) && !isAdmin(jwt)) throw createError(403, 'Forbidden. Only users and admins can create services')
 
 	const servicesProperties = Object.assign({},
     {name: body.name},
-    {location: body.location},
     {isOffer: body.isOffer},
     {image: body.image},
     {createdBy: jwt.id},
@@ -96,7 +95,7 @@ const updateService = async (req, res) => {
 
 	const jwt = await getJwtAuth(req, res)
 
-	const { id, name, description, image, isOffer, location, active } = await json(req)
+	const { id, name, description, image, isOffer, active } = await json(req)
 
 	if (!id) throw createError(400, 'Bad params. Service id is required')
 
@@ -116,7 +115,6 @@ const updateService = async (req, res) => {
     description && { description },
     isOffer && { isOffer },
     image  && { image },
-    location && { location },
     active === undefined ? null : { active }
   )
 
