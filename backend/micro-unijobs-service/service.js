@@ -59,24 +59,32 @@ const getService = async (req, res) => {
 
 	const id = queryString.id
 
-  console.log(id)
+  const createdBy = queryString.createdBy
 
 	const isOffer = queryString.isOffer
 
   // Return all types of services
 	if (!id) {
-    if (isOffer) {
-      const servicesArr = await Service.find({ isOffer }, (err, services) => {
-        if (err) throw createError(500, 'Could not retrieve services from db')
-        return services
-      })
-      return servicesArr
+    if (!createdBy) {
+      if (isOffer) {
+        const servicesArr = await Service.find({ isOffer }, (err, services) => {
+          if (err) throw createError(500, 'Could not retrieve services from db')
+          return services
+        })
+        return servicesArr
+      } else {
+        const servicesArr = await Service.find({ }, (err, services) => {
+          if (err) throw createError(500, 'Could not retrieve services from db')
+          return services
+        })
+        return servicesArr
+      }
     } else {
-      const servicesArr = await Service.find({ }, (err, services) => {
-        if (err) throw createError(500, 'Could not retrieve services from db')
-        return services
-      })
-      return servicesArr
+        const servicesArr = await Service.find({ createdBy }, (err, services) => {
+          if (err) throw createError(500, 'Could not retrieve services from db')
+          return services
+        })
+        return servicesArr      
     }
   }
   // Return specific service if id is sent
