@@ -146,7 +146,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         spinKitView.setVisibility(View.VISIBLE);
         //chamada para criar o usuario
         callBackend(v, email, name, password, facebook, phoneNumber);
-        //callBackend2(v, email, name, password, facebook, phoneNumber);
     }
 
     private void callBackend(final View v, String email, String name, String password, String facebook, String phoneNumber) {
@@ -161,12 +160,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 .setCallback(new FutureCallback<DefaultResponse>() {
                     @Override
                     public void onCompleted(Exception e, DefaultResponse result) {
-
-                        if (!result.getEmail().isEmpty()) {
+                        //System.out.println("");
+                        if (e == null) {
                             Atom.with(RegisterActivity.this)
                                     .load("https://unijobs-user.now.sh/api/auth/user", Atom.POST_METHOD)
                                     .setJsonPojoBody(userLogin)
-                                    //.setBody(requestString) //Plain String
                                     .as(LoginResponse.class)
                                     .setCallback(new FutureCallback<LoginResponse>() {
 
@@ -208,6 +206,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                         }
                                     });
                         } else {
+                            spinKitView.setVisibility(View.GONE);
                             CheckConnection checkConnection = new CheckConnection();
                             checkConnection.checkStuffAtom(v, RegisterActivity.this, e);
                         }

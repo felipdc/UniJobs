@@ -94,7 +94,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         calltargetResponse.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                DefaultResponse dResponse = response.body();
                 if (response.isSuccessful()) {
+                    User user = SharedPrefManager.getInstance(ProfileActivity.this).getUser();
+                    user.setEmail(dResponse.getEmail());
+                    user.setFacebook(dResponse.getFacebook());
+                    user.setImage(dResponse.getImage());
+                    user.setName(dResponse.getName());
+                    user.setphoneNumber(dResponse.getPhoneNumber());
+                    SharedPrefManager.getInstance(ProfileActivity.this).saveUser(user);
+                    //User user = new User(dResponse.getId(),dResponse.getName(),dResponse.getName(),dResponse.getImage(),dResponse.getPhoneNumber(),dResponse.getFacebook());
                     ChocoBar.builder().setBackgroundColor(Color.parseColor("#004E8D"))
                             .setTextSize(18)
                             .setTextColor(Color.parseColor("#AAFFFFFF"))

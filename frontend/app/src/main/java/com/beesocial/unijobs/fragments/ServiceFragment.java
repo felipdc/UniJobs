@@ -69,24 +69,33 @@ public class ServiceFragment extends Fragment {
                 .setCallback(new FutureCallback<ServiceResponse[]>() {
                     @Override
                     public void onCompleted(Exception e, ServiceResponse[] result) {
-                        spinKitView = getView().findViewById(R.id.spin_kit);
-                        spinKitView.setVisibility(View.GONE);
-                        if (!result[0].getId().isEmpty()) {
-                            String names[] = new String[result.length];
-                            String desc[] = new String[result.length];
-                            String img[] = new String[result.length];
-                            String id[] = new String[result.length];
-                            for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
-                                names[j] = result[i].getName();
-                                desc[j] = result[i].getDescription();
-                                img[j] = result[i].getImage();
-                                id[j] = result[i].getId();
+                        if (e == null) {
+                            spinKitView = getView().findViewById(R.id.spin_kit);
+                            spinKitView.setVisibility(View.GONE);
+                            if (!result[0].getId().isEmpty()) {
+                                String names[] = new String[result.length];
+                                String desc[] = new String[result.length];
+                                String img[] = new String[result.length];
+                                String id[] = new String[result.length];
+                                for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
+                                    names[j] = result[i].getName();
+                                    desc[j] = result[i].getDescription();
+                                    img[j] = result[i].getImage();
+                                    id[j] = result[i].getId();
+                                }
+                                servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                                recyclerView.setAdapter(servicesAdapter);
+                            } else {
+                                ChocoBar.builder().setActivity(getActivity())
+                                        .setText("Erro na conexão com o servidor, por favor, tente novamente")
+                                        .setDuration(ChocoBar.LENGTH_LONG)
+                                        .setActionText(android.R.string.ok)
+                                        .red()
+                                        .show();
                             }
-                            servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
-                            recyclerView.setAdapter(servicesAdapter);
                         } else {
                             ChocoBar.builder().setActivity(getActivity())
-                                    .setText("Erro na conexão com o servidor, por favor, tente novamente")
+                                    .setText(e.getCause().getMessage())
                                     .setDuration(ChocoBar.LENGTH_LONG)
                                     .setActionText(android.R.string.ok)
                                     .red()

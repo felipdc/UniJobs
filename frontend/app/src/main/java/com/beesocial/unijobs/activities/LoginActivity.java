@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
-                if (!loginResponse.getToken().isEmpty()) {
+                if (response.isSuccessful()) {
                     loginResponse.setToken(loginResponse.getToken());
                     //Toast.makeText(LoginActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
                     Retrofit retrofit = new Retrofit.Builder()
@@ -141,6 +141,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     });
                 } else {
+                    spinKitView.setVisibility(View.GONE);
                     CheckConnection checkConnection = new CheckConnection();
                     checkConnection.checkStuff(v, LoginActivity.this, response);
                 }
@@ -148,6 +149,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                spinKitView.setVisibility(View.GONE);
                 ChocoBar.builder().setView(v)
                         .setText("Erro na conexão com o servidor, tente novamente")
                         .setDuration(ChocoBar.LENGTH_LONG)
