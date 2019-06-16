@@ -176,8 +176,10 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
         if (resultCode == Activity.RESULT_OK && requestCode == 100) {
 
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
+            String teste1 = "file://" + returnValue.get(0);
+            String teste2 = "file://" + returnValue.get(0).substring(0, returnValue.get(0).length() - 4) + "crop" + returnValue.get(0).substring(returnValue.get(0).length() - 4);
 
-            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0)))
+            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0).substring(0, returnValue.get(0).length() - 4) + "crop" + returnValue.get(0).substring(returnValue.get(0).length() - 4)))
                     .withAspectRatio(16, 9)
                     .withMaxResultSize(1920, 1080);
             uCrop.start(RegisterServiceActivity.this);

@@ -221,8 +221,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (resultCode == Activity.RESULT_OK && requestCode == 100) {
 
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
-
-            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0)))
+            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0).substring(0, returnValue.get(0).length() - 4) + "crop" + returnValue.get(0).substring(returnValue.get(0).length() - 4)))
                     .withAspectRatio(1, 1)
                     .withMaxResultSize(1000, 1000);
             uCrop.start(RegisterActivity.this);

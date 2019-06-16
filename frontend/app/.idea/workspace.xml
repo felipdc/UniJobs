@@ -129,8 +129,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8f518245-356a-4440-9339-966e9ee55e64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +163,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="851">
-              <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+              <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -170,7 +172,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="385">
-              <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+              <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -181,8 +183,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-808">
-              <caret line="186" column="128" selection-start-line="186" selection-start-column="52" selection-end-line="186" selection-end-column="128" />
+            <state relative-caret-position="227">
+              <caret line="222" column="79" selection-start-line="222" selection-start-column="79" selection-end-line="222" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,8 +195,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="102" column="54" selection-start-line="102" selection-start-column="54" selection-end-line="102" selection-end-column="54" />
+            <state relative-caret-position="483">
+              <caret line="179" column="51" selection-start-line="179" selection-start-column="51" selection-end-line="179" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -205,17 +207,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1978">
-              <caret line="42" column="92" selection-start-line="42" selection-start-column="92" selection-end-line="42" selection-end-column="92" />
+            <state relative-caret-position="345">
+              <caret line="167" column="131" selection-start-line="167" selection-start-column="100" selection-end-line="167" selection-end-column="131" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2752">
-              <caret line="188" selection-start-line="188" selection-end-line="188" />
+            <state relative-caret-position="134">
+              <caret line="181" column="229" selection-start-line="181" selection-start-column="87" selection-end-line="181" selection-end-column="229" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -235,11 +237,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1449">
-              <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+            <state relative-caret-position="276">
+              <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -256,8 +258,8 @@
       <find>Sna</find>
       <find>shared</find>
       <find>glide</find>
-      <find>Glide</find>
       <find>Snackbar</find>
+      <find>Glide</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -285,19 +287,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/CheckNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml" />
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" />
       </list>
     </option>
   </component>
@@ -504,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560711720191</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="More bugfixes...">
+      <created>1560712679114</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1560712679114</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -527,7 +536,7 @@
       <window_info anchor="bottom" id="Run" order="5" />
       <window_info anchor="bottom" id="Logcat" order="6" sideWeight="0.69534886" weight="0.5842055" />
       <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.63581395" visible="true" weight="0.32159847" />
+      <window_info active="true" anchor="bottom" id="Debug" order="8" sideWeight="0.63581395" visible="true" weight="0.32159847" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.4944186" weight="0.35204569" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -535,7 +544,7 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Assistant" order="5" visible="true" weight="0.32972136" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="6" visible="true" weight="0.21906976" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="6" visible="true" weight="0.21906976" />
       <window_info anchor="right" id="Preview" order="7" weight="0.2255814" />
       <window_info anchor="right" id="Codota" order="8" />
     </layout>
@@ -555,7 +564,8 @@
     <MESSAGE value="Bugfixes e implementacao final do sistema de alterar informacoes do usuario." />
     <MESSAGE value="Bugfixes e implementacao de animacoes e a funcionalidade de recortar imagens." />
     <MESSAGE value="Bugfixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes." />
+    <MESSAGE value="More bugfixes..." />
+    <option name="LAST_COMMIT_MESSAGE" value="More bugfixes..." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -568,6 +578,48 @@
           <line>92</line>
           <properties />
           <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
+          <line>223</line>
+          <properties />
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java</url>
+          <line>189</line>
+          <properties />
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java</url>
+          <line>192</line>
+          <properties />
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java</url>
+          <line>196</line>
+          <properties />
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java</url>
+          <line>187</line>
+          <properties />
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java</url>
+          <line>201</line>
+          <properties />
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java</url>
+          <line>181</line>
+          <properties />
+          <option name="timeStamp" value="142" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -860,33 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="102" column="54" selection-start-line="102" selection-start-column="54" selection-end-line="102" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1978">
-          <caret line="42" column="92" selection-start-line="42" selection-start-column="92" selection-end-line="42" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2752">
-          <caret line="188" selection-start-line="188" selection-end-line="188" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -912,27 +937,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-808">
-          <caret line="186" column="128" selection-start-line="186" selection-start-column="52" selection-end-line="186" selection-end-column="128" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="851">
-          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
-          <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+          <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -941,8 +956,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+        <state relative-caret-position="276">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="222" column="79" selection-start-line="222" selection-start-column="79" selection-end-line="222" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="179" column="51" selection-start-line="179" selection-start-column="51" selection-end-line="179" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="167" column="131" selection-start-line="167" selection-start-column="100" selection-end-line="167" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="181" column="229" selection-start-line="181" selection-start-column="87" selection-end-line="181" selection-end-column="229" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

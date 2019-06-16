@@ -165,7 +165,7 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
 
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
 
-            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0)))
+            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0).substring(0, returnValue.get(0).length() - 4) + "crop" + returnValue.get(0).substring(returnValue.get(0).length() - 4)))
                     .withAspectRatio(16, 9)
                     .withMaxResultSize(1920, 1080);
             uCrop.start(EditServiceActivity.this);
