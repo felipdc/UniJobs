@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Patterns;
@@ -16,19 +17,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.astritveliu.boom.Boom;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
-import com.beesocial.unijobs.models.CheckNetwork;
+import com.beesocial.unijobs.models.CheckConnection;
 import com.beesocial.unijobs.models.DefaultResponse;
 import com.beesocial.unijobs.models.LoginResponse;
 import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.models.UserRegister;
 import com.beesocial.unijobs.storage.SharedPrefManager;
+import com.bumptech.glide.Glide;
 import com.fxn.pix.Options;
 import com.fxn.pix.Pix;
 import com.fxn.utility.ImageQuality;
 import com.google.android.material.snackbar.Snackbar;
 import com.infideap.atomic.Atom;
 import com.infideap.atomic.FutureCallback;
+import com.pd.chocobar.ChocoBar;
+import com.yalantis.ucrop.UCrop;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -44,11 +48,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     User userComplete;
-    CheckNetwork checkNetwork;
     Snackbar snackbar;
     ArrayList<String> returnValue;
     Bitmap bitmap;
     String encodedImage = null, token;
+    com.github.ybq.android.spinkit.SpinKitView spinKitView;
     private EditText editTextEmail, editTextPassword, editTextName, editTextPhone, editTextFacebook;
     private CircleImageView profile;
 
@@ -56,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextName = findViewById(R.id.editTextName);
@@ -138,6 +141,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+
+        spinKitView = findViewById(R.id.spin_kit);
+        spinKitView.setVisibility(View.VISIBLE);
         //chamada para criar o usuario
         callBackend(v, email, name, password, facebook, phoneNumber);
         //callBackend2(v, email, name, password, facebook, phoneNumber);
@@ -156,180 +162,59 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onCompleted(Exception e, DefaultResponse result) {
 
-                        Atom.with(RegisterActivity.this)
-                                .load("https://unijobs-user.now.sh/api/auth/user", Atom.POST_METHOD)
-                                .setJsonPojoBody(userLogin)
-                                //.setBody(requestString) //Plain String
-                                .as(LoginResponse.class)
-                                .setCallback(new FutureCallback<LoginResponse>() {
+                        if (!result.getEmail().isEmpty()) {
+                            Atom.with(RegisterActivity.this)
+                                    .load("https://unijobs-user.now.sh/api/auth/user", Atom.POST_METHOD)
+                                    .setJsonPojoBody(userLogin)
+                                    //.setBody(requestString) //Plain String
+                                    .as(LoginResponse.class)
+                                    .setCallback(new FutureCallback<LoginResponse>() {
 
-                                    @Override
-                                    public void onCompleted(Exception e, LoginResponse result) {
+                                        @Override
+                                        public void onCompleted(Exception e, LoginResponse result) {
 
-                                        Retrofit retrofit = new Retrofit.Builder()
-                                                .baseUrl("https://unijobs-user.now.sh/api/")
-                                                .addConverterFactory(GsonConverterFactory.create()).build();
-                                        Api client = retrofit.create(Api.class);
-                                        Call<DefaultResponse> calltargetResponse = client.getUser(result.getToken());
-                                        token = result.getToken();
-                                        calltargetResponse.enqueue(new Callback<DefaultResponse>() {
-                                            @Override
-                                            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                                                DefaultResponse UserResponse = response.body();
-                                                userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
-                                                userComplete.setToken(token);
-                                                SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
+                                            Retrofit retrofit = new Retrofit.Builder()
+                                                    .baseUrl("https://unijobs-user.now.sh/api/")
+                                                    .addConverterFactory(GsonConverterFactory.create()).build();
+                                            Api client = retrofit.create(Api.class);
+                                            Call<DefaultResponse> calltargetResponse = client.getUser(result.getToken());
+                                            token = result.getToken();
+                                            calltargetResponse.enqueue(new Callback<DefaultResponse>() {
+                                                @Override
+                                                public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                                                    DefaultResponse UserResponse = response.body();
+                                                    spinKitView.setVisibility(View.GONE);
+                                                    userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber(), UserResponse.getFacebook());
+                                                    userComplete.setToken(token);
+                                                    SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
 
-                                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                startActivity(intent);
+                                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                    startActivity(intent);
 
-                                            }
+                                                }
 
-                                            @Override
-                                            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                                                System.out.println("merda");
-                                            }
-                                        });
-                                    }
-                                });
+                                                @Override
+                                                public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                                                    spinKitView.setVisibility(View.GONE);
+                                                    ChocoBar.builder().setView(v)
+                                                            .setText("Erro na conexão com o servidor, tente novamente")
+                                                            .setDuration(ChocoBar.LENGTH_LONG)
+                                                            .setActionText(android.R.string.ok)
+                                                            .red()
+                                                            .show();
+                                                }
+                                            });
+                                        }
+                                    });
+                        } else {
+                            CheckConnection checkConnection = new CheckConnection();
+                            checkConnection.checkStuffAtom(v, RegisterActivity.this, e);
+                        }
                     }
                 });
     }
 
-    /*private void callBackend2(final View v, String email, String name, String password, String facebook, String phoneNumber) {
-        UserRegister userRegister = new UserRegister(email, name, encodedImage, facebook, password, phoneNumber);
-        //userLogin = new UserLogin(email, password);
-        DownZ
-                .from(this) //context
-                .load(DownZ.Method.POST, "https://micro-unijobs.now.sh/api/user")
-                .asJsonObject()    //asJsonArray() or asJsonObject() or asXml() can be used depending on need
-                .setCallback(new HttpListener<JSONObject>() {
-                    @Override
-                    public void onRequest() {
-                        //System.out.println("bla-bla");
-                        //On Beginning of request
-
-                    }
-
-                    @Override
-                    public void onResponse(JSONObject data) {
-                        if (data != null) {
-                            String dataString = data.toString();
-                            Gson gson = new Gson();
-                            DefaultResponse response = gson.fromJson(dataString, DefaultResponse.class);
-
-                        }
-                    }
-
-                    @Override
-                    public void onError() {
-                        //System.out.println("bla-bla");
-                        //do something when there is an error
-
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        //System.out.println("bla-bla");
-                        //do something when request cancelled
-
-                    }
-                });
-    }*/
-
-    /*
-        private void callBackend(final View v, String email, String name, String password, String facebook, String phoneNumber) {
-            userRegister = new UserRegister(email, name, password, phoneNumber, encodedImage, facebook);
-            userLogin = new UserLogin(email, password);
-
-            Call<DefaultResponse> call = RetrofitClient
-                    .createInstance(3).getApi().createUser(userRegister);
-            call.enqueue(new Callback<DefaultResponse>() {
-                @Override
-                public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                    try {
-                        DefaultResponse defaultResponse = response.body();
-
-                        String s=defaultResponse.getEmail(); // linhas que checam se a resposta tem os campos certos, se nao tiver, cai no catch e dai verifica o porque de ter dado errado
-                        s.length();
-
-                        Call<LoginResponse> call2 = RetrofitClient
-                                .getInstance(1).getApi().userLogin(userLogin);
-                        call2.enqueue(new Callback<LoginResponse>() {
-                            @Override
-                            public void onResponse(Call<LoginResponse> call2, Response<LoginResponse> response2) {
-                                final LoginResponse loginResponse = response2.body();
-                                //Toast.makeText(RegisterActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
-
-                                Retrofit retrofit = new Retrofit.Builder()
-                                        .baseUrl("https://micro-unijobs-user.felipetiagodecarli.now.sh/api/")
-                                        .addConverterFactory(GsonConverterFactory.create())
-                                        .build();
-
-                                Api client = retrofit.create(Api.class);
-
-                                Call<DefaultResponse> calltargetResponce = client.getUser(loginResponse.getToken());
-
-                                calltargetResponce.enqueue(new Callback<DefaultResponse>() {
-                                    @Override
-                                    public void onResponse(Call<DefaultResponse> calltargetResponce, retrofit2.Response<DefaultResponse> response3) {
-                                        DefaultResponse UserResponse = response3.body();
-                                        userComplete = new User(UserResponse.getId(), UserResponse.getEmail(), UserResponse.getName(), UserResponse.getImage(), UserResponse.getPhoneNumber().toString(), UserResponse.getFacebook());
-                                        userComplete.setToken(loginResponse.getToken());
-                                        SharedPrefManager.getInstance(RegisterActivity.this).saveUser(userComplete);
-
-                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<DefaultResponse> calltargetResponce, Throwable t) {
-                                        snackbar = Snackbar
-                                                .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                                        snackbar.show();
-                                        Log.d("erroUnijobs", t.getMessage());
-                                    }
-                                });
-
-                            }
-
-                            @Override
-                            public void onFailure(Call<LoginResponse> call2, Throwable t) {
-                                snackbar = Snackbar
-                                        .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                                snackbar.show();
-                                Log.d("erroUnijobs", t.getMessage());
-                            }
-                        });
-                    } catch (Exception e) {
-                        checkNetwork = new CheckNetwork();
-                        if (checkNetwork.haveNetworkConnection(RegisterActivity.this)) {
-                            if (response.code() == 403) {
-                                snackbar = Snackbar
-                                        .make(v, "Email já cadastrado", Snackbar.LENGTH_LONG);
-                                snackbar.show();
-                            }
-                        } else {
-                            snackbar = Snackbar
-                                    .make(v, "Sem conexão com a internet", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                    snackbar = Snackbar
-                            .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                    snackbar.show();
-                    Log.d("erroUnijobs", t.getMessage());
-                }
-            });
-
-        }
-    */
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent imageData) {
@@ -338,14 +223,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
 
+            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0)))
+                    .withAspectRatio(1, 1)
+                    .withMaxResultSize(1000, 1000);
+            uCrop.start(RegisterActivity.this);
+
             bitmap = BitmapFactory.decodeFile(returnValue.get(0));
 
-            profile.setImageBitmap(bitmap);
+        } else if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+            final Uri resultUri = UCrop.getOutput(imageData);
 
+            bitmap = BitmapFactory.decodeFile(resultUri.getPath());
+
+
+            Glide.with(this).load(bitmap).fitCenter().into(profile);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos);
             byte[] b = baos.toByteArray();
             encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            final Throwable cropError = UCrop.getError(imageData);
         }
     }
     @Override

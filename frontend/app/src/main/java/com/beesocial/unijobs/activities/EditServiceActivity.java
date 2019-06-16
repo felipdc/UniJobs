@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -25,7 +28,8 @@ import com.bumptech.glide.Glide;
 import com.fxn.pix.Options;
 import com.fxn.pix.Pix;
 import com.fxn.utility.ImageQuality;
-import com.google.android.material.snackbar.Snackbar;
+import com.pd.chocobar.ChocoBar;
+import com.yalantis.ucrop.UCrop;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -46,7 +50,7 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
     ArrayList<String> returnValue;
     Bitmap bitmap;
     String encodedImage = null;
-    User user, userComplete;
+    User user;
     private Button button;
 
     @Override
@@ -95,16 +99,42 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
         calltargetResponse.enqueue(new Callback<ServiceResponse>() {
             @Override
             public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
-                Snackbar snackbar = Snackbar
-                        .make(v, "Serviço editado!", Snackbar.LENGTH_LONG);
-                snackbar.show();
+                if (response.isSuccessful()) {
+                    ChocoBar.builder().setBackgroundColor(Color.parseColor("#004E8D"))
+                            .setTextSize(18)
+                            .setTextColor(Color.parseColor("#AAFFFFFF"))
+                            .setTextTypefaceStyle(Typeface.ITALIC)
+                            .setText("Serviço editado!")
+                            .setMaxLines(4)
+                            .centerText()
+                            .setActionText("UniJobs")
+                            .setActionTextColor(Color.parseColor("#AAFFFFFF"))
+                            .setActionTextSize(20)
+                            .setActionTextTypefaceStyle(Typeface.BOLD)
+                            .setIcon(R.mipmap.ic_launcher)
+                            .setActivity(EditServiceActivity.this)
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .build()
+                            .show();
+                } else {
+                    ChocoBar.builder().setView(v)
+                            .setText("Erro na conexão com o servidor")
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .setActionText(android.R.string.ok)
+                            .red()
+                            .show();
+                }
             }
 
             @Override
             public void onFailure(Call<ServiceResponse> call, Throwable t) {
-                Snackbar snackbar = Snackbar
-                        .make(v, "Erro ao editar serviço", Snackbar.LENGTH_LONG);
-                snackbar.show();
+
+                ChocoBar.builder().setView(v)
+                        .setText("Erro na conexão com o servidor, tente novamente")
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
             }
         });
     }
@@ -135,7 +165,15 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
 
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
 
-            bitmap = BitmapFactory.decodeFile(returnValue.get(0));
+            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0)))
+                    .withAspectRatio(16, 9)
+                    .withMaxResultSize(1920, 1080);
+            uCrop.start(EditServiceActivity.this);
+
+        } else if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+            final Uri resultUri = UCrop.getOutput(imageData);
+
+            bitmap = BitmapFactory.decodeFile(resultUri.getPath());
 
 
             Glide.with(this).load(bitmap).fitCenter().into(registerServiceImageView);
@@ -146,6 +184,8 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
             byte[] b = baos.toByteArray();
             encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            final Throwable cropError = UCrop.getError(imageData);
         }
     }
 }

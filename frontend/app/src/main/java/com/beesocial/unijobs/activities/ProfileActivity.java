@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -24,6 +27,8 @@ import com.bumptech.glide.Glide;
 import com.fxn.pix.Options;
 import com.fxn.pix.Pix;
 import com.fxn.utility.ImageQuality;
+import com.pd.chocobar.ChocoBar;
+import com.yalantis.ucrop.UCrop;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -89,14 +94,41 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         calltargetResponse.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                //DefaultResponse UpdateResponse = response.body();
-                //UpdateResponse.getDate();
-                System.out.println("merda");
+                if (response.isSuccessful()) {
+                    ChocoBar.builder().setBackgroundColor(Color.parseColor("#004E8D"))
+                            .setTextSize(18)
+                            .setTextColor(Color.parseColor("#AAFFFFFF"))
+                            .setTextTypefaceStyle(Typeface.ITALIC)
+                            .setText("Informações editadas!")
+                            .setMaxLines(4)
+                            .centerText()
+                            .setActionText("UniJobs")
+                            .setActionTextColor(Color.parseColor("#AAFFFFFF"))
+                            .setActionTextSize(20)
+                            .setActionTextTypefaceStyle(Typeface.BOLD)
+                            .setIcon(R.mipmap.ic_launcher)
+                            .setActivity(ProfileActivity.this)
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .build()
+                            .show();
+                } else {
+                    ChocoBar.builder().setView(v)
+                            .setText("Erro ao editar perfil")
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .setActionText(android.R.string.ok)
+                            .red()
+                            .show();
+                }
             }
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                System.out.println("merda");
+                ChocoBar.builder().setView(v)
+                        .setText("Erro na conexão com o servidor, tente novamente")
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
             }
         });
     }
@@ -128,9 +160,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
 
-            bitmap = BitmapFactory.decodeFile(returnValue.get(0));
+            UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0)))
+                    .withAspectRatio(1, 1)
+                    .withMaxResultSize(1000, 1000);
+            uCrop.start(ProfileActivity.this);
 
+        } else if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+            final Uri resultUri = UCrop.getOutput(imageData);
 
+            bitmap = BitmapFactory.decodeFile(resultUri.getPath());
             Glide.with(this).load(bitmap).fitCenter().dontAnimate().into(profile);
 
             //registerServiceImageView.setImageBitmap(bitmap);
@@ -139,6 +177,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
             byte[] b = baos.toByteArray();
             encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            final Throwable cropError = UCrop.getError(imageData);
         }
     }
 }

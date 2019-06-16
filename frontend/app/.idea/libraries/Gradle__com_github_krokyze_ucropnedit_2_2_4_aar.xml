@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.krokyze:ucropnedit:2.2.4@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/18e1f035e57ba2b8a6cf9109e94f97f5/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/18e1f035e57ba2b8a6cf9109e94f97f5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/18e1f035e57ba2b8a6cf9109e94f97f5/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

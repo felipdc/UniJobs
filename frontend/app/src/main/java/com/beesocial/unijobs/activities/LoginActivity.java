@@ -12,13 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
 import com.beesocial.unijobs.api.RetrofitClient;
-import com.beesocial.unijobs.models.CheckNetwork;
+import com.beesocial.unijobs.models.CheckConnection;
 import com.beesocial.unijobs.models.DefaultResponse;
 import com.beesocial.unijobs.models.LoginResponse;
 import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.models.UserLogin;
 import com.beesocial.unijobs.storage.SharedPrefManager;
-import com.google.android.material.snackbar.Snackbar;
+import com.pd.chocobar.ChocoBar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,8 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     DefaultResponse resposta = new DefaultResponse();
     UserLogin model_obj;
     User userComplete;
-    CheckNetwork checkNetwork;
-    Snackbar snackbar;
+    com.github.ybq.android.spinkit.SpinKitView spinKitView;
     private EditText editTextEmail;
     private EditText editTextPassword;
 
@@ -87,6 +86,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             editTextPassword.requestFocus();
             return;
         }
+        spinKitView = findViewById(R.id.spin_kit);
+        spinKitView.setVisibility(View.VISIBLE);
         callBackend(v, email, password);
         
     }
@@ -101,9 +102,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                try {
-                    LoginResponse loginResponse = response.body();
-                    //loginResponse.setToken(loginResponse.getToken());
+                LoginResponse loginResponse = response.body();
+                if (!loginResponse.getToken().isEmpty()) {
+                    loginResponse.setToken(loginResponse.getToken());
                     //Toast.makeText(LoginActivity.this, loginResponse.getToken(), Toast.LENGTH_LONG).show();
                     Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl("https://unijobs-user.now.sh/api/")
@@ -121,6 +122,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             userComplete.setToken(loginResponse.getToken());
                             Log.d("respostaLogin", userComplete.getEmail());
                             SharedPrefManager.getInstance(LoginActivity.this).saveUser(userComplete);
+                            spinKitView.setVisibility(View.GONE);
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
@@ -128,40 +130,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         @Override
                         public void onFailure(Call<DefaultResponse> calltargetResponse, Throwable t) {
-                            snackbar = Snackbar
-                                    .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                            snackbar.show();
+                            spinKitView.setVisibility(View.GONE);
+                            ChocoBar.builder().setView(v)
+                                    .setText("Erro na conexão com o servidor, tente novamente")
+                                    .setDuration(ChocoBar.LENGTH_LONG)
+                                    .setActionText(android.R.string.ok)
+                                    .red()
+                                    .show();
                             Log.d("erroUnijobs", "erro call2 retrofit");
                         }
                     });
-                    Log.d("tokeee", loginResponse.getToken());
-                    //Toast.makeText(LoginActivity.this, loginResponse.getError(), Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    checkNetwork = new CheckNetwork();
-                    if (checkNetwork.haveNetworkConnection(LoginActivity.this)) {
-                        if (response.code() == 404) {
-                            snackbar = Snackbar
-                                    .make(v, "Email não cadastrado", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        }
-                        if (response.code() == 400) {
-                            snackbar = Snackbar
-                                    .make(v, "Senha incorreta", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        }
-                    } else {
-                        snackbar = Snackbar
-                                .make(v, "Sem conexão com a internet", Snackbar.LENGTH_LONG);
-                        snackbar.show();
-                    }
+                } else {
+                    CheckConnection checkConnection = new CheckConnection();
+                    checkConnection.checkStuff(v, LoginActivity.this, response);
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                snackbar = Snackbar
-                        .make(v, "Erro na conexão com o servidor, tente novamente", Snackbar.LENGTH_LONG);
-                snackbar.show();
+                ChocoBar.builder().setView(v)
+                        .setText("Erro na conexão com o servidor, tente novamente")
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
                 Log.d("erroUnijobs", "erro call1 retrofit");
             }
         });

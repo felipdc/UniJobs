@@ -15,6 +15,7 @@ import com.beesocial.unijobs.adapters.ServicesAdapter;
 import com.beesocial.unijobs.models.ServiceResponse;
 import com.infideap.atomic.Atom;
 import com.infideap.atomic.FutureCallback;
+import com.pd.chocobar.ChocoBar;
 
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class ServiceFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
+    com.github.ybq.android.spinkit.SpinKitView spinKitView;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter servicesAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -67,55 +69,32 @@ public class ServiceFragment extends Fragment {
                 .setCallback(new FutureCallback<ServiceResponse[]>() {
                     @Override
                     public void onCompleted(Exception e, ServiceResponse[] result) {
-
-                        String names[] = new String[result.length];
-                        String desc[] = new String[result.length];
-                        String img[] = new String[result.length];
-                        String id[] = new String[result.length];
-                        for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
-                            names[j] = result[i].getName();
-                            desc[j] = result[i].getDescription();
-                            img[j] = result[i].getImage();
-                            id[j] = result[i].getId();
+                        spinKitView = getView().findViewById(R.id.spin_kit);
+                        spinKitView.setVisibility(View.GONE);
+                        if (!result[0].getId().isEmpty()) {
+                            String names[] = new String[result.length];
+                            String desc[] = new String[result.length];
+                            String img[] = new String[result.length];
+                            String id[] = new String[result.length];
+                            for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
+                                names[j] = result[i].getName();
+                                desc[j] = result[i].getDescription();
+                                img[j] = result[i].getImage();
+                                id[j] = result[i].getId();
+                            }
+                            servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                            recyclerView.setAdapter(servicesAdapter);
+                        } else {
+                            ChocoBar.builder().setActivity(getActivity())
+                                    .setText("Erro na conexão com o servidor, por favor, tente novamente")
+                                    .setDuration(ChocoBar.LENGTH_LONG)
+                                    .setActionText(android.R.string.ok)
+                                    .red()
+                                    .show();
                         }
-                        servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
-                        recyclerView.setAdapter(servicesAdapter);
                     }
                 });
     }
-
-    /*private void callBackend(int index) {
-        Call<List<ServiceResponse>> call;
-        if (index == 1) {
-            call = RetrofitClient
-                    .getInstance(2).getApi().getServiceOfferTrue();
-        } else {
-            call = RetrofitClient
-                    .getInstance(2).getApi().getServiceOfferFalse();
-        }
-
-        call.enqueue(new Callback<List<ServiceResponse>>() {
-            @Override
-            public void onResponse(Call<List<ServiceResponse>> calltargetResponce, retrofit2.Response<List<ServiceResponse>> response3) {
-                List<ServiceResponse> responseList = response3.body();
-                String names[] = new String[responseList.size()];
-                String desc[] = new String[responseList.size()];
-                String img[] = new String[responseList.size()];
-                for (int i = 0; i < responseList.size(); i++) {
-                    names[i] = responseList.get(i).getName();
-                    desc[i] = responseList.get(i).getDescription();
-                    img[i] = responseList.get(i).getImage();
-                }
-                servicesAdapter = new ServicesAdapter(getContext(), names, desc, img);
-                recyclerView.setAdapter(servicesAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<List<ServiceResponse>> calltargetResponce, Throwable t) {
-
-            }
-        });
-    }*/
 
     @Override
     public View onCreateView(

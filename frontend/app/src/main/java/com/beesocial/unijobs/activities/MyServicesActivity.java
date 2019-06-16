@@ -14,6 +14,7 @@ import com.beesocial.unijobs.models.User;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.infideap.atomic.Atom;
 import com.infideap.atomic.FutureCallback;
+import com.pd.chocobar.ChocoBar;
 
 public class MyServicesActivity extends AppCompatActivity {
 
@@ -39,9 +40,7 @@ public class MyServicesActivity extends AppCompatActivity {
     }
 
     private void callBackend(String userID) {
-        String URL;
-        URL = "https://unijobs-service.now.sh/api/service?createdBy=" + userID;
-
+        String URL = "https://unijobs-service.now.sh/api/service?createdBy=" + userID;
 
         Atom.with(this)
                 .load(URL)
@@ -49,21 +48,29 @@ public class MyServicesActivity extends AppCompatActivity {
                 .setCallback(new FutureCallback<ServiceResponse[]>() {
                     @Override
                     public void onCompleted(Exception e, ServiceResponse[] result) {
+                        if (!result[0].getId().isEmpty()) {
+                            String names[] = new String[result.length];
+                            String desc[] = new String[result.length];
+                            String img[] = new String[result.length];
+                            String id[] = new String[result.length];
+                            for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
+                                names[j] = result[i].getName();
+                                desc[j] = result[i].getDescription();
+                                img[j] = result[i].getImage();
+                                id[j] = result[i].getId();
+                            }
+                            adapter = new ServicesAdapter(MyServicesActivity.this, names, desc, img, id);
 
-                        String names[] = new String[result.length];
-                        String desc[] = new String[result.length];
-                        String img[] = new String[result.length];
-                        String id[] = new String[result.length];
-                        for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
-                            names[j] = result[i].getName();
-                            desc[j] = result[i].getDescription();
-                            img[j] = result[i].getImage();
-                            id[j] = result[i].getId();
+                            recyclerView.setAdapter(adapter);
+                            recyclerView.setLayoutManager(layoutManager);
+                        } else {
+                            ChocoBar.builder().setActivity(MyServicesActivity.this)
+                                    .setText("Erro na conexão com o servidor, por favor, tente novamente")
+                                    .setDuration(ChocoBar.LENGTH_LONG)
+                                    .setActionText(android.R.string.ok)
+                                    .red()
+                                    .show();
                         }
-                        adapter = new ServicesAdapter(MyServicesActivity.this, names, desc, img, id);
-
-                        recyclerView.setAdapter(adapter);
-                        recyclerView.setLayoutManager(layoutManager);
                     }
                 });
     }

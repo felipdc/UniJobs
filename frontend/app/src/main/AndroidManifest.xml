@@ -25,6 +25,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".activities.EditServiceActivity"
             android:parentActivityName=".activities.MyServicesActivity"></activity>
         <activity
