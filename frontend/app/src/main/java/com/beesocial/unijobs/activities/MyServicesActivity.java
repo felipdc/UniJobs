@@ -48,21 +48,33 @@ public class MyServicesActivity extends AppCompatActivity {
                 .setCallback(new FutureCallback<ServiceResponse[]>() {
                     @Override
                     public void onCompleted(Exception e, ServiceResponse[] result) {
-                        if (!result[0].getId().isEmpty()) {
-                            String names[] = new String[result.length];
-                            String desc[] = new String[result.length];
-                            String img[] = new String[result.length];
-                            String id[] = new String[result.length];
-                            for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
-                                names[j] = result[i].getName();
-                                desc[j] = result[i].getDescription();
-                                img[j] = result[i].getImage();
-                                id[j] = result[i].getId();
-                            }
-                            adapter = new ServicesAdapter(MyServicesActivity.this, names, desc, img, id);
+                        if (e == null) {
+                            if (result != null) {
+                                String names[] = new String[result.length];
+                                String desc[] = new String[result.length];
+                                String img[] = new String[result.length];
+                                String id[] = new String[result.length];
+                                for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
+                                    names[j] = result[i].getName();
+                                    desc[j] = result[i].getDescription();
+                                    img[j] = result[i].getImage();
+                                    id[j] = result[i].getId();
+                                }
+                                adapter = new ServicesAdapter(MyServicesActivity.this, names, desc, img, id);
 
-                            recyclerView.setAdapter(adapter);
-                            recyclerView.setLayoutManager(layoutManager);
+                                recyclerView.setAdapter(adapter);
+                                recyclerView.setLayoutManager(layoutManager);
+                            } else {
+                                String names[] = null;
+                                String desc[] = null;
+                                String img[] = null;
+                                String id[] = null;
+                                adapter = new ServicesAdapter(MyServicesActivity.this, names, desc, img, id);
+
+                                recyclerView.setAdapter(adapter);
+                                recyclerView.setLayoutManager(layoutManager);
+                            }
+
                         } else {
                             ChocoBar.builder().setActivity(MyServicesActivity.this)
                                     .setText("Erro na conexão com o servidor, por favor, tente novamente")

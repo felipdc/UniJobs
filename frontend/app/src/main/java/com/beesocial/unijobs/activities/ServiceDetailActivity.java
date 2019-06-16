@@ -2,7 +2,6 @@ package com.beesocial.unijobs.activities;
 
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
 import android.widget.ImageButton;
@@ -48,9 +47,11 @@ public class ServiceDetailActivity extends AppCompatActivity {
         servicoDesc = getIntent().getStringExtra("service_desc");
         servicoImgString = getIntent().getStringExtra("service_img");
         if (servicoImgString != null) {
-            final byte[] decodedBytes = Base64.decode(servicoImgString, Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-            Glide.with(this).load(bitmap).centerCrop().into(detailServiceImageView);
+
+            final String pureBase64Encoded = servicoImgString.substring(servicoImgString.indexOf(",") + 1);
+            final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
+
+            Glide.with(this).load(decodedBytes).centerCrop().into(detailServiceImageView);
             //detailServiceImageView.setImageBitmap(bitmap);
         }
         detailServiceTitleTextView.setText(servicoTitle);
