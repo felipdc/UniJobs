@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import com.beesocial.unijobs.api.Api;
 import com.beesocial.unijobs.models.ServiceResponse;
 import com.beesocial.unijobs.models.ServiceUpdate;
 import com.beesocial.unijobs.models.User;
+import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
 import com.fxn.pix.Options;
 import com.fxn.pix.Pix;
@@ -45,6 +47,7 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
     private Toolbar toolbar;
     private ImageView registerServiceImageView;
     private RadioGroup registerServiceRadioGroup;
+    private RadioButton registerServiceRadioOferta, registerServiceRadioProcura;
     private EditText registerServiceTitulo;
     private EditText registerServiceDescricao;
     ArrayList<String> returnValue;
@@ -69,15 +72,22 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
         registerServiceRadioGroup = findViewById(R.id.edit_service_radioGroup);
         registerServiceTitulo = findViewById(R.id.edit_service_editTextTitulo);
         registerServiceDescricao = findViewById(R.id.edit_service_editTextDescricao);
+        registerServiceRadioOferta = findViewById(R.id.edit_service_radioButtonOferta);
+        registerServiceRadioProcura = findViewById(R.id.edit_service_radioButtonDemanda);
+
+        button.setOnClickListener(this);
+        registerServiceImageView.setOnClickListener(this);
+
+        user = SharedPrefManager.getInstance(this).getUser();
     }
 
     private void serviceModify(View v) {
         String titulo = registerServiceTitulo.getText().toString().trim();
         String desc = registerServiceDescricao.getText().toString().trim();
         String isOffer;
-        int id = registerServiceRadioGroup.getCheckedRadioButtonId();
 
-        if (id == 2131296483) {
+
+        if (registerServiceRadioProcura.isChecked()) {
             isOffer = "false";
         } else {
             isOffer = "true";
@@ -142,10 +152,10 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.buttonRegisterService:
+            case R.id.edit_service_buttonRegisterService:
                 serviceModify(v);
                 break;
-            case R.id.imageViewService:
+            case R.id.edit_service_imageViewService:
                 Options options = Options.init()
                         .setRequestCode(100)
                         .setCount(1)

@@ -1,6 +1,7 @@
 package com.beesocial.unijobs.activities;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,6 +22,7 @@ public class MyServicesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ServicesAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    com.github.ybq.android.spinkit.SpinKitView spinKitView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class MyServicesActivity extends AppCompatActivity {
                 .setCallback(new FutureCallback<ServiceResponse[]>() {
                     @Override
                     public void onCompleted(Exception e, ServiceResponse[] result) {
+                        spinKitView = findViewById(R.id.spin_kit);
+                        spinKitView.setVisibility(View.GONE);
                         if (e == null) {
                             if (result != null) {
                                 String names[] = new String[result.length];

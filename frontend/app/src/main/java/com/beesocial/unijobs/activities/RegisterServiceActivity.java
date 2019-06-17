@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,18 +46,19 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
     private Toolbar toolbar;
     private ImageView registerServiceImageView;
     private RadioGroup registerServiceRadioGroup;
+    User user;
     private EditText registerServiceTitulo;
     private EditText registerServiceDescricao;
     ArrayList<String> returnValue;
     Bitmap bitmap;
     String encodedImage = null;
-    User user, userComplete;
+    com.github.ybq.android.spinkit.SpinKitView spinKitView;
+    private RadioButton registerServiceRadioOferta, registerServiceRadioProcura;
     private Button button;
 
     private void serviceRegister(final View v) {
         String titulo = registerServiceTitulo.getText().toString().trim();
         String desc = registerServiceDescricao.getText().toString().trim();
-        int id = registerServiceRadioGroup.getCheckedRadioButtonId();
         String isOffer;
         if (titulo.isEmpty()) {
             registerServiceTitulo.setError("Campo necessário");
@@ -69,13 +71,15 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
             return;
         }
 
-        if (id == 2131296483) {
+        if (registerServiceRadioProcura.isChecked()) {
             isOffer = "false";
         } else {
             isOffer = "true";
         }
 
 
+        spinKitView = findViewById(R.id.spin_kit);
+        spinKitView.setVisibility(View.VISIBLE);
         callBackend(v, titulo, desc, isOffer);
         //callBackend2(v, email, name, password, facebook, phoneNumber);
     }
@@ -127,7 +131,9 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
                         .show();
                 //System.out.println("merda");
             }
-        });
+                                   }
+        );
+        spinKitView.setVisibility(View.GONE);
     }
 
     @Override
@@ -142,6 +148,8 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
 
         registerServiceImageView = findViewById(R.id.imageViewService);
         registerServiceRadioGroup = findViewById(R.id.radioGroup);
+        registerServiceRadioOferta = findViewById(R.id.radioButtonOferta);
+        registerServiceRadioProcura = findViewById(R.id.radioButtonDemanda);
         registerServiceTitulo = findViewById(R.id.editTextTitulo);
         registerServiceDescricao = findViewById(R.id.editTextDescricao);
         button = findViewById(R.id.buttonRegisterService);
@@ -176,8 +184,6 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
         if (resultCode == Activity.RESULT_OK && requestCode == 100) {
 
             returnValue = imageData.getStringArrayListExtra(Pix.IMAGE_RESULTS);
-            String teste1 = "file://" + returnValue.get(0);
-            String teste2 = "file://" + returnValue.get(0).substring(0, returnValue.get(0).length() - 4) + "crop" + returnValue.get(0).substring(returnValue.get(0).length() - 4);
 
             UCrop uCrop = UCrop.of(Uri.parse("file://" + returnValue.get(0)), Uri.parse("file://" + returnValue.get(0).substring(0, returnValue.get(0).length() - 4) + "crop" + returnValue.get(0).substring(returnValue.get(0).length() - 4)))
                     .withAspectRatio(16, 9)
@@ -191,8 +197,6 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
 
 
             Glide.with(this).load(bitmap).fitCenter().into(registerServiceImageView);
-
-            //registerServiceImageView.setImageBitmap(bitmap);
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
