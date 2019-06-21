@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,7 @@ import com.infideap.atomic.Atom;
 import com.infideap.atomic.FutureCallback;
 import com.pd.chocobar.ChocoBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,6 +28,7 @@ import java.util.List;
 public class ServiceFragment extends Fragment {
     List<ServiceResponse> responseVector;
     private String[] dataset;
+    SearchView searchView;
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -45,13 +48,10 @@ public class ServiceFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         int tipoServico = getArguments().getInt(ARG_SECTION_NUMBER);
         //SharedPrefManager.getInstance(getActivity()).saveTab(tipoServico);
         callBackend(tipoServico);
         layoutManager = new LinearLayoutManager(getActivity());
-
-
     }
 
     private void callBackend(int index) {
@@ -83,6 +83,7 @@ public class ServiceFragment extends Fragment {
                                     img[j] = result[i].getImage();
                                     id[j] = result[i].getId();
                                 }
+                                searchList(names, desc, img, id);
                                 servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
                                 recyclerView.setAdapter(servicesAdapter);
                             } else {
@@ -105,6 +106,69 @@ public class ServiceFragment extends Fragment {
                 });
     }
 
+    private void searchList(String[] names, String[] desc, String[] img, String[] id) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Boolean yes;
+                ArrayList<String> resultNames = new ArrayList<String>();
+                ArrayList<String> resultDesc = new ArrayList<String>();
+                ArrayList<String> resultImg = new ArrayList<String>();
+                ArrayList<String> resultId = new ArrayList<String>();
+
+                for (int i = 0; i < names.length; i++) {
+                    yes = names[i].contains(query);
+                    if (yes) {
+                        resultNames.add(names[i]);
+                        resultDesc.add(desc[i]);
+                        resultImg.add(img[i]);
+                        resultId.add(id[i]);
+                    }
+                }
+
+                String[] returnNames = resultNames.toArray(new String[resultNames.size()]);
+                String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
+                String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
+                String[] returnId = resultId.toArray(new String[resultId.size()]);
+
+                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId);
+                recyclerView.setAdapter(servicesAdapter);
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String queryChange) {
+                Boolean yes;
+                ArrayList<String> resultNames = new ArrayList<String>();
+                ArrayList<String> resultDesc = new ArrayList<String>();
+                ArrayList<String> resultImg = new ArrayList<String>();
+                ArrayList<String> resultId = new ArrayList<String>();
+
+                for (int i = 0; i < names.length; i++) {
+                    yes = names[i].contains(queryChange);
+                    if (yes) {
+                        resultNames.add(names[i]);
+                        resultDesc.add(desc[i]);
+                        resultImg.add(img[i]);
+                        resultId.add(id[i]);
+                    }
+                }
+
+                String[] returnNames = resultNames.toArray(new String[resultNames.size()]);
+                String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
+                String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
+                String[] returnId = resultId.toArray(new String[resultId.size()]);
+
+                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId);
+                recyclerView.setAdapter(servicesAdapter);
+
+                return false;
+            }
+        });
+
+    }
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -112,6 +176,9 @@ public class ServiceFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_service, container, false);
         recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
+        searchView = (SearchView) root.findViewById(R.id.searchView);
+        searchView.setQueryHint("Pesquisar");
+
         return root;
     }
 }
