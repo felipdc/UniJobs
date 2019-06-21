@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.ServicesAdapter;
 import com.beesocial.unijobs.models.ServiceResponse;
+import com.iammert.library.ui.multisearchviewlib.MultiSearchView;
 import com.infideap.atomic.Atom;
 import com.infideap.atomic.FutureCallback;
 import com.pd.chocobar.ChocoBar;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,7 @@ import java.util.List;
 public class ServiceFragment extends Fragment {
     List<ServiceResponse> responseVector;
     private String[] dataset;
-    SearchView searchView;
+    com.iammert.library.ui.multisearchviewlib.MultiSearchView searchView;
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -83,6 +85,7 @@ public class ServiceFragment extends Fragment {
                                     img[j] = result[i].getImage();
                                     id[j] = result[i].getId();
                                 }
+                                searchView.setVisibility(View.VISIBLE);
                                 searchList(names, desc, img, id);
                                 servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
                                 recyclerView.setAdapter(servicesAdapter);
@@ -107,9 +110,10 @@ public class ServiceFragment extends Fragment {
     }
 
     private void searchList(String[] names, String[] desc, String[] img, String[] id) {
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setSearchViewListener(new MultiSearchView.MultiSearchViewListener() {
+            //tem jeito melhor de fazer essa pesquisa, porem, nao tenho tempo para parar e pensar como ser mais otimizada.
             @Override
-            public boolean onQueryTextSubmit(String query) {
+            public void onTextChanged(int j, @NotNull CharSequence charSequence) {
                 Boolean yes;
                 ArrayList<String> resultNames = new ArrayList<String>();
                 ArrayList<String> resultDesc = new ArrayList<String>();
@@ -117,7 +121,7 @@ public class ServiceFragment extends Fragment {
                 ArrayList<String> resultId = new ArrayList<String>();
 
                 for (int i = 0; i < names.length; i++) {
-                    yes = names[i].contains(query);
+                    yes = names[i].contains(charSequence.toString());
                     if (yes) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
@@ -133,12 +137,10 @@ public class ServiceFragment extends Fragment {
 
                 servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId);
                 recyclerView.setAdapter(servicesAdapter);
-
-                return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String queryChange) {
+            public void onSearchComplete(int j, @NotNull CharSequence charSequence) {
                 Boolean yes;
                 ArrayList<String> resultNames = new ArrayList<String>();
                 ArrayList<String> resultDesc = new ArrayList<String>();
@@ -146,7 +148,7 @@ public class ServiceFragment extends Fragment {
                 ArrayList<String> resultId = new ArrayList<String>();
 
                 for (int i = 0; i < names.length; i++) {
-                    yes = names[i].contains(queryChange);
+                    yes = names[i].contains(charSequence.toString());
                     if (yes) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
@@ -162,8 +164,16 @@ public class ServiceFragment extends Fragment {
 
                 servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId);
                 recyclerView.setAdapter(servicesAdapter);
+            }
 
-                return false;
+            @Override
+            public void onSearchItemRemoved(int j) {
+
+            }
+
+            @Override
+            public void onItemSelected(int j, @NotNull CharSequence charSequence) {
+
             }
         });
 
@@ -176,8 +186,8 @@ public class ServiceFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_service, container, false);
         recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
-        searchView = (SearchView) root.findViewById(R.id.searchView);
-        searchView.setQueryHint("Pesquisar");
+        searchView = root.findViewById(R.id.searchView);
+        //searchView.setQueryHint("Pesquisar");
 
         return root;
     }
