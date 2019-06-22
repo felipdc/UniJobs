@@ -46,9 +46,9 @@
         <item name="android:textSize">18sp</item>
         <item name="android:maxLength">15</item>
         <item name="android:inputType">textCapSentences</item>
-        <item name="android:textColorHint">#80ffffff</item>
-        <item name="android:textColor">#fff</item>
-        <item name="android:editTextColor">#fff</item>
+        <item name="android:textColorHint">#80111111</item>
+        <item name="android:textColor">#111</item>
+        <item name="android:editTextColor">#111</item>
 
     </style>
 

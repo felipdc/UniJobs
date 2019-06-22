@@ -19,6 +19,7 @@ import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.astritveliu.boom.Boom;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
 import com.beesocial.unijobs.models.ServiceRegister;
@@ -60,6 +61,8 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
         String titulo = registerServiceTitulo.getText().toString().trim();
         String desc = registerServiceDescricao.getText().toString().trim();
         String isOffer;
+
+
         if (titulo.isEmpty()) {
             registerServiceTitulo.setError("Campo necessário");
             registerServiceTitulo.requestFocus();
@@ -94,6 +97,7 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
         calltargetResponse.enqueue(new Callback<ServiceResponse>() {
             @Override
             public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
+                ServiceResponse sResponse = response.body();
                 if (response.isSuccessful()) {
                     ChocoBar.builder().setBackgroundColor(Color.parseColor("#004E8D"))
                             .setTextSize(18)
@@ -153,6 +157,7 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
         registerServiceTitulo = findViewById(R.id.editTextTitulo);
         registerServiceDescricao = findViewById(R.id.editTextDescricao);
         button = findViewById(R.id.buttonRegisterService);
+        new Boom(button);
         button.setOnClickListener(this);
         registerServiceImageView.setOnClickListener(this);
 

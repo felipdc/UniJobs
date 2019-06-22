@@ -86,9 +86,9 @@ public class ServiceFragment extends Fragment {
                                     id[j] = result[i].getId();
                                 }
                                 searchView.setVisibility(View.VISIBLE);
-                                searchList(names, desc, img, id);
                                 servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
                                 recyclerView.setAdapter(servicesAdapter);
+                                searchList(names, desc, img, id);
                             } else {
                                 ChocoBar.builder().setActivity(getActivity())
                                         .setText("Erro na conexão com o servidor, por favor, tente novamente")
