@@ -15,7 +15,6 @@ import com.beesocial.unijobs.adapters.ServicesAdapter;
 import com.beesocial.unijobs.api.RetrofitClient;
 import com.beesocial.unijobs.models.ErrorResponse;
 import com.beesocial.unijobs.models.ServiceResponse;
-import com.eaio.stringsearch.BoyerMooreHorspoolRaita;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.iammert.library.ui.multisearchviewlib.MultiSearchView;
@@ -129,24 +128,30 @@ public class ServiceFragment extends Fragment {
     }
 
     private void searchList(String[] names, String[] desc, String[] img, String[] id) {
-        searchView.setSearchViewListener(new MultiSearchView.MultiSearchViewListener() {
-            BoyerMooreHorspoolRaita a = new BoyerMooreHorspoolRaita();
-            int yes;
 
+        searchView.setSearchViewListener(new MultiSearchView.MultiSearchViewListener() {
+            //tem jeito melhor de fazer essa pesquisa, porem, nao tenho tempo para parar e pensar como ser mais otimizada.
             @Override
             public void onTextChanged(int j, @NotNull CharSequence charSequence) {
+                Boolean yes;
                 ArrayList<String> resultNames = new ArrayList<String>();
                 ArrayList<String> resultDesc = new ArrayList<String>();
                 ArrayList<String> resultImg = new ArrayList<String>();
                 ArrayList<String> resultId = new ArrayList<String>();
+
                 for (int i = 0; i < names.length; i++) {
-                    yes = a.searchString(names[i], charSequence.toString());
-                    if (yes != -1) {
+                    yes = names[i].contains(charSequence.toString());
+                    if (yes) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
                     }
+                }
+
+                if (charSequence.length() == 0) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                    recyclerView.setAdapter(servicesAdapter);
                 }
 
                 String[] returnNames = resultNames.toArray(new String[resultNames.size()]);
@@ -160,18 +165,25 @@ public class ServiceFragment extends Fragment {
 
             @Override
             public void onSearchComplete(int j, @NotNull CharSequence charSequence) {
+                Boolean yes;
                 ArrayList<String> resultNames = new ArrayList<String>();
                 ArrayList<String> resultDesc = new ArrayList<String>();
                 ArrayList<String> resultImg = new ArrayList<String>();
                 ArrayList<String> resultId = new ArrayList<String>();
+
                 for (int i = 0; i < names.length; i++) {
-                    yes = a.searchString(names[i], charSequence.toString());
-                    if (yes != -1) {
+                    yes = names[i].contains(charSequence.toString());
+                    if (yes) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
                     }
+                }
+
+                if (charSequence.length() == 0) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                    recyclerView.setAdapter(servicesAdapter);
                 }
 
                 String[] returnNames = resultNames.toArray(new String[resultNames.size()]);

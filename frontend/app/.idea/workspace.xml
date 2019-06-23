@@ -129,12 +129,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8f518245-356a-4440-9339-966e9ee55e64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,20 +156,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-104">
-              <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+            <state relative-caret-position="-978">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6225#6233#0" expanded="true" />
+                <element signature="e#6297#6305#0" expanded="true" />
+                <element signature="e#6368#6376#0" expanded="true" />
+                <element signature="e#6438#6446#0" expanded="true" />
+                <element signature="e#7579#7587#0" expanded="true" />
+                <element signature="e#7651#7659#0" expanded="true" />
+                <element signature="e#7722#7730#0" expanded="true" />
+                <element signature="e#7792#7800#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -220,12 +217,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="142" selection-start-line="142" selection-end-line="142" />
+            <state relative-caret-position="125">
+              <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -329,7 +326,6 @@
         <option value="$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml" />
         <option value="$PROJECT_DIR$/../build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" />
@@ -338,6 +334,7 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" />
       </list>
     </option>
   </component>
@@ -643,7 +640,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561331496544</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Arrumando animacoes">
+      <created>1561332114317</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1561332114317</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -666,7 +670,7 @@
       <window_info anchor="bottom" id="Run" order="5" />
       <window_info anchor="bottom" id="Logcat" order="6" sideWeight="0.6944186" weight="0.34919125" />
       <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info active="true" anchor="bottom" id="Debug" order="8" sideWeight="0.6316279" visible="true" weight="0.32159847" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.6316279" visible="true" weight="0.32159847" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.49302325" weight="0.35204569" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -674,7 +678,7 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Assistant" order="5" visible="true" weight="0.32972136" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="6" visible="true" weight="0.21906976" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="6" visible="true" weight="0.21906976" />
       <window_info anchor="right" id="Preview" order="7" weight="0.2255814" />
       <window_info anchor="right" id="Codota" order="8" />
     </layout>
@@ -699,7 +703,8 @@
     <MESSAGE value="Commit final do sistema de pesquisa." />
     <MESSAGE value="Bugfixes" />
     <MESSAGE value="Bugfixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes." />
+    <MESSAGE value="Arrumando animacoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arrumando animacoes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -765,7 +770,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile_menuheader.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/DefaultResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-536">
@@ -1037,16 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -1124,8 +1118,33 @@
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        <state relative-caret-position="125">
+          <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/lang/Boolean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-978">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6225#6233#0" expanded="true" />
+            <element signature="e#6297#6305#0" expanded="true" />
+            <element signature="e#6368#6376#0" expanded="true" />
+            <element signature="e#6438#6446#0" expanded="true" />
+            <element signature="e#7579#7587#0" expanded="true" />
+            <element signature="e#7651#7659#0" expanded="true" />
+            <element signature="e#7722#7730#0" expanded="true" />
+            <element signature="e#7792#7800#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
