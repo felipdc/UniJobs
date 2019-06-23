@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.ServicesAdapter;
 import com.beesocial.unijobs.models.ServiceResponse;
+import com.eaio.stringsearch.BoyerMooreHorspoolRaita;
 import com.iammert.library.ui.multisearchviewlib.MultiSearchView;
 import com.infideap.atomic.Atom;
 import com.infideap.atomic.FutureCallback;
@@ -22,7 +23,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * A placeholder fragment containing a simple view.
@@ -111,18 +111,18 @@ public class ServiceFragment extends Fragment {
 
     private void searchList(String[] names, String[] desc, String[] img, String[] id) {
         searchView.setSearchViewListener(new MultiSearchView.MultiSearchViewListener() {
-            //tem jeito melhor de fazer essa pesquisa, porem, nao tenho tempo para parar e pensar como ser mais otimizada.
+            BoyerMooreHorspoolRaita a = new BoyerMooreHorspoolRaita();
+            int yes;
+
             @Override
             public void onTextChanged(int j, @NotNull CharSequence charSequence) {
-                Boolean yes;
                 ArrayList<String> resultNames = new ArrayList<String>();
                 ArrayList<String> resultDesc = new ArrayList<String>();
                 ArrayList<String> resultImg = new ArrayList<String>();
                 ArrayList<String> resultId = new ArrayList<String>();
-
                 for (int i = 0; i < names.length; i++) {
-                    yes = names[i].contains(charSequence.toString());
-                    if (yes) {
+                    yes = a.searchString(names[i], charSequence.toString());
+                    if (yes != -1) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
                         resultImg.add(img[i]);
@@ -141,15 +141,13 @@ public class ServiceFragment extends Fragment {
 
             @Override
             public void onSearchComplete(int j, @NotNull CharSequence charSequence) {
-                Boolean yes;
                 ArrayList<String> resultNames = new ArrayList<String>();
                 ArrayList<String> resultDesc = new ArrayList<String>();
                 ArrayList<String> resultImg = new ArrayList<String>();
                 ArrayList<String> resultId = new ArrayList<String>();
-
                 for (int i = 0; i < names.length; i++) {
-                    yes = names[i].contains(charSequence.toString());
-                    if (yes) {
+                    yes = a.searchString(names[i], charSequence.toString());
+                    if (yes != -1) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
                         resultImg.add(img[i]);

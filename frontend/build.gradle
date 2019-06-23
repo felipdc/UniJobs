@@ -19,7 +19,9 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven  {url "http://repo.eaio.com/maven2"}
     }
+
 }
 
 task clean(type: Delete) {
