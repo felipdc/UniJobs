@@ -39,7 +39,7 @@
 
             <com.github.ybq.android.spinkit.SpinKitView
                 android:id="@+id/spin_kit"
-                style="@style/SpinKitView.Large.FadingCircle"
+                style="@style/SpinKitView.Large.DoubleBounce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="60dp"

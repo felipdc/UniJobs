@@ -97,6 +97,7 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
         calltargetResponse.enqueue(new Callback<ServiceResponse>() {
             @Override
             public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
+                spinKitView.setVisibility(View.GONE);
                 ServiceResponse sResponse = response.body();
                 if (response.isSuccessful()) {
                     ChocoBar.builder().setBackgroundColor(Color.parseColor("#004E8D"))
@@ -127,6 +128,7 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
 
             @Override
             public void onFailure(Call<ServiceResponse> call, Throwable t) {
+                spinKitView.setVisibility(View.GONE);
                 ChocoBar.builder().setView(v)
                         .setText("Erro na conexão com o servidor, tente novamente")
                         .setDuration(ChocoBar.LENGTH_LONG)
