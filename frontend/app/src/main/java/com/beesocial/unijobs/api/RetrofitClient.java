@@ -65,6 +65,11 @@ public class RetrofitClient {
         }
     }
 
+    public static synchronized RetrofitClient createInstance(int i) {
+        mInstance = new RetrofitClient(i);
+        return mInstance;
+    }
+
     public static synchronized RetrofitClient getInstance(int i) {
         if (mInstance == null) {
             mInstance = new RetrofitClient(i);

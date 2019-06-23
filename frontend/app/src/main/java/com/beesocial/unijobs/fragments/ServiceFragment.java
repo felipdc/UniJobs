@@ -12,17 +12,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.ServicesAdapter;
+import com.beesocial.unijobs.api.RetrofitClient;
+import com.beesocial.unijobs.models.ErrorResponse;
 import com.beesocial.unijobs.models.ServiceResponse;
 import com.eaio.stringsearch.BoyerMooreHorspoolRaita;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.iammert.library.ui.multisearchviewlib.MultiSearchView;
-import com.infideap.atomic.Atom;
-import com.infideap.atomic.FutureCallback;
 import com.pd.chocobar.ChocoBar;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -57,56 +63,69 @@ public class ServiceFragment extends Fragment {
     }
 
     private void callBackend(int index) {
-        String URL;
+        Call<List<ServiceResponse>> call;
         if (index == 1) {
-            URL = "https://unijobs-service.now.sh/api/service?isOffer=true";
+            call = RetrofitClient
+                    .createInstance(2).getApi().getServiceOfferTrue();
         } else {
-
-            URL = "https://unijobs-service.now.sh/api/service?isOffer=false";
+            call = RetrofitClient
+                    .createInstance(2).getApi().getServiceOfferFalse();
         }
 
-        Atom.with(getContext())
-                .load(URL)
-                .as(ServiceResponse[].class)
-                .setCallback(new FutureCallback<ServiceResponse[]>() {
-                    @Override
-                    public void onCompleted(Exception e, ServiceResponse[] result) {
-                        if (e == null) {
-                            spinKitView = getView().findViewById(R.id.spin_kit);
-                            spinKitView.setVisibility(View.GONE);
-                            if (!result[0].getId().isEmpty()) {
-                                String names[] = new String[result.length];
-                                String desc[] = new String[result.length];
-                                String img[] = new String[result.length];
-                                String id[] = new String[result.length];
-                                for (int i = 0, j = result.length - 1; i < result.length; i++, j--) {
-                                    names[j] = result[i].getName();
-                                    desc[j] = result[i].getDescription();
-                                    img[j] = result[i].getImage();
-                                    id[j] = result[i].getId();
-                                }
-                                searchView.setVisibility(View.VISIBLE);
-                                servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
-                                recyclerView.setAdapter(servicesAdapter);
-                                searchList(names, desc, img, id);
-                            } else {
-                                ChocoBar.builder().setActivity(getActivity())
-                                        .setText("Erro na conexão com o servidor, por favor, tente novamente")
-                                        .setDuration(ChocoBar.LENGTH_LONG)
-                                        .setActionText(android.R.string.ok)
-                                        .red()
-                                        .show();
-                            }
-                        } else {
-                            ChocoBar.builder().setActivity(getActivity())
-                                    .setText(e.getCause().getMessage())
-                                    .setDuration(ChocoBar.LENGTH_LONG)
-                                    .setActionText(android.R.string.ok)
-                                    .red()
-                                    .show();
+        call.enqueue(new Callback<List<ServiceResponse>>() {
+            @Override
+            public void onResponse(Call<List<ServiceResponse>> calltargetResponce, retrofit2.Response<List<ServiceResponse>> response) {
+                List<ServiceResponse> responseList = response.body();
+                if (response.isSuccessful()) {
+                    spinKitView = getView().findViewById(R.id.spin_kit);
+                    spinKitView.setVisibility(View.GONE);
+                    if (!responseList.isEmpty()) {
+                        String names[] = new String[responseList.size()];
+                        String desc[] = new String[responseList.size()];
+                        String img[] = new String[responseList.size()];
+                        String id[] = new String[responseList.size()];
+                        for (int i = 0, j = responseList.size() - 1; i < responseList.size(); i++, j--) {
+                            names[j] = responseList.get(i).getName();
+                            desc[j] = responseList.get(i).getDescription();
+                            img[j] = responseList.get(i).getImage();
+                            id[j] = responseList.get(i).getId();
                         }
+                        searchView.setVisibility(View.VISIBLE);
+                        servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                        recyclerView.setAdapter(servicesAdapter);
+                        searchList(names, desc, img, id);
+                    } else {
+                        ChocoBar.builder().setActivity(getActivity())
+                                .setText("Erro na conexão com o servidor, por favor, tente novamente")
+                                .setDuration(ChocoBar.LENGTH_LONG)
+                                .setActionText(android.R.string.ok)
+                                .red()
+                                .show();
                     }
-                });
+                } else {
+                    Gson gson = new Gson();
+                    Type type = new TypeToken<ErrorResponse>() {
+                    }.getType();
+                    ErrorResponse errorResponse = gson.fromJson(response.errorBody().charStream(), type);
+                    ChocoBar.builder().setActivity(getActivity())
+                            .setText(errorResponse.getErr())
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .setActionText(android.R.string.ok)
+                            .red()
+                            .show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ServiceResponse>> calltargetResponce, Throwable t) {
+                ChocoBar.builder().setActivity(getActivity())
+                        .setText("Erro na conexão com o servidor, por favor, tente novamente")
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
+            }
+        });
     }
 
     private void searchList(String[] names, String[] desc, String[] img, String[] id) {

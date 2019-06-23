@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.astritveliu.boom.Boom;
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.api.Api;
 import com.beesocial.unijobs.api.RetrofitClient;
@@ -45,6 +47,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewRegister).setOnClickListener(this);
 
+        Button button = findViewById(R.id.buttonLogin);
+        new Boom(button);
     }
 
     @Override
@@ -96,7 +100,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         model_obj = new UserLogin(email, password);
 
         Call<LoginResponse> call = RetrofitClient
-                .getInstance(1).getApi().userLogin(model_obj);
+                .createInstance(1).getApi().userLogin(model_obj);
 
         call.enqueue(new Callback<LoginResponse>() {
 
@@ -111,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             .addConverterFactory(GsonConverterFactory.create())
                             .build();
                     Api client = retrofit.create(Api.class);
-                    Call<DefaultResponse> calltargetResponse = client.getUser(loginResponse.getToken());
+                    Call<DefaultResponse> calltargetResponse = client.getUser("Bearer " + loginResponse.getToken());
                     calltargetResponse.enqueue(new Callback<DefaultResponse>() {
                         @Override
                         public void onResponse(Call<DefaultResponse> calltargetResponse, retrofit2.Response<DefaultResponse> responsee) {
