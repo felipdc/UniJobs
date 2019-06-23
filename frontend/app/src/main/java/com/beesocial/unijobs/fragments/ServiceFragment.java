@@ -149,11 +149,6 @@ public class ServiceFragment extends Fragment {
                     }
                 }
 
-                if (charSequence.length() == 0) {
-                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
-                    recyclerView.setAdapter(servicesAdapter);
-                }
-
                 String[] returnNames = resultNames.toArray(new String[resultNames.size()]);
                 String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
                 String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
@@ -161,6 +156,12 @@ public class ServiceFragment extends Fragment {
 
                 servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId);
                 recyclerView.setAdapter(servicesAdapter);
+
+                if (charSequence.toString().isEmpty()) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                    recyclerView.setAdapter(servicesAdapter);
+                }
+
             }
 
             @Override
@@ -181,11 +182,6 @@ public class ServiceFragment extends Fragment {
                     }
                 }
 
-                if (charSequence.length() == 0) {
-                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
-                    recyclerView.setAdapter(servicesAdapter);
-                }
-
                 String[] returnNames = resultNames.toArray(new String[resultNames.size()]);
                 String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
                 String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
@@ -193,6 +189,10 @@ public class ServiceFragment extends Fragment {
 
                 servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId);
                 recyclerView.setAdapter(servicesAdapter);
+                if (charSequence.toString().isEmpty()) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                    recyclerView.setAdapter(servicesAdapter);
+                }
             }
 
             @Override
