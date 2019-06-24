@@ -35,7 +35,7 @@ import retrofit2.Callback;
 public class ServiceFragment extends Fragment {
     List<ServiceResponse> responseVector;
     private String[] dataset;
-    com.iammert.library.ui.multisearchviewlib.MultiSearchView searchView;
+    MultiSearchView searchView;
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -89,9 +89,9 @@ public class ServiceFragment extends Fragment {
                             img[j] = responseList.get(i).getImage();
                             id[j] = responseList.get(i).getId();
                         }
-                        searchView.setVisibility(View.VISIBLE);
                         servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
                         recyclerView.setAdapter(servicesAdapter);
+                        searchView.setVisibility(View.VISIBLE);
                         searchList(names, desc, img, id);
                     } else {
                         ChocoBar.builder().setActivity(getActivity())
@@ -130,7 +130,6 @@ public class ServiceFragment extends Fragment {
     private void searchList(String[] names, String[] desc, String[] img, String[] id) {
 
         searchView.setSearchViewListener(new MultiSearchView.MultiSearchViewListener() {
-            //tem jeito melhor de fazer essa pesquisa, porem, nao tenho tempo para parar e pensar como ser mais otimizada.
             @Override
             public void onTextChanged(int j, @NotNull CharSequence charSequence) {
                 Boolean yes;
@@ -140,7 +139,7 @@ public class ServiceFragment extends Fragment {
                 ArrayList<String> resultId = new ArrayList<String>();
 
                 for (int i = 0; i < names.length; i++) {
-                    yes = names[i].contains(charSequence.toString());
+                    yes = names[i].contains(charSequence);
                     if (yes) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
@@ -173,7 +172,7 @@ public class ServiceFragment extends Fragment {
                 ArrayList<String> resultId = new ArrayList<String>();
 
                 for (int i = 0; i < names.length; i++) {
-                    yes = names[i].contains(charSequence.toString());
+                    yes = names[i].contains(charSequence);
                     if (yes) {
                         resultNames.add(names[i]);
                         resultDesc.add(desc[i]);
@@ -197,12 +196,39 @@ public class ServiceFragment extends Fragment {
 
             @Override
             public void onSearchItemRemoved(int j) {
-
+                servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                recyclerView.setAdapter(servicesAdapter);
             }
 
             @Override
             public void onItemSelected(int j, @NotNull CharSequence charSequence) {
+                Boolean yes;
+                ArrayList<String> resultNames = new ArrayList<String>();
+                ArrayList<String> resultDesc = new ArrayList<String>();
+                ArrayList<String> resultImg = new ArrayList<String>();
+                ArrayList<String> resultId = new ArrayList<String>();
 
+                for (int i = 0; i < names.length; i++) {
+                    yes = names[i].contains(charSequence);
+                    if (yes) {
+                        resultNames.add(names[i]);
+                        resultDesc.add(desc[i]);
+                        resultImg.add(img[i]);
+                        resultId.add(id[i]);
+                    }
+                }
+
+                String[] returnNames = resultNames.toArray(new String[resultNames.size()]);
+                String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
+                String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
+                String[] returnId = resultId.toArray(new String[resultId.size()]);
+
+                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId);
+                recyclerView.setAdapter(servicesAdapter);
+                if (charSequence.toString().isEmpty()) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
+                    recyclerView.setAdapter(servicesAdapter);
+                }
             }
         });
 
