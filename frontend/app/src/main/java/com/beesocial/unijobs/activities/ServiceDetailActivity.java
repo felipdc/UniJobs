@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.beesocial.unijobs.R;
+import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
 
 public class ServiceDetailActivity extends AppCompatActivity {
@@ -45,13 +46,16 @@ public class ServiceDetailActivity extends AppCompatActivity {
 
         servicoTitle = getIntent().getStringExtra("service_title");
         servicoDesc = getIntent().getStringExtra("service_desc");
-        servicoImgString = getIntent().getStringExtra("service_img");
-        if (servicoImgString != null) {
+        servicoImgString = SharedPrefManager.getInstance(this).getId();
+        if (servicoImgString != null && servicoImgString != "-1") {
+            try {
+                final String pureBase64Encoded = servicoImgString.substring(servicoImgString.indexOf(",") + 1);
+                final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
 
-            final String pureBase64Encoded = servicoImgString.substring(servicoImgString.indexOf(",") + 1);
-            final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
-
-            Glide.with(this).load(decodedBytes).centerCrop().into(detailServiceImageView);
+                Glide.with(this).load(decodedBytes).centerCrop().into(detailServiceImageView);
+            }catch (Exception e){
+                Glide.with(this).load(R.drawable.ic_info).centerCrop().into(detailServiceImageView);
+            }
             //detailServiceImageView.setImageBitmap(bitmap);
         }
         detailServiceTitleTextView.setText(servicoTitle);

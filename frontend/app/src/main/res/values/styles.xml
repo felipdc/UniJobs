@@ -21,9 +21,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+
+    </style>
 
     <style name="Style_TextView">
         <item name="fontFamily">@font/mont</item>
@@ -43,7 +47,7 @@
         <item name="android:enabled">true</item>
         <item name="android:hint">Pesquisar</item>
         <item name="android:imeOptions">actionSearch</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:maxLength">15</item>
         <item name="android:inputType">textCapSentences</item>
         <item name="android:textColorHint">#80111111</item>

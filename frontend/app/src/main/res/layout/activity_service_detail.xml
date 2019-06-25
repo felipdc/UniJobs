@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:contentDescription="@string/content_description_imagem_servico"
-                android:src="@android:mipmap/sym_def_app_icon" />
+                android:src="@drawable/ic_info"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,15 +46,16 @@
 
                 <TextView
                     android:id="@+id/detail_service_title_text_view"
-                    tools:text="Título do serviço"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
 
+                    android:fontFamily="@font/latoregular"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:layout_margin="8dp"/>
+                    tools:text="Título do serviço" />
 
                 <ImageButton
                     android:id="@+id/detail_service_like_button"
@@ -69,6 +70,7 @@
                     android:id="@+id/detail_service_description_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
+                    android:fontFamily="@font/latoregular"
                     android:padding="8dp"
                     android:text="Descrição do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico" />
 
@@ -77,6 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/latoregular"
                     android:padding="8dp"
                     android:text="Info do usuario" />
             </LinearLayout>

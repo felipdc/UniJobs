@@ -15,12 +15,13 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:contentDescription="@string/content_description_imagem_servico"
-            android:src="@android:mipmap/sym_def_app_icon" />
+            android:src="@drawable/ic_info"/>
 
         <TextView
             android:id="@+id/service_title_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/latoregular"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:textSize="24sp"
@@ -31,6 +32,7 @@
             android:id="@+id/service_description_text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/latoregular"
             android:padding="8dp"
             android:text="Descrição do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico" />
 

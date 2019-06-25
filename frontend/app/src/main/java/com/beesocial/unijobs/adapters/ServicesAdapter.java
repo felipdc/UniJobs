@@ -47,11 +47,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         holder.serviceTitleTextView.setText(names[position]);
         holder.serviceDescriptionTextView.setText(desc[position]);
         String encodedImage = img[position];
-        if (encodedImage != null) {
+        if (encodedImage != null && encodedImage!="-1") {
             final String pureBase64Encoded = encodedImage.substring(encodedImage.indexOf(",") + 1);
             final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-            Glide.with(holder.itemView).load(bitmap).centerCrop().into(holder.serviceImageView);
+            //Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+            Glide.with(holder.itemView).load(decodedBytes).centerCrop().into(holder.serviceImageView);
             //holder.serviceImageView.setImageBitmap(bitmap);
         }
     }
@@ -102,7 +102,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
                 if (currentImg != null) {
                     final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
-                    intent.putExtra("service_img", pureBase64Encoded);
+                    SharedPrefManager.getInstance(context.getApplicationContext()).saveId(pureBase64Encoded);
+                    //intent.putExtra("service_img", pureBase64Encoded);
+                }
+                else{
+                    SharedPrefManager.getInstance(context.getApplicationContext()).saveId("-1");
                 }
                 context.startActivity(intent);
             }

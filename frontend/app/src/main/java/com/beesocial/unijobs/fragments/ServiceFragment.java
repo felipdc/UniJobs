@@ -4,17 +4,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.beesocial.unijobs.R;
 import com.beesocial.unijobs.adapters.ServicesAdapter;
 import com.beesocial.unijobs.api.RetrofitClient;
 import com.beesocial.unijobs.models.ErrorResponse;
 import com.beesocial.unijobs.models.ServiceResponse;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.iammert.library.ui.multisearchviewlib.MultiSearchView;
@@ -36,14 +42,15 @@ public class ServiceFragment extends Fragment {
     List<ServiceResponse> responseVector;
     private String[] dataset;
     MultiSearchView searchView;
-
+    int y=0;
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     com.github.ybq.android.spinkit.SpinKitView spinKitView;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter servicesAdapter;
     private RecyclerView.LayoutManager layoutManager;
-
+    private SwipeRefreshLayout swipe;
+    int tipoServico=1;
     public static ServiceFragment newInstance(int index) {
         ServiceFragment fragment = new ServiceFragment();
         Bundle bundle = new Bundle();
@@ -55,13 +62,15 @@ public class ServiceFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int tipoServico = getArguments().getInt(ARG_SECTION_NUMBER);
+        tipoServico = getArguments().getInt(ARG_SECTION_NUMBER);
         //SharedPrefManager.getInstance(getActivity()).saveTab(tipoServico);
         callBackend(tipoServico);
         layoutManager = new LinearLayoutManager(getActivity());
+
     }
 
     private void callBackend(int index) {
+
         Call<List<ServiceResponse>> call;
         if (index == 1) {
             call = RetrofitClient
@@ -76,9 +85,9 @@ public class ServiceFragment extends Fragment {
             public void onResponse(Call<List<ServiceResponse>> calltargetResponce, retrofit2.Response<List<ServiceResponse>> response) {
                 List<ServiceResponse> responseList = response.body();
                 if (response.isSuccessful()) {
-                    spinKitView = getView().findViewById(R.id.spin_kit);
+
                     spinKitView.setVisibility(View.GONE);
-                    if (!responseList.isEmpty()) {
+
                         String names[] = new String[responseList.size()];
                         String desc[] = new String[responseList.size()];
                         String img[] = new String[responseList.size()];
@@ -89,18 +98,12 @@ public class ServiceFragment extends Fragment {
                             img[j] = responseList.get(i).getImage();
                             id[j] = responseList.get(i).getId();
                         }
+                        swipe.setRefreshing(false);
                         servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id);
                         recyclerView.setAdapter(servicesAdapter);
-                        searchView.setVisibility(View.VISIBLE);
+                        //searchView.setVisibility(View.VISIBLE);
                         searchList(names, desc, img, id);
-                    } else {
-                        ChocoBar.builder().setActivity(getActivity())
-                                .setText("Erro na conexão com o servidor, por favor, tente novamente")
-                                .setDuration(ChocoBar.LENGTH_LONG)
-                                .setActionText(android.R.string.ok)
-                                .red()
-                                .show();
-                    }
+
                 } else {
                     Gson gson = new Gson();
                     Type type = new TypeToken<ErrorResponse>() {
@@ -118,7 +121,7 @@ public class ServiceFragment extends Fragment {
             @Override
             public void onFailure(Call<List<ServiceResponse>> calltargetResponce, Throwable t) {
                 ChocoBar.builder().setActivity(getActivity())
-                        .setText("Erro na conexão com o servidor, por favor, tente novamente")
+                        .setText(t.getMessage())
                         .setDuration(ChocoBar.LENGTH_LONG)
                         .setActionText(android.R.string.ok)
                         .red()
@@ -242,7 +245,56 @@ public class ServiceFragment extends Fragment {
         recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         searchView = root.findViewById(R.id.searchView);
+        spinKitView = root.findViewById(R.id.spin_kit);
         //searchView.setQueryHint("Pesquisar");
+        swipe = root.findViewById(R.id.swipe);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                callBackend(tipoServico);
+            }
+        });
+
+        FloatingActionButton fab2 = root.findViewById(R.id.fab2);
+        Animation fadeIn = AnimationUtils.loadAnimation(getContext(), R.anim.a);
+        fadeIn.setDuration(300);
+        Animation fadeOut = AnimationUtils.loadAnimation(getContext(), R.anim.b);
+        fadeOut.setDuration(300);
+        LinearLayout layout = root.findViewById(R.id.linearSearchView);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                if(y==0) {
+                    layout.setVisibility(View.VISIBLE);
+                    layout.startAnimation(fadeIn);
+                    y++;
+                }
+                else{
+                    fadeOut.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            layout.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+                    });
+                    layout.startAnimation(fadeOut);
+
+                    //
+                    y--;
+                }
+            }
+        });
 
         return root;
     }

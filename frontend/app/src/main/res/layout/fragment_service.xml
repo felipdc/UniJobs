@@ -7,28 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ServiceFragment">
 
-    <LinearLayout
-        android:id="@+id/linearSearchView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="18dp"
-        android:background="#eee"
-        android:paddingRight="18dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
-
-        <com.iammert.library.ui.multisearchviewlib.MultiSearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_search"
-            android:visibility="gone"
-            app:searchTextStyle="@style/SearchTextStyle" />
-
-    </LinearLayout>
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit"
@@ -47,13 +25,58 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearSearchView"
+        app:layout_constraintTop_toTopOf="@id/constraintLayout"
         app:layout_constraintVertical_bias="0.0">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearSearchView"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
+
+        <com.iammert.library.ui.multisearchviewlib.MultiSearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_search"
+            app:searchTextStyle="@style/SearchTextStyle" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_search_white_mini"
+        app:backgroundTint="#ccc"
+        app:fabCustomSize="35dp"
+        app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

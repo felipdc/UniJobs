@@ -16,12 +16,6 @@
   <component name="AvailableLibraryUpdateStorage">
     <library-updates>
       <library-update>
-        <group-id>androidx.test.espresso</group-id>
-        <name>espresso-core</name>
-        <version>3.2.0</version>
-        <repository>Google</repository>
-      </library-update>
-      <library-update>
         <group-id>androidx.cardview</group-id>
         <name>cardview</name>
         <version>1.0.0</version>
@@ -30,7 +24,37 @@
       <library-update>
         <group-id>androidx.test</group-id>
         <name>runner</name>
-        <version>1.2.0</version>
+        <version>1.3.0-alpha01</version>
+        <repository>Google</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.github.krokyze</group-id>
+        <name>ucropnedit</name>
+        <version>2.2.1-native</version>
+        <repository>Maven Central</repository>
+      </library-update>
+      <library-update>
+        <group-id>de.hdodenhof</group-id>
+        <name>circleimageview</name>
+        <version>3.0.0</version>
+        <repository>JCenter,Maven Central</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.squareup.retrofit2</group-id>
+        <name>converter-gson</name>
+        <version>2.6.0</version>
+        <repository>JCenter,Maven Central</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.squareup.retrofit2</group-id>
+        <name>retrofit</name>
+        <version>2.6.0</version>
+        <repository>JCenter,Maven Central</repository>
+      </library-update>
+      <library-update>
+        <group-id>androidx.test.espresso</group-id>
+        <name>espresso-core</name>
+        <version>3.3.0-alpha01</version>
         <repository>Google</repository>
       </library-update>
       <library-update>
@@ -38,12 +62,6 @@
         <name>legacy-support-v4</name>
         <version>1.0.0</version>
         <repository>Google</repository>
-      </library-update>
-      <library-update>
-        <group-id>de.hdodenhof</group-id>
-        <name>circleimageview</name>
-        <version>3.0.0</version>
-        <repository>JCenter,Maven Central</repository>
       </library-update>
       <library-update>
         <group-id>androidx.lifecycle</group-id>
@@ -70,12 +88,6 @@
         <repository>JCenter,Maven Central</repository>
       </library-update>
       <library-update>
-        <group-id>com.squareup.retrofit2</group-id>
-        <name>converter-gson</name>
-        <version>2.6.0</version>
-        <repository>JCenter,Maven Central</repository>
-      </library-update>
-      <library-update>
         <group-id>com.google.android.material</group-id>
         <name>material</name>
         <version>1.1.0-alpha07</version>
@@ -96,20 +108,14 @@
       <library-update>
         <group-id>androidx.constraintlayout</group-id>
         <name>constraintlayout</name>
-        <version>2.0.0-beta1</version>
+        <version>2.0.0-beta2</version>
         <repository>Google</repository>
       </library-update>
       <library-update>
         <group-id>com.android.support.constraint</group-id>
         <name>constraint-layout</name>
-        <version>2.0.0-beta1</version>
+        <version>2.0.0-beta2</version>
         <repository>Google</repository>
-      </library-update>
-      <library-update>
-        <group-id>com.squareup.retrofit2</group-id>
-        <name>retrofit</name>
-        <version>2.5.0</version>
-        <repository>JCenter</repository>
       </library-update>
       <library-update>
         <group-id>junit</group-id>
@@ -124,12 +130,36 @@
         <repository>Google</repository>
       </library-update>
     </library-updates>
-    <last-search-timestamp>1560564199189</last-search-timestamp>
+    <last-search-timestamp>1561427032382</last-search-timestamp>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f518245-356a-4440-9339-966e9ee55e64" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/res/anim/a.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/anim/b.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/bgtoolbar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_search_white_mini.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/font/fira_sans.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/font/montserrat.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_edit_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_edit_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_service_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_service_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/circle_image_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/circle_image_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/service_card_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/service_card_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -156,108 +186,110 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-978">
-              <caret line="131" selection-start-line="131" selection-end-line="131" />
+            <state relative-caret-position="261">
+              <caret line="262" column="20" selection-start-line="262" selection-start-column="20" selection-end-line="262" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6225#6233#0" expanded="true" />
-                <element signature="e#6297#6305#0" expanded="true" />
-                <element signature="e#6368#6376#0" expanded="true" />
-                <element signature="e#6438#6446#0" expanded="true" />
-                <element signature="e#7579#7587#0" expanded="true" />
-                <element signature="e#7651#7659#0" expanded="true" />
-                <element signature="e#7722#7730#0" expanded="true" />
-                <element signature="e#7792#7800#0" expanded="true" />
+                <element signature="e#11030#11031#0" expanded="true" />
+                <element signature="e#11086#11087#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
+            <state relative-caret-position="552">
+              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="130" column="53" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="143" column="46" selection-start-line="143" selection-start-column="46" selection-end-line="143" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
-              <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
-              <folding>
-                <element signature="e#1670#1710#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="361">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
             </state>
           </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_service.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+            <state relative-caret-position="430">
+              <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+              <folding>
+                <element signature="e#2893#2912#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/circle_image_profile.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/src/main/res/anim/b.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+            <state relative-caret-position="161">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_service_detail.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/service_card_view.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -282,6 +314,7 @@
       <find>Glide</find>
       <find>Snackbar</find>
       <find>image</find>
+      <find>share</find>
       <find>inflate</find>
     </findStrings>
   </component>
@@ -300,49 +333,55 @@
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/UserRegister.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile_menuheader.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/ServiceResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/ServiceRegister.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/User.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/service_card_view.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_service_detail.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/api/Api.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/ServiceUpdate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/CheckNetwork.java" />
-        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/bg_search.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml" />
-        <option value="$PROJECT_DIR$/../build.gradle" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" />
+        <option value="$PROJECT_DIR$/../build.gradle" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_register.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/drawable/bgtoolbar.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_edit_service.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/drawable/ic_search_white_mini.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_service_detail.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/service_card_view.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/res/anim/a.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/anim/b.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_service.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/circle_image_profile.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-14" />
     <option name="y" value="-14" />
-    <option name="width" value="1365" />
-    <option name="height" value="702" />
+    <option name="width" value="1367" />
+    <option name="height" value="704" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -350,67 +389,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="adapters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
@@ -423,23 +407,12 @@
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-              <item name="styles" type="c431d0b8:AndroidResGroupNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -454,6 +427,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rafael\StudioProjects\UniJobs\frontend\app\src\main\res\drawable" />
       <recent name="C:\Users\Rafael\StudioProjects\UniJobs\frontend\app\src\main\res\drawable-v24" />
     </key>
   </component>
@@ -647,7 +621,28 @@
       <option name="project" value="LOCAL" />
       <updated>1561332114317</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary=".">
+      <created>1561333169772</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1561333169772</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Arrumando bugs no sistema de pesquisa.">
+      <created>1561333416105</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1561333416105</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Testando um bugfix.">
+      <created>1561336666479</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561336666479</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -665,13 +660,13 @@
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49973333" weight="0.32827735" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.36837208" side_tool="true" visible="true" weight="0.32159847" />
-      <window_info anchor="bottom" id="Build" order="4" sideWeight="0.6297674" weight="0.34062797" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.37069768" side_tool="true" visible="true" weight="0.32159847" />
+      <window_info anchor="bottom" id="Build" order="4" sideWeight="0.627907" weight="0.34062797" />
       <window_info anchor="bottom" id="Run" order="5" />
       <window_info anchor="bottom" id="Logcat" order="6" sideWeight="0.6944186" weight="0.34919125" />
       <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.6316279" visible="true" weight="0.32159847" />
-      <window_info anchor="bottom" id="Find" order="9" sideWeight="0.49302325" weight="0.35204569" />
+      <window_info anchor="bottom" id="Find" order="8" sideWeight="0.49116278" weight="0.35204569" />
+      <window_info anchor="bottom" id="Debug" order="9" sideWeight="0.6293023" visible="true" weight="0.32159847" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3293023" />
@@ -680,7 +675,7 @@
       <window_info anchor="right" id="Assistant" order="5" visible="true" weight="0.32972136" />
       <window_info active="true" anchor="right" content_ui="combo" id="Project" order="6" visible="true" weight="0.21906976" />
       <window_info anchor="right" id="Preview" order="7" weight="0.2255814" />
-      <window_info anchor="right" id="Codota" order="8" />
+      <window_info anchor="right" id="Codota" order="8" weight="0.32976744" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -704,10 +699,10 @@
     <MESSAGE value="Bugfixes" />
     <MESSAGE value="Bugfixes." />
     <MESSAGE value="Arrumando animacoes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arrumando animacoes" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="." />
+    <MESSAGE value="Arrumando bugs no sistema de pesquisa." />
+    <MESSAGE value="Testando um bugfix." />
+    <option name="LAST_COMMIT_MESSAGE" value="Testando um bugfix." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -770,104 +765,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/DefaultResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-536">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/menu/activity_profile_drawer.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_profile.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="26090" column="13" selection-start-line="26090" selection-start-column="13" selection-end-line="26090" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/ServiceResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/UserRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="27" column="120" selection-start-line="27" selection-start-column="120" selection-end-line="27" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/service_card_view.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.the-super-toys.glimpse-android/glimpse-core/0.0.4/3373481eddebd9e8da62c5869abc92a940f0f0bc/glimpse-core-0.0.4-sources.jar!/glimpse/core/Glimpse.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../settings.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="30" column="70" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable-v24/round_borderbutton.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e462f7c2d1acd6bfda8aa9ffcdcada1b/res/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/SectionsPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-          <folding>
-            <element signature="e#852#853#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,40 +803,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_service_detail.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_edit_service.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="83" column="68" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="28" column="100" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="100" />
         </state>
       </provider>
     </entry>
@@ -951,12 +822,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/menu/menu_main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/os/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -982,55 +853,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/models/CheckConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1311">
           <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2254">
-          <caret line="118" column="60" selection-start-line="118" selection-start-column="60" selection-end-line="118" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -1048,51 +874,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/lang/Boolean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+        <state relative-caret-position="225">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/../build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
-          <folding>
-            <element signature="e#1670#1710#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="460">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="143" column="46" selection-start-line="143" selection-start-column="46" selection-end-line="143" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_service.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        <state relative-caret-position="1357">
+          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
+        <state relative-caret-position="276">
           <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1102,51 +907,239 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
+        <state relative-caret-position="2070">
           <caret line="130" column="53" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8b153139573c9628d0fd3a948de0d81c/res/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+        <state relative-caret-position="-1235">
+          <caret line="1226" column="29" selection-start-line="1226" selection-start-column="29" selection-end-line="1226" selection-end-column="29" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/data/res/values/attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1373">
+          <caret line="8576" column="29" selection-start-line="8576" selection-start-column="29" selection-end-line="8576" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/bgtoolbar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-1637">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_edit_service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="4784">
+          <caret line="208" column="10" selection-start-line="208" selection-start-column="10" selection-end-line="208" selection-end-column="10" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_register_service.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
+        <state relative-caret-position="529">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_search_white_mini.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/lang/Boolean.java">
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        <state relative-caret-position="322">
+          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="108" column="22" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_homec.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_image.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_info.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_my_services.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="56" column="56" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/anim/a.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/anim/b.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_service_detail.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/service_card_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/adapters/SectionsPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding>
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-978">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        <state relative-caret-position="261">
+          <caret line="262" column="20" selection-start-line="262" selection-start-column="20" selection-end-line="262" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6225#6233#0" expanded="true" />
-            <element signature="e#6297#6305#0" expanded="true" />
-            <element signature="e#6368#6376#0" expanded="true" />
-            <element signature="e#6438#6446#0" expanded="true" />
-            <element signature="e#7579#7587#0" expanded="true" />
-            <element signature="e#7651#7659#0" expanded="true" />
-            <element signature="e#7722#7730#0" expanded="true" />
-            <element signature="e#7792#7800#0" expanded="true" />
+            <element signature="e#11030#11031#0" expanded="true" />
+            <element signature="e#11086#11087#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beesocial/unijobs/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <folding>
+            <element signature="e#2893#2912#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable-v24/round_search.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/circle_image_profile.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>

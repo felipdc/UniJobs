@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorGradientLight">#00d2ff</color>
+    <color name="colorGradientDark">#3a7bd5</color>
     <color name="colorPrimaryLight">#58a8f1</color>
     <color name="colorPrimary">#0079BE</color>
+    <color name="colorPrimaryOpacity">#AA0079BE</color>
     <color name="colorPrimaryDark">#004E8D</color>
     <color name="colorPrimaryDarkOpacity">#AA004E8D</color>
     <color name="colorPrimaryBackground">#343B45</color>
