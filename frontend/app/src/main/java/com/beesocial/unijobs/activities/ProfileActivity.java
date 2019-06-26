@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,6 +80,31 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         String name = editTextName.getText().toString().trim();
         String phone = editTextPhone.getText().toString().trim();
         String facebook = editTextFacebook.getText().toString().trim();
+
+        if (!email.isEmpty() && email.length() <= 10) {
+            editTextEmail.setError("Email muito curto");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (!password.isEmpty() && password.length() < 6) {
+            editTextPassword.setError("Senha muita curta");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if (!phone.isEmpty() && !Patterns.PHONE.matcher(phone).matches()) {
+            editTextPhone.setError("O telefone precisa ser válido");
+            editTextPhone.requestFocus();
+            return;
+        }
+
+        if (!facebook.isEmpty() && !Patterns.WEB_URL.matcher(facebook).matches()) {
+            editTextFacebook.setError("O link do perfil do Facebook precisa ser válido");
+            editTextFacebook.requestFocus();
+            return;
+        }
+
 
         callBackend(v, email, password, name, phone, facebook);
     }

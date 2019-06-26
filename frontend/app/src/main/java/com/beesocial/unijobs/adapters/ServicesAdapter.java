@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +21,11 @@ import com.beesocial.unijobs.activities.MyServicesActivity;
 import com.beesocial.unijobs.activities.ServiceDetailActivity;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
+import com.pd.chocobar.ChocoBar;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
-    private String[] names, desc, img, id;
+    private String[] names, desc, img, id, phones, facebookLinks;
     private Context context;
 
     public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id) {
@@ -32,6 +34,16 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         this.img = img;
         this.context = context;
         this.id = id;
+    }
+
+    public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id, String[] facebookLinks, String[] phones) {
+        this.names = names;
+        this.desc = desc;
+        this.img = img;
+        this.context = context;
+        this.id = id;
+        this.phones = phones;
+        this.facebookLinks = facebookLinks;
     }
 
     @NonNull
@@ -88,14 +100,18 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 String currentDesc = desc[getAdapterPosition()];
                 String currentImg = img[getAdapterPosition()];
                 String currentId = id[getAdapterPosition()];
+                String phone = phones[getAdapterPosition()];
+                String facebookLink = facebookLinks[getAdapterPosition()];
 
                 Intent intent;
                 if (context instanceof MyServicesActivity) {
                     intent = new Intent(context, EditServiceActivity.class);
                     intent.putExtra("service_id", currentId);
-                }
-                else
+                } else {
                     intent = new Intent(context, ServiceDetailActivity.class);
+                    intent.putExtra("phone", phone);
+                    intent.putExtra("facebook_link", facebookLink);
+                }
 
                 intent.putExtra("service_title", currentName);
                 intent.putExtra("service_desc", currentDesc);
@@ -104,11 +120,17 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                     final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
                     SharedPrefManager.getInstance(context.getApplicationContext()).saveId(pureBase64Encoded);
                     //intent.putExtra("service_img", pureBase64Encoded);
-                }
-                else{
+                } else {
                     SharedPrefManager.getInstance(context.getApplicationContext()).saveId("-1");
                 }
                 context.startActivity(intent);
+            } else {
+                ChocoBar.builder().setView(v)
+                        .setText("Você precisa estar autenticado para visualizar os detalhes!")
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
             }
         }
     }
