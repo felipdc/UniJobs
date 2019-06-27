@@ -37,7 +37,7 @@ public class ServiceDetailActivity extends AppCompatActivity {
     private TextView detailServiceTitleTextView;
     private ImageButton detailServiceLikeImageView;
     private TextView detailServiceDescriptionTextView;
-    private TextView detailServiceContactInfoTextView;
+    private TextView detailServiceContactInfoTextView1,detailServiceContactInfoTextView2,detailServiceContactInfoTextView3;
 
     private String servicoTitle, servicoDesc, servicoImgString, servicoId, servicoCreated, facebookLink, phone;
 
@@ -57,7 +57,9 @@ public class ServiceDetailActivity extends AppCompatActivity {
         detailServiceTitleTextView = findViewById(R.id.detail_service_title_text_view);
         detailServiceLikeImageView = findViewById(R.id.detail_service_like_button);
         detailServiceDescriptionTextView = findViewById(R.id.detail_service_description_text_view);
-        detailServiceContactInfoTextView = findViewById(R.id.detail_service_contact_info);
+        detailServiceContactInfoTextView1 = findViewById(R.id.detail_service_contact_info1);
+        detailServiceContactInfoTextView2 = findViewById(R.id.detail_service_contact_info2);
+        detailServiceContactInfoTextView3 = findViewById(R.id.detail_service_contact_info3);
 
         servicoTitle = getIntent().getStringExtra("service_title");
         servicoDesc = getIntent().getStringExtra("service_desc");
@@ -89,8 +91,10 @@ public class ServiceDetailActivity extends AppCompatActivity {
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 if(response.isSuccessful()) {
                     DefaultResponse responseUser = response.body();
-                    String contact = facebookLink + '\n' + phone;
-                    detailServiceContactInfoTextView.setText(contact);
+                    //String contact = "Informações do usuário: "+ '\n' + responseUser.getName() + '\n' + responseUser.getPhoneNumber()+ '\n' + responseUser.getFacebook();
+                    detailServiceContactInfoTextView1.append(responseUser.getName());
+                    detailServiceContactInfoTextView2.append(responseUser.getFacebook());
+                    detailServiceContactInfoTextView3.append(responseUser.getPhoneNumber());
                 }
                 else{
                     Gson gson = new Gson();
@@ -117,6 +121,5 @@ public class ServiceDetailActivity extends AppCompatActivity {
             }
         });
     }
-
 }
 

@@ -69,19 +69,44 @@
                 <TextView
                     android:id="@+id/detail_service_description_text_view"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/latoregular"
                     android:padding="8dp"
                     android:text="Descrição do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico do servico" />
 
                 <TextView
-                    android:id="@+id/detail_service_contact_info"
+                    android:id="@+id/detail_service_contact_info0"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/latoregular"
                     android:padding="8dp"
-                    android:text="Info do usuario" />
+                    android:textSize="16sp"
+                    android:text="Informações do usuario" />
+                <TextView
+                    android:id="@+id/detail_service_contact_info1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/latoregular"
+                    android:padding="8dp"
+                    android:text="Nome: " />
+                <TextView
+                    android:id="@+id/detail_service_contact_info2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/latoregular"
+                    android:padding="8dp"
+                    android:text="Facebook: " />
+                <TextView
+                    android:id="@+id/detail_service_contact_info3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/latoregular"
+                    android:padding="8dp"
+                    android:text="Telefone: " />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
