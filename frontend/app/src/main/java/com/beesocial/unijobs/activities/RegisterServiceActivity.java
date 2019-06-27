@@ -68,8 +68,19 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
             registerServiceTitulo.requestFocus();
             return;
         }
+        else if (titulo.length() < 5) {
+            registerServiceDescricao.setError("Titulo muito curto");
+            registerServiceDescricao.requestFocus();
+            return;
+        }
+
         if (desc.isEmpty()) {
             registerServiceDescricao.setError("Campo necessário");
+            registerServiceDescricao.requestFocus();
+            return;
+        }
+        else if (desc.length() < 5) {
+            registerServiceDescricao.setError("Descrição muito curta");
             registerServiceDescricao.requestFocus();
             return;
         }

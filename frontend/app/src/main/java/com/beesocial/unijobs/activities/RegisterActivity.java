@@ -98,14 +98,23 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             editTextEmail.requestFocus();
             return;
         }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        else if (email.length() <= 10) {
+            // checks "ab@ab.com" emails
+            editTextEmail.setError("Há algo de errado em seu email");
+            editTextEmail.requestFocus();
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.setError("O email precisa ser válido");
             editTextEmail.requestFocus();
             return;
         }
 
-        if (!Patterns.PHONE.matcher(phoneNumber).matches()) {
+        if (phoneNumber.isEmpty()) {
+            editTextFacebook.setError("Campo necessário");
+            editTextFacebook.requestFocus();
+            return;
+        }
+        else if (!Patterns.PHONE.matcher(phoneNumber).matches()) {
             editTextPhone.setError("O telefone precisa ser válido");
             editTextPhone.requestFocus();
             return;
@@ -122,14 +131,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             editTextPassword.requestFocus();
             return;
         }
-
-        if (phoneNumber.isEmpty()) {
-            editTextFacebook.setError("Campo necessário");
-            editTextFacebook.requestFocus();
-            return;
-        }
-
-        if (password.length() < 6) {
+        else if (password.length() < 6) {
             editTextPassword.setError("A senha tem que ter ao mínimo 6 caracteres");
             editTextPassword.requestFocus();
             return;

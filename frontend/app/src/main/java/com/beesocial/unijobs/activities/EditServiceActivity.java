@@ -86,6 +86,17 @@ public class EditServiceActivity extends AppCompatActivity implements View.OnCli
         String desc = registerServiceDescricao.getText().toString().trim();
         String isOffer;
 
+        if (!titulo.isEmpty() && titulo.length() < 5) {
+            registerServiceTitulo.setError("Titulo muito curto");
+            registerServiceTitulo.requestFocus();
+            return;
+        }
+
+        if (!desc.isEmpty() && desc.length() < 5) {
+            registerServiceDescricao.setError("Descrição muito curta");
+            registerServiceDescricao.requestFocus();
+            return;
+        }
 
         if (registerServiceRadioProcura.isChecked()) {
             isOffer = "false";

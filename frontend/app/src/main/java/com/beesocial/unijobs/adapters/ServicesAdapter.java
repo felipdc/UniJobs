@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.beesocial.unijobs.activities.MyServicesActivity;
 import com.beesocial.unijobs.activities.ServiceDetailActivity;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
+import com.pd.chocobar.ChocoBar;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
@@ -103,9 +105,9 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 if (context instanceof MyServicesActivity) {
                     intent = new Intent(context, EditServiceActivity.class);
                     intent.putExtra("service_id", currentId);
-                }
-                else
+                } else {
                     intent = new Intent(context, ServiceDetailActivity.class);
+                }
 
                 intent.putExtra("service_title", currentName);
                 intent.putExtra("service_desc", currentDesc);
@@ -115,11 +117,17 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                     final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
                     SharedPrefManager.getInstance(context.getApplicationContext()).saveId(pureBase64Encoded);
                     //intent.putExtra("service_img", pureBase64Encoded);
-                }
-                else{
+                } else {
                     SharedPrefManager.getInstance(context.getApplicationContext()).saveId("-1");
                 }
                 context.startActivity(intent);
+            } else {
+                ChocoBar.builder().setView(v)
+                        .setText("Você precisa estar autenticado para visualizar os detalhes!")
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
             }
         }
     }

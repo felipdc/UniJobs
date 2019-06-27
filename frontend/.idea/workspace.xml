@@ -5,30 +5,35 @@
       <config />
     </shared>
   </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="erroUnijobs" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6acaa87-8a0a-443c-9aaf-e83f2c3a33ec" name="Default Changelist" comment="Mudança da livraria de">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_100rabhkr_DownZLibrary_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_alexxxdev_fuel_comfy_api_1_0_9_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_jay006_NetworkUtil_lib_v0_2_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_infideap_atomic_atomic_0_0_8_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_timber_timber_4_7_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_8_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_8_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_13_0_jar.xml" afterDir="false" />
+    <list default="true" id="35e3f482-e19a-49f1-82b0-d531f231bce4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_2_0_alpha02_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_2_0_alpha02_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_databinding_adapters_3_4_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_databinding_common_3_4_1_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_databinding_runtime_3_4_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_rc01_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_Pradyuman7_ChocoBar_V1_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_iammert_MultiSearchView_0_2_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_krokyze_ucropnedit_2_2_4_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_ybq_Android_SpinKit_1_2_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_alpha02_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_alpha02_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_rc01_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_alpha01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_alpha01_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_concurrent_concurrent_futures_1_0_0_beta01_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_2_0_alpha01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_2_0_alpha01_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_2_0_alpha01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_2_0_alpha01_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_2_0_alpha01_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_2_0_alpha01_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
@@ -53,43 +58,239 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_1_0_alpha01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_1_0_alpha01_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_1_1_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_1_1_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_1_1_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_1_1_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_beta01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_beta01_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_beta01_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fxn769_pix_1_4_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fxn769_pix_1_4_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_100rabhkr_DownZLibrary_1_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_alexxxdev_fuel_comfy_api_1_0_9_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_armcha_ElasticView_0_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_armcha_ElasticView_0_2_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_astrit_veliu_Boom_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_astrit_veliu_Boom_1_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_jay006_NetworkUtil_lib_v0_2_0_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_listenablefuture_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_infideap_atomic_atomic_0_0_8_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_infideap_atomic_atomic_0_0_8_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_timber_timber_4_7_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_timber_timber_4_7_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_12_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_8_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_13_0_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__de_hdodenhof_circleimageview_3_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_hdodenhof_circleimageview_3_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__io_fotoapparat_fotoapparat_2_7_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_fotoapparat_fotoapparat_2_7_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_alpha02_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_alpha02_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_alpha01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_alpha01_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_arch_core_core_common_2_0_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_arch_core_core_common_2_0_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_collection_collection_1_1_0_alpha01_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_collection_collection_1_1_0_alpha01_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_1_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_1_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_core_core_1_2_0_alpha02_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_core_core_1_2_0_alpha02_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_core_core_ktx_1_2_0_alpha02_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_core_core_ktx_1_2_0_alpha02_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_databinding_databinding_adapters_3_4_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_databinding_databinding_adapters_3_4_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_databinding_databinding_common_3_4_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_databinding_databinding_common_3_4_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_databinding_databinding_runtime_3_4_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_databinding_databinding_runtime_3_4_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_exifinterface_exifinterface_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_exifinterface_exifinterface_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_alpha02_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_alpha02_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_0_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_0_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_extensions_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_extensions_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_process_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_process_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_service_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_service_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_1_0_alpha01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_1_0_alpha01_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_rc01_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_rc01_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_fxn769_pix_1_4_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_fxn769_pix_1_4_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_Pradyuman7_ChocoBar_V1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_Pradyuman7_ChocoBar_V1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_armcha_ElasticView_0_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_armcha_ElasticView_0_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_astrit_veliu_Boom_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_astrit_veliu_Boom_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_9_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_9_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_9_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_9_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_9_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_bumptech_glide_glide_4_9_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_iammert_MultiSearchView_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_iammert_MultiSearchView_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_krokyze_ucropnedit_2_2_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_krokyze_ucropnedit_2_2_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_ybq_Android_SpinKit_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_github_ybq_Android_SpinKit_1_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_infideap_atomic_atomic_0_0_8_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_infideap_atomic_atomic_0_0_8_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_jakewharton_timber_timber_4_7_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_jakewharton_timber_timber_4_7_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_8_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_8_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_okio_okio_1_15_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_okio_okio_1_15_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_5_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_5_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_5_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_5_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__de_hdodenhof_circleimageview_3_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__de_hdodenhof_circleimageview_3_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__io_fotoapparat_fotoapparat_2_7_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__io_fotoapparat_fotoapparat_2_7_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_31_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_31_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_31_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_31_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_31_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_31_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/app/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/LoginActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/MyServicesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/ProfileActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/SectionsPagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/SectionsPagerAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/Api.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/CheckConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/CheckConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/DefaultResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/DefaultResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/b.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_camera.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_gallery.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_gallery.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_manage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_manage.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_send.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_send.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_share.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_share.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_slideshow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_slideshow.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/round_borderbutton.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/round_borderbutton.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/round_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/round_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bg_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bgtoolbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bgtoolbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_add.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_cart.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_email.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_emoji.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_emoji.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_facebook.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_facebook.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_homec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_homec.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_image.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_image.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_loading.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_loading.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_logout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_logout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_name.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_name.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notifications.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notifications.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_white.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_white.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_white_mini.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_white_mini.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_telefone.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_telefone.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_users.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rounder_border.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rounder_border.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/lato.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/font/lato.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/mont.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/font/mont.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/font/montbold.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/font/montbold.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_service.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_services.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_services.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_service_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_service_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/circle_image_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/circle_image_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/service_card_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/service_card_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/drawables.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/drawables.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,123 +300,64 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="frontend" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="42" column="53" lean-forward="true" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="127" column="45" lean-forward="true" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1666">
+              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1887">
+              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="resourceFile" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>whatsapp</find>
-      <find>phone</find>
-      <find>link</find>
-      <find>Pattern we</find>
-      <find>shared</find>
-      <find>fragment</find>
-      <find>esponc</find>
-      <find>esponce</find>
-      <find>service_image_view</find>
-      <find>replace</find>
-      <find>service</find>
-      <find>SharedPrefManager</find>
-      <find>frag</find>
-      <find>encodedImage</find>
-      <find>image</find>
-      <find>ServicesAdapter</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>phoneNumber</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/bgbg.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserLogin.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/Date.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceRegister.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/viewmodels/PageViewModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/IsOfferTrueFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/dummy/DummyContent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/dummy/DummyContent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/ItemDetailFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/MyCardRecyclerViewAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/SectionsPagerAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServiceAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/Service.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/User.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/threads/BackgroundThread.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/FuelAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/Api.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/DefaultResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserRegister.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/MainActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -241,6 +383,20 @@
               <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="unijobs" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -248,24 +404,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="0031904100" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/MyApplication" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
-  </component>
-  <component name="RecentsManager">
-    <key name="android.template.packageName">
-      <recent name="com.beesocial.unijobs.fragments" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.beesocial.unijobs.dummy" />
-      <recent name="com.beesocial.unijobs.models.dummy" />
-      <recent name="com.beesocial.unijobs.fragments" />
-      <recent name="com.beesocial.unijobs.adapters" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rafael\StudioProjects\UniJobs\frontend\app\src\main\res\layout" />
-    </key>
+    <property name="device.picker.selection" value="Pixel_2_API_28" />
+    <property name="settings.editor.selected.configurable" value="instant.run" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -346,541 +486,64 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f6acaa87-8a0a-443c-9aaf-e83f2c3a33ec" name="Default Changelist" comment="" />
-      <created>1559048089884</created>
+      <changelist id="35e3f482-e19a-49f1-82b0-d531f231bce4" name="Default Changelist" comment="" />
+      <created>1561615248306</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1559048089884</updated>
+      <updated>1561615248306</updated>
     </task>
-    <task id="LOCAL-00001" summary="Commit inicial do registro de servicos.">
-      <created>1559946969480</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1559946969480</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Implementando os campos extras do usuario.">
-      <created>1560006158157</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1560006158157</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Implementação inicial da chamada para o backend do sistema de serviços">
-      <created>1560109844211</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1560109844211</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Implementação final da chamada para o backend do sistema de serviços.">
-      <created>1560127181102</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1560127181102</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" side_tool="true" />
-      <window_info id="Build Variants" order="1" side_tool="true" weight="0.32976744" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Resources Explorer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Captures" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49906978" weight="0.32921028" />
-      <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Find" order="3" sideWeight="0.49488372" weight="0.32921028" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.48511627" weight="0.4757374" />
-      <window_info anchor="bottom" id="Terminal" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.51302326" side_tool="true" weight="0.18173169" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.48697674" weight="0.2397163" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49581397" weight="0.26641294" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Gradle" order="1" weight="0.32976744" />
-      <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="4" visible="true" weight="0.20600858" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-      <window_info anchor="right" id="Preview" order="6" weight="0.20697674" />
-      <window_info anchor="right" id="Codota" order="7" weight="0.32976744" />
+      <window_info content_ui="combo" id="Project" visible="true" weight="0.23146747" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Build Variants" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Resources Explorer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Run" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="Android Profiler" />
+      <window_info anchor="bottom" id="Debug" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Build" weight="0.3289689" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Gradle" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Palette&#9;" />
     </layout>
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Commit inicial do registro de servicos." />
-    <MESSAGE value="Implementando os campos extras do usuario." />
-    <MESSAGE value="Implementação inicial da chamada para o backend do sistema de serviços" />
-    <MESSAGE value="Implementação final da chamada para o backend do sistema de serviços." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementação final da chamada para o backend do sistema de serviços." />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/threads/BackgroundThread.java</url>
-          <line>31</line>
-          <properties />
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/threads/BackgroundThread.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>186</line>
-          <properties />
-          <option name="timeStamp" value="195" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>179</line>
-          <properties />
-          <option name="timeStamp" value="197" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>174</line>
-          <properties />
-          <option name="timeStamp" value="198" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>183</line>
-          <properties />
-          <option name="timeStamp" value="199" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>182</line>
-          <properties />
-          <option name="timeStamp" value="200" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>181</line>
-          <properties />
-          <option name="timeStamp" value="202" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>180</line>
-          <properties />
-          <option name="timeStamp" value="203" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.infideap.atomic/atomic/0.0.8/22b3a19fb7927516fd847968d5acedf745f281b9/atomic-0.0.8-sources.jar!/com/infideap/atomic/A.java</url>
-          <line>156</line>
-          <properties />
-          <option name="timeStamp" value="205" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.infideap.atomic/atomic/0.0.8/22b3a19fb7927516fd847968d5acedf745f281b9/atomic-0.0.8-sources.jar!/com/infideap/atomic/A.java</url>
-          <line>91</line>
-          <properties />
-          <option name="timeStamp" value="206" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.infideap.atomic/atomic/0.0.8/22b3a19fb7927516fd847968d5acedf745f281b9/atomic-0.0.8-sources.jar!/com/infideap/atomic/A.java</url>
-          <line>157</line>
-          <properties />
-          <option name="timeStamp" value="208" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java</url>
-          <line>164</line>
-          <properties />
-          <option name="timeStamp" value="215" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/viewmodels/PageViewModel.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/CardViewFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/IsOfferTrueFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/dummy/DummyContent.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/dummy/DummyContent.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/MyCardRecyclerViewAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/ItemDetailFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServiceAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_service.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/EditServiceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_service_detail.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/util/List.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/Service.java" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/content/SharedPreferences.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.5.0/5c17035548a41ec60f00291163d36596a23ddd1a/retrofit-2.5.0-sources.jar!/retrofit2/Call.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/threads/BackgroundThread.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2323">
-          <caret line="101" column="49" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/storage/SharedPrefManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/service_text_view.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/com/android/internal/os/ZygoteInit.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2139">
-          <caret line="3" column="50" lean-forward="true" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
-          <folding>
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1016#1017#0" expanded="true" />
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1208#1209#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1309#1310#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-            <element signature="e#1444#1445#0" expanded="true" />
-            <element signature="e#1480#1481#0" expanded="true" />
-            <element signature="e#1508#1509#0" expanded="true" />
-            <element signature="e#1539#1540#0" expanded="true" />
-            <element signature="e#1566#1567#0" expanded="true" />
-            <element signature="e#1606#1607#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
-            <element signature="e#1673#1674#0" expanded="true" />
-            <element signature="e#1704#1705#0" expanded="true" />
-            <element signature="e#1752#1753#0" expanded="true" />
-            <element signature="e#1792#1793#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-            <element signature="e#1904#1905#0" expanded="true" />
-            <element signature="e#1942#1943#0" expanded="true" />
-            <element signature="e#1974#1975#0" expanded="true" />
-            <element signature="e#2002#2003#0" expanded="true" />
-            <element signature="e#2044#2045#0" expanded="true" />
-            <element signature="e#2078#2079#0" expanded="true" />
-            <element signature="e#2114#2115#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2196#2197#0" expanded="true" />
-            <element signature="e#2238#2239#0" expanded="true" />
-            <element signature="e#2276#2277#0" expanded="true" />
-            <element signature="e#2310#2311#0" expanded="true" />
-            <element signature="e#2364#2365#0" expanded="true" />
-            <element signature="e#2410#2411#0" expanded="true" />
-            <element signature="e#2439#2440#0" expanded="true" />
-            <element signature="e#2463#2464#0" expanded="true" />
-            <element signature="e#2498#2499#0" expanded="true" />
-            <element signature="e#2524#2525#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/ServiceRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1932">
-          <caret line="131" column="1" selection-start-line="131" selection-start-column="1" selection-end-line="131" selection-end-column="1" />
-          <folding>
-            <element signature="e#1539#1540#0" expanded="true" />
-            <element signature="e#1566#1567#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/FuelAPI.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding>
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#324#325#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="90" column="44" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/SectionsPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#1055#1056#0" expanded="true" />
-            <element signature="e#1095#1096#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/ServiceDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ff1ba526c889add783c243869335c4c5/jars/classes.jar!/com/example/downzlibrary/DownZ.class" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/Api.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/DefaultResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.8.0/db21293949e200f08d5325e8a8eefdcc9134b752/okhttp-3.8.0-sources.jar!/okhttp3/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1970">
-          <caret line="187" column="15" lean-forward="true" selection-start-line="187" selection-start-column="15" selection-end-line="187" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.8.0/db21293949e200f08d5325e8a8eefdcc9134b752/okhttp-3.8.0-sources.jar!/okhttp3/Headers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.infideap.atomic/atomic/0.0.8/22b3a19fb7927516fd847968d5acedf745f281b9/atomic-0.0.8-sources.jar!/com/infideap/atomic/AtomRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.infideap.atomic/atomic/0.0.8/22b3a19fb7927516fd847968d5acedf745f281b9/atomic-0.0.8-sources.jar!/com/infideap/atomic/A.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="157" selection-start-line="157" selection-end-line="157" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/LoginResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="13" selection-start-line="13" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1666">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/fragments/ServiceFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="154" column="1" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1887">
+          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/api/RetrofitClient.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/adapters/ServicesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+        <state relative-caret-position="294">
+          <caret line="127" column="45" lean-forward="true" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="44" column="53" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/models/UserRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/RegisterServiceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/beesocial/unijobs/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="42" column="53" lean-forward="true" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

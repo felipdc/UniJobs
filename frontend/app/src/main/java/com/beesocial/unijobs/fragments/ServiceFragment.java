@@ -1,6 +1,7 @@
 package com.beesocial.unijobs.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,6 +96,7 @@ public class ServiceFragment extends Fragment {
                         String img[] = new String[responseList.size()];
                         String id[] = new String[responseList.size()];
                         String created[] = new String[responseList.size()];
+
                         for (int i = 0, j = responseList.size() - 1; i < responseList.size(); i++, j--) {
                             names[j] = responseList.get(i).getName();
                             desc[j] = responseList.get(i).getDescription();
@@ -107,6 +109,7 @@ public class ServiceFragment extends Fragment {
                         recyclerView.setAdapter(servicesAdapter);
                         //searchView.setVisibility(View.VISIBLE);
                         searchList(names, desc, img, id, created);
+
 
                 } else {
                     Gson gson = new Gson();
@@ -135,7 +138,6 @@ public class ServiceFragment extends Fragment {
     }
 
     private void searchList(String[] names, String[] desc, String[] img, String[] id, String[] created) {
-
         searchView.setSearchViewListener(new MultiSearchView.MultiSearchViewListener() {
             @Override
             public void onTextChanged(int j, @NotNull CharSequence charSequence) {
@@ -151,6 +153,7 @@ public class ServiceFragment extends Fragment {
                     recyclerView.setAdapter(servicesAdapter);
                 }
 
+
                 for (int i = 0; i < names.length; i++) {
                     yes = names[i].contains(charSequence);
                     if (yes) {
@@ -159,6 +162,7 @@ public class ServiceFragment extends Fragment {
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
                         resultCreated.add(created[i]);
+
                     }
                 }
 
@@ -170,6 +174,7 @@ public class ServiceFragment extends Fragment {
 
                 servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnCreated);
                 recyclerView.setAdapter(servicesAdapter);
+
 
             }
 
@@ -187,6 +192,7 @@ public class ServiceFragment extends Fragment {
                     recyclerView.setAdapter(servicesAdapter);
                 }
 
+
                 for (int i = 0; i < names.length; i++) {
                     yes = names[i].contains(charSequence);
                     if (yes) {
@@ -195,6 +201,7 @@ public class ServiceFragment extends Fragment {
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
                         resultCreated.add(created[i]);
+
                     }
                 }
 
@@ -206,16 +213,19 @@ public class ServiceFragment extends Fragment {
 
                 servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnCreated);
                 recyclerView.setAdapter(servicesAdapter);
+
             }
 
             @Override
             public void onSearchItemRemoved(int j) {
                 servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, created);
+
                 recyclerView.setAdapter(servicesAdapter);
             }
 
             @Override
             public void onItemSelected(int j, @NotNull CharSequence charSequence) {
+
                 Boolean yes;
                 ArrayList<String> resultNames = new ArrayList<String>();
                 ArrayList<String> resultDesc = new ArrayList<String>();
@@ -228,6 +238,7 @@ public class ServiceFragment extends Fragment {
                     recyclerView.setAdapter(servicesAdapter);
                 }
 
+
                 for (int i = 0; i < names.length; i++) {
                     yes = names[i].contains(charSequence);
                     if (yes) {
@@ -236,6 +247,7 @@ public class ServiceFragment extends Fragment {
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
                         resultCreated.add(created[i]);
+
                     }
                 }
 
@@ -247,6 +259,7 @@ public class ServiceFragment extends Fragment {
 
                 servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnCreated);
                 recyclerView.setAdapter(servicesAdapter);
+
             }
         });
 

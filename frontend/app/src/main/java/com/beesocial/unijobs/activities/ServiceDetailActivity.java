@@ -39,7 +39,8 @@ public class ServiceDetailActivity extends AppCompatActivity {
     private TextView detailServiceDescriptionTextView;
     private TextView detailServiceContactInfoTextView;
 
-    private String servicoTitle, servicoDesc, servicoImgString, servicoId, servicoCreated;
+    private String servicoTitle, servicoDesc, servicoImgString, servicoId, servicoCreated, facebookLink, phone;
+
     private Bitmap servicoImg;
 
     @Override
@@ -88,7 +89,8 @@ public class ServiceDetailActivity extends AppCompatActivity {
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 if(response.isSuccessful()) {
                     DefaultResponse responseUser = response.body();
-
+                    String contact = facebookLink + '\n' + phone;
+                    detailServiceContactInfoTextView.setText(contact);
                 }
                 else{
                     Gson gson = new Gson();
