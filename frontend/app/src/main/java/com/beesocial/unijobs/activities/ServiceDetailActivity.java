@@ -12,8 +12,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.beesocial.unijobs.R;
+import com.beesocial.unijobs.api.RetrofitClient;
+import com.beesocial.unijobs.models.DefaultResponse;
+import com.beesocial.unijobs.models.ErrorResponse;
+import com.beesocial.unijobs.models.ServiceResponse;
 import com.beesocial.unijobs.storage.SharedPrefManager;
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.pd.chocobar.ChocoBar;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ServiceDetailActivity extends AppCompatActivity {
 
@@ -25,7 +39,8 @@ public class ServiceDetailActivity extends AppCompatActivity {
     private TextView detailServiceDescriptionTextView;
     private TextView detailServiceContactInfoTextView;
 
-    private String servicoTitle, servicoDesc, servicoImgString, facebookLink, phone;
+    private String servicoTitle, servicoDesc, servicoImgString, servicoId, servicoCreated, facebookLink, phone;
+
     private Bitmap servicoImg;
 
     @Override
@@ -46,6 +61,8 @@ public class ServiceDetailActivity extends AppCompatActivity {
 
         servicoTitle = getIntent().getStringExtra("service_title");
         servicoDesc = getIntent().getStringExtra("service_desc");
+        servicoId = getIntent().getStringExtra("service_id");
+        servicoCreated = getIntent().getStringExtra("service_created");
         servicoImgString = SharedPrefManager.getInstance(this).getId();
         if (servicoImgString != null && servicoImgString != "-1") {
             try {
@@ -61,8 +78,44 @@ public class ServiceDetailActivity extends AppCompatActivity {
         detailServiceTitleTextView.setText(servicoTitle);
         detailServiceDescriptionTextView.setText(servicoDesc);
 
-        String contact = facebookLink + '\n' + phone;
-        detailServiceContactInfoTextView.setText(contact);
+        callBackend(servicoCreated);
+    }
+
+    private void callBackend(String id){
+        Call<DefaultResponse> call2 = RetrofitClient.createInstance(1).getApi().getUserById(id);
+        Call<DefaultResponse> call = RetrofitClient.getInstance(1).getApi().getUserById(id);
+        call.enqueue(new Callback<DefaultResponse>() {
+            @Override
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                if(response.isSuccessful()) {
+                    DefaultResponse responseUser = response.body();
+                    String contact = facebookLink + '\n' + phone;
+                    detailServiceContactInfoTextView.setText(contact);
+                }
+                else{
+                    Gson gson = new Gson();
+                    Type type = new TypeToken<ErrorResponse>() {
+                    }.getType();
+                    ErrorResponse errorResponse = gson.fromJson(response.errorBody().charStream(), type);
+                    ChocoBar.builder().setActivity(ServiceDetailActivity.this)
+                            .setText(errorResponse.getErr())
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .setActionText(android.R.string.ok)
+                            .red()
+                            .show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                ChocoBar.builder().setActivity(ServiceDetailActivity.this)
+                        .setText(t.getMessage())
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
+            }
+        });
     }
 
 }

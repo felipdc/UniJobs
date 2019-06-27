@@ -19,6 +19,7 @@ import retrofit2.http.Header;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface Api {
 
@@ -30,6 +31,9 @@ public interface Api {
 
     @POST("auth/user")
     Call<LoginResponse> userLogin(@Body UserLogin user);
+
+    @GET("user")
+    Call<DefaultResponse> getUserById(@Query("id") String id);
 
     @PATCH("user")
     Call<DefaultResponse> updateUser(@Header("Authorization") String token, @Body UserRegister user);

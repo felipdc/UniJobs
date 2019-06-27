@@ -73,17 +73,19 @@ public class ServiceFragment extends Fragment {
     private void callBackend(int index) {
 
         Call<List<ServiceResponse>> call;
+        Call<List<ServiceResponse>> call2 = RetrofitClient.createInstance(2).getApi().getServiceOfferFalse();
         if (index == 1) {
             call = RetrofitClient
-                    .createInstance(2).getApi().getServiceOfferTrue();
+                    .getInstance(2).getApi().getServiceOfferTrue();
         } else {
             call = RetrofitClient
-                    .createInstance(2).getApi().getServiceOfferFalse();
+                    .getInstance(2).getApi().getServiceOfferFalse();
         }
 
         call.enqueue(new Callback<List<ServiceResponse>>() {
             @Override
             public void onResponse(Call<List<ServiceResponse>> calltargetResponce, retrofit2.Response<List<ServiceResponse>> response) {
+
                 List<ServiceResponse> responseList = response.body();
                 if (response.isSuccessful()) {
 
@@ -93,22 +95,21 @@ public class ServiceFragment extends Fragment {
                         String desc[] = new String[responseList.size()];
                         String img[] = new String[responseList.size()];
                         String id[] = new String[responseList.size()];
-                        String phones[] = new String[responseList.size()];
-                        String facebookLinks[] = new String[responseList.size()];
+                        String created[] = new String[responseList.size()];
 
                         for (int i = 0, j = responseList.size() - 1; i < responseList.size(); i++, j--) {
                             names[j] = responseList.get(i).getName();
                             desc[j] = responseList.get(i).getDescription();
                             img[j] = responseList.get(i).getImage();
                             id[j] = responseList.get(i).getId();
-                            phones[j] = responseList.get(i).getPhone();
-                            facebookLinks[j] = responseList.get(i).getFacebookLink();
+                            created[j] = responseList.get(i).getCreatedBy();
                         }
                         swipe.setRefreshing(false);
-                        servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, facebookLinks, phones);
+                        servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, created);
                         recyclerView.setAdapter(servicesAdapter);
                         //searchView.setVisibility(View.VISIBLE);
-                        searchList(names, desc, img, id, facebookLinks, phones);
+                        searchList(names, desc, img, id, created);
+
 
                 } else {
                     Gson gson = new Gson();
@@ -136,8 +137,7 @@ public class ServiceFragment extends Fragment {
         });
     }
 
-    private void searchList(String[] names, String[] desc, String[] img, String[] id, String[] facebookLinks, String[] phones) {
-
+    private void searchList(String[] names, String[] desc, String[] img, String[] id, String[] created) {
         searchView.setSearchViewListener(new MultiSearchView.MultiSearchViewListener() {
             @Override
             public void onTextChanged(int j, @NotNull CharSequence charSequence) {
@@ -146,8 +146,13 @@ public class ServiceFragment extends Fragment {
                 ArrayList<String> resultDesc = new ArrayList<String>();
                 ArrayList<String> resultImg = new ArrayList<String>();
                 ArrayList<String> resultId = new ArrayList<String>();
-                ArrayList<String> resultPhone = new ArrayList<String>();
-                ArrayList<String> resultFacebookLink = new ArrayList<String>();
+                ArrayList<String> resultCreated = new ArrayList<String>();
+
+                if (charSequence.toString().isEmpty()) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, created);
+                    recyclerView.setAdapter(servicesAdapter);
+                }
+
 
                 for (int i = 0; i < names.length; i++) {
                     yes = names[i].contains(charSequence);
@@ -156,8 +161,8 @@ public class ServiceFragment extends Fragment {
                         resultDesc.add(desc[i]);
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
-                        resultPhone.add(phones[i]);
-                        resultFacebookLink.add(facebookLinks[i]);
+                        resultCreated.add(created[i]);
+
                     }
                 }
 
@@ -165,16 +170,11 @@ public class ServiceFragment extends Fragment {
                 String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
                 String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
                 String[] returnId = resultId.toArray(new String[resultId.size()]);
-                String[] returnPhone = resultPhone.toArray(new String[resultId.size()]);
-                String[] returnFacebookLink = resultFacebookLink.toArray(new String[resultId.size()]);
+                String[] returnCreated = resultCreated.toArray(new String[resultCreated.size()]);
 
-                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnFacebookLink, returnPhone);
+                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnCreated);
                 recyclerView.setAdapter(servicesAdapter);
 
-                if (charSequence.toString().isEmpty()) {
-                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, facebookLinks, phones);
-                    recyclerView.setAdapter(servicesAdapter);
-                }
 
             }
 
@@ -185,8 +185,13 @@ public class ServiceFragment extends Fragment {
                 ArrayList<String> resultDesc = new ArrayList<String>();
                 ArrayList<String> resultImg = new ArrayList<String>();
                 ArrayList<String> resultId = new ArrayList<String>();
-                ArrayList<String> resultPhone = new ArrayList<String>();
-                ArrayList<String> resultFacebookLink = new ArrayList<String>();
+                ArrayList<String> resultCreated = new ArrayList<String>();
+
+                if (charSequence.toString().isEmpty()) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, created);
+                    recyclerView.setAdapter(servicesAdapter);
+                }
+
 
                 for (int i = 0; i < names.length; i++) {
                     yes = names[i].contains(charSequence);
@@ -195,8 +200,8 @@ public class ServiceFragment extends Fragment {
                         resultDesc.add(desc[i]);
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
-                        resultPhone.add(phones[i]);
-                        resultFacebookLink.add(facebookLinks[i]);
+                        resultCreated.add(created[i]);
+
                     }
                 }
 
@@ -204,20 +209,17 @@ public class ServiceFragment extends Fragment {
                 String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
                 String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
                 String[] returnId = resultId.toArray(new String[resultId.size()]);
-                String[] returnPhone = resultPhone.toArray(new String[resultId.size()]);
-                String[] returnFacebookLink = resultFacebookLink.toArray(new String[resultId.size()]);
+                String[] returnCreated = resultCreated.toArray(new String[resultCreated.size()]);
 
-                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnFacebookLink, returnPhone);
+                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnCreated);
                 recyclerView.setAdapter(servicesAdapter);
-                if (charSequence.toString().isEmpty()) {
-                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, facebookLinks, phones);
-                    recyclerView.setAdapter(servicesAdapter);
-                }
+
             }
 
             @Override
             public void onSearchItemRemoved(int j) {
-                servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, facebookLinks, phones);
+                servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, created);
+
                 recyclerView.setAdapter(servicesAdapter);
             }
 
@@ -229,8 +231,13 @@ public class ServiceFragment extends Fragment {
                 ArrayList<String> resultDesc = new ArrayList<String>();
                 ArrayList<String> resultImg = new ArrayList<String>();
                 ArrayList<String> resultId = new ArrayList<String>();
-                ArrayList<String> resultPhone = new ArrayList<String>();
-                ArrayList<String> resultFacebookLink = new ArrayList<String>();
+                ArrayList<String> resultCreated = new ArrayList<String>();
+
+                if (charSequence.toString().isEmpty()) {
+                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, created);
+                    recyclerView.setAdapter(servicesAdapter);
+                }
+
 
                 for (int i = 0; i < names.length; i++) {
                     yes = names[i].contains(charSequence);
@@ -239,8 +246,8 @@ public class ServiceFragment extends Fragment {
                         resultDesc.add(desc[i]);
                         resultImg.add(img[i]);
                         resultId.add(id[i]);
-                        resultPhone.add(phones[i]);
-                        resultFacebookLink.add(facebookLinks[i]);
+                        resultCreated.add(created[i]);
+
                     }
                 }
 
@@ -248,15 +255,11 @@ public class ServiceFragment extends Fragment {
                 String[] returnDesc = resultDesc.toArray(new String[resultDesc.size()]);
                 String[] returnImg = resultImg.toArray(new String[resultImg.size()]);
                 String[] returnId = resultId.toArray(new String[resultId.size()]);
-                String[] returnPhone = resultPhone.toArray(new String[resultId.size()]);
-                String[] returnFacebookLink = resultFacebookLink.toArray(new String[resultId.size()]);
+                String[] returnCreated = resultCreated.toArray(new String[resultCreated.size()]);
 
-                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnFacebookLink, returnPhone);
+                servicesAdapter = new ServicesAdapter(getContext(), returnNames, returnDesc, returnImg, returnId, returnCreated);
                 recyclerView.setAdapter(servicesAdapter);
-                if (charSequence.toString().isEmpty()) {
-                    servicesAdapter = new ServicesAdapter(getContext(), names, desc, img, id, facebookLinks, phones);
-                    recyclerView.setAdapter(servicesAdapter);
-                }
+
             }
         });
 

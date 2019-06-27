@@ -25,8 +25,17 @@ import com.pd.chocobar.ChocoBar;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
-    private String[] names, desc, img, id, phones, facebookLinks;
+    private String[] names, desc, img, id, created;
     private Context context;
+
+    public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id, String[] created) {
+        this.names = names;
+        this.desc = desc;
+        this.img = img;
+        this.context = context;
+        this.id = id;
+        this.created = created;
+    }
 
     public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id) {
         this.names = names;
@@ -34,16 +43,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         this.img = img;
         this.context = context;
         this.id = id;
-    }
-
-    public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id, String[] facebookLinks, String[] phones) {
-        this.names = names;
-        this.desc = desc;
-        this.img = img;
-        this.context = context;
-        this.id = id;
-        this.phones = phones;
-        this.facebookLinks = facebookLinks;
     }
 
     @NonNull
@@ -100,6 +99,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 String currentDesc = desc[getAdapterPosition()];
                 String currentImg = img[getAdapterPosition()];
                 String currentId = id[getAdapterPosition()];
+                String currentCreated = created[getAdapterPosition()];
 
                 Intent intent;
                 if (context instanceof MyServicesActivity) {
@@ -107,14 +107,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                     intent.putExtra("service_id", currentId);
                 } else {
                     intent = new Intent(context, ServiceDetailActivity.class);
-                    String phone = phones[getAdapterPosition()];
-                    String facebookLink = facebookLinks[getAdapterPosition()];
-                    intent.putExtra("phone", phone);
-                    intent.putExtra("facebook_link", facebookLink);
                 }
 
                 intent.putExtra("service_title", currentName);
                 intent.putExtra("service_desc", currentDesc);
+                intent.putExtra("service_created",currentCreated);
 
                 if (currentImg != null) {
                     final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);
