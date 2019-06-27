@@ -37,6 +37,12 @@ public class ServiceResponse {
     @SerializedName("description")
     @Expose
     private String description;
+    @SerializedName("phoneNumber")
+    @Expose
+    private String phone;
+    @SerializedName("facebook")
+    @Expose
+    private String facebookLink;
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -79,6 +85,22 @@ public class ServiceResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getFacebookLink() {
+        return this.facebookLink;
+    }
+
+    public void setFacebookLink(String facebookLink) {
+        this.facebookLink = facebookLink;
     }
 
     public String getLocation() {

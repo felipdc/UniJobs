@@ -106,48 +106,48 @@ public class RegisterServiceActivity extends AppCompatActivity implements View.O
         Api client = retrofit.create(Api.class);
         Call<ServiceResponse> calltargetResponse = client.createService("Bearer " + user.getToken(), service);
         calltargetResponse.enqueue(new Callback<ServiceResponse>() {
-                                       @Override
-                                       public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
-                                           spinKitView.setVisibility(View.GONE);
-                                           ServiceResponse sResponse = response.body();
-                                           if (response.isSuccessful()) {
-                                               ChocoBar.builder().setBackgroundColor(Color.parseColor("#004E8D"))
-                                                       .setTextSize(18)
-                                                       .setTextColor(Color.parseColor("#AAFFFFFF"))
-                                                       .setTextTypefaceStyle(Typeface.ITALIC)
-                                                       .setText("Serviço cadastrado!")
-                                                       .setMaxLines(4)
-                                                       .centerText()
-                                                       .setActionText("UniJobs")
-                                                       .setActionTextColor(Color.parseColor("#AAFFFFFF"))
-                                                       .setActionTextSize(20)
-                                                       .setActionTextTypefaceStyle(Typeface.BOLD)
-                                                       .setIcon(R.mipmap.ic_launcher)
-                                                       .setActivity(RegisterServiceActivity.this)
-                                                       .setDuration(ChocoBar.LENGTH_LONG)
-                                                       .build()
-                                                       .show();
-                                           } else {
-                                               ChocoBar.builder().setView(v)
-                                                       .setText("Erro ao cadastrar serviço")
-                                                       .setDuration(ChocoBar.LENGTH_LONG)
-                                                       .setActionText(android.R.string.ok)
-                                                       .red()
-                                                       .show();
-                                           }
-                                       }
+            @Override
+            public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
+                spinKitView.setVisibility(View.GONE);
+                ServiceResponse sResponse = response.body();
+                if (response.isSuccessful()) {
+                    ChocoBar.builder().setBackgroundColor(Color.parseColor("#004E8D"))
+                            .setTextSize(18)
+                            .setTextColor(Color.parseColor("#AAFFFFFF"))
+                            .setTextTypefaceStyle(Typeface.ITALIC)
+                            .setText("Serviço cadastrado!")
+                            .setMaxLines(4)
+                            .centerText()
+                            .setActionText("UniJobs")
+                            .setActionTextColor(Color.parseColor("#AAFFFFFF"))
+                            .setActionTextSize(20)
+                            .setActionTextTypefaceStyle(Typeface.BOLD)
+                            .setIcon(R.mipmap.ic_launcher)
+                            .setActivity(RegisterServiceActivity.this)
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .build()
+                            .show();
+                } else {
+                    ChocoBar.builder().setView(v)
+                            .setText("Erro ao cadastrar serviço")
+                            .setDuration(ChocoBar.LENGTH_LONG)
+                            .setActionText(android.R.string.ok)
+                            .red()
+                            .show();
+                }
+            }
 
-                                       @Override
-                                       public void onFailure(Call<ServiceResponse> call, Throwable t) {
-                                           spinKitView.setVisibility(View.GONE);
-                                           ChocoBar.builder().setView(v)
-                                                   .setText("Erro na conexão com o servidor, tente novamente")
-                                                   .setDuration(ChocoBar.LENGTH_LONG)
-                                                   .setActionText(android.R.string.ok)
-                                                   .red()
-                                                   .show();
-                                           //System.out.println("merda");
-                                       }
+            @Override
+            public void onFailure(Call<ServiceResponse> call, Throwable t) {
+                spinKitView.setVisibility(View.GONE);
+                ChocoBar.builder().setView(v)
+                        .setText("Erro na conexão com o servidor, tente novamente")
+                        .setDuration(ChocoBar.LENGTH_LONG)
+                        .setActionText(android.R.string.ok)
+                        .red()
+                        .show();
+                //System.out.println("merda");
+            }
                                    }
         );
         spinKitView.setVisibility(View.GONE);

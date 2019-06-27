@@ -100,8 +100,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 String currentDesc = desc[getAdapterPosition()];
                 String currentImg = img[getAdapterPosition()];
                 String currentId = id[getAdapterPosition()];
-                String phone = phones[getAdapterPosition()];
-                String facebookLink = facebookLinks[getAdapterPosition()];
 
                 Intent intent;
                 if (context instanceof MyServicesActivity) {
@@ -109,6 +107,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                     intent.putExtra("service_id", currentId);
                 } else {
                     intent = new Intent(context, ServiceDetailActivity.class);
+                    String phone = phones[getAdapterPosition()];
+                    String facebookLink = facebookLinks[getAdapterPosition()];
                     intent.putExtra("phone", phone);
                     intent.putExtra("facebook_link", facebookLink);
                 }

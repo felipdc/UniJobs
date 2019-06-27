@@ -25,7 +25,7 @@ public class ServiceDetailActivity extends AppCompatActivity {
     private TextView detailServiceDescriptionTextView;
     private TextView detailServiceContactInfoTextView;
 
-    private String servicoTitle, servicoDesc, servicoImgString;
+    private String servicoTitle, servicoDesc, servicoImgString, facebookLink, phone;
     private Bitmap servicoImg;
 
     @Override
@@ -60,6 +60,9 @@ public class ServiceDetailActivity extends AppCompatActivity {
         }
         detailServiceTitleTextView.setText(servicoTitle);
         detailServiceDescriptionTextView.setText(servicoDesc);
+
+        String contact = facebookLink + '\n' + phone;
+        detailServiceContactInfoTextView.setText(contact);
     }
 
 }

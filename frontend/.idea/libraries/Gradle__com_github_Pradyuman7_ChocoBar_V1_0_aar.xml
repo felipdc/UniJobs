@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Pradyuman7:ChocoBar:V1.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/698d5a9d68f514ab50e07de3c8c9226d/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/698d5a9d68f514ab50e07de3c8c9226d/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/698d5a9d68f514ab50e07de3c8c9226d/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Pradyuman7/ChocoBar/V1.0/78de70daab8f45e6480621fdc8fca0c94243f8/ChocoBar-V1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

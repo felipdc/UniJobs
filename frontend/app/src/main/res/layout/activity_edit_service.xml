@@ -116,7 +116,7 @@
                 android:backgroundTint="#99ffffff"
                 android:fontFamily="@font/lato"
                 android:hint="@string/hint_descricao"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:textColor="@color/colorText"
                 android:textColorHint="#99ffffff"
                 app:autoSizeMaxTextSize="60sp"

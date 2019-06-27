@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.the-super-toys.glimpse-android:glimpse-core:0.0.4@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d80bcc1efe0e4e2f94a053884b984f41/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d80bcc1efe0e4e2f94a053884b984f41/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.the-super-toys.glimpse-android/glimpse-core/0.0.4/3373481eddebd9e8da62c5869abc92a940f0f0bc/glimpse-core-0.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
