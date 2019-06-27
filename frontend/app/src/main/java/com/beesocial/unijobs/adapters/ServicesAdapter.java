@@ -23,8 +23,17 @@ import com.bumptech.glide.Glide;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
-    private String[] names, desc, img, id;
+    private String[] names, desc, img, id, created;
     private Context context;
+
+    public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id, String[] created) {
+        this.names = names;
+        this.desc = desc;
+        this.img = img;
+        this.context = context;
+        this.id = id;
+        this.created = created;
+    }
 
     public ServicesAdapter(Context context, String[] names, String[] desc, String[] img, String[] id) {
         this.names = names;
@@ -88,6 +97,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 String currentDesc = desc[getAdapterPosition()];
                 String currentImg = img[getAdapterPosition()];
                 String currentId = id[getAdapterPosition()];
+                String currentCreated = created[getAdapterPosition()];
 
                 Intent intent;
                 if (context instanceof MyServicesActivity) {
@@ -99,6 +109,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
                 intent.putExtra("service_title", currentName);
                 intent.putExtra("service_desc", currentDesc);
+                intent.putExtra("service_created",currentCreated);
 
                 if (currentImg != null) {
                     final String pureBase64Encoded = currentImg.substring(currentImg.indexOf(",") + 1);

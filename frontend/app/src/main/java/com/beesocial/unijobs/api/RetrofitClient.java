@@ -16,9 +16,10 @@ public class RetrofitClient {
     private static RetrofitClient mInstance;
     private String AUTH = "";
     private Retrofit retrofit;
-
+    private static int j = 1;
 
     private RetrofitClient(int i) {
+        j=i;
         if (i == 1) {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(
@@ -74,7 +75,13 @@ public class RetrofitClient {
         if (mInstance == null) {
             mInstance = new RetrofitClient(i);
         }
-        return mInstance;
+        if(j==i){
+            return mInstance;
+        }
+        else{
+            mInstance = new RetrofitClient(i);
+            return mInstance;
+        }
     }
 
     public Api getApi() {
